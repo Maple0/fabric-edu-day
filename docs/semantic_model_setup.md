@@ -288,4 +288,4 @@ DIVIDE(
 - [ ] Hierarchies allow drill-down in visuals
 - [ ] Staff role shows all data
 - [ ] Student role filters to a single student
-- [ ] Copilot can access the model (test a simple prompt)
+- [ ] Data Agents can access the model (test a simple prompt)

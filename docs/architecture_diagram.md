@@ -22,7 +22,7 @@ graph LR
     end
 
     subgraph "AI Experiences"
-        F --> J[Fabric IQ<br>Copilot]
+        F --> J[Fabric IQ<br>Ontology]
         F --> K[Data Agent<br>Staff Persona]
         F --> L[Data Agent<br>Student Persona]
     end
@@ -68,10 +68,10 @@ graph LR
            ▼                  ▼                    ▼
 ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────────┐
 │  Fabric IQ      │ │  Data Agent     │ │  Data Agent          │
-│  Copilot        │ │  Staff Persona  │ │  Student Persona     │
+│  Ontology       │ │  Staff Persona  │ │  Student Persona     │
 │                 │ │                 │ │                       │
-│  4 demo scenes  │ │  10 NL queries  │ │  10 NL queries       │
-│  Ad-hoc Q&A     │ │  Full access    │ │  RLS-scoped          │
+│  4 NL queries   │ │  10 NL queries  │ │  10 NL queries       │
+│  Graph preview  │ │  Full access    │ │  RLS-scoped          │
 └─────────────────┘ └─────────────────┘ └─────────────────────┘
 ```
 
@@ -149,22 +149,14 @@ erDiagram
 ┌─────────────────────────────────────────────────────────────────┐
 │                      NOTEBOOK PIPELINE                          │
 │                                                                  │
-│  ┌──────────┐   ┌──────────┐   ┌──────────┐                    │
-│  │ NB 01    │──►│ NB 02    │──►│ NB 03    │                    │
-│  │ Generate  │   │ Delta    │   │ Semantic │                    │
-│  │ & Ingest │   │ Tables   │   │ Model    │                    │
-│  └──────────┘   └──────────┘   └─────┬────┘                    │
-│                                      │                          │
-│                          ┌───────────┼───────────┐              │
-│                          ▼           ▼           ▼              │
-│                    ┌──────────┐ ┌──────────┐ ┌──────────┐      │
-│                    │ NB 04    │ │ NB 05    │ │ NB 06    │      │
-│                    │ Copilot  │ │ Staff    │ │ Student  │      │
-│                    │ Demo     │ │ Agent    │ │ Agent    │      │
-│                    └──────────┘ └──────────┘ └──────────┘      │
+│  ┌──────────┐   ┌──────────┐                                  │
+│  │ NB 01    │──►│ NB 02    │                                  │
+│  │ Generate  │   │ Delta    │                                  │
+│  │ & Ingest │   │ Tables   │                                  │
+│  └──────────┘   └──────────┘                                  │
 │                                                                  │
-│  Sequential: 01 → 02 → 03 (must run in order)                  │
-│  Parallel:   04, 05, 06 (can demo independently)               │
+│  Sequential: 01 → 02 (must run in order)                        │
+│  Semantic model, ontology, agents: see fabric_setup_guide.md    │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -176,6 +168,6 @@ erDiagram
 | Storage | Fabric Lakehouse, Delta Lake | ACID-compliant data store |
 | Compute | PySpark (Fabric Runtime 1.3) | Data processing & transformation |
 | Semantic | Power BI Semantic Model | Business logic, measures, security |
-| AI — Copilot | Fabric IQ Copilot (Azure OpenAI) | Ad-hoc natural language insights |
+| AI — Ontology | Fabric IQ Ontology | Business vocabulary, entity types, NL queries |
 | AI — Agents | Fabric Data Agents | Role-based conversational analytics |
 | Security | Row-Level Security (RLS) | Student data isolation |

@@ -2,11 +2,11 @@
 
 ## Overview
 
-A six-notebook Microsoft Fabric demo for university customers showcasing the full data-to-insight pipeline: star-schema data model, Lakehouse Delta tables, Power BI semantic model, Fabric IQ Copilot insights, and Data Agent experiences for Staff and Student personas.
+A two-notebook Microsoft Fabric demo for university customers showcasing the full data-to-insight pipeline: star-schema data model, Lakehouse Delta tables, Power BI semantic model, Fabric IQ Ontology, and Data Agent experiences for Staff and Student personas.
 
 **Duration:** ~45 minutes (adjustable)
 **Audience:** University IT leaders, data teams, academic administrators
-**Fabric SKU:** F64 or higher (required for Copilot features)
+**Fabric SKU:** F64 or higher (required for AI features)
 
 ---
 
@@ -14,7 +14,7 @@ A six-notebook Microsoft Fabric demo for university customers showcasing the ful
 
 - [ ] Fabric workspace created with F64+ capacity
 - [ ] Lakehouse `university_lakehouse` created
-- [ ] All 6 notebooks uploaded to workspace
+- [ ] All 2 notebooks uploaded to workspace
 - [ ] Notebook 01 executed successfully (data generated)
 - [ ] Notebook 02 executed successfully (13 Delta tables created)
 - [ ] Semantic model `university-analytics-model` created and configured
@@ -24,8 +24,9 @@ A six-notebook Microsoft Fabric demo for university customers showcasing the ful
 - [ ] Power BI report created with key visuals
 - [ ] Staff Data Agent created and tested
 - [ ] Student Data Agent created and tested
-- [ ] Copilot enabled in tenant settings
-- [ ] Test run all 4 Copilot prompts
+- [ ] Ontology `university-ontology` created with entity types and relationships
+- [ ] Ontology graph refreshed and preview experience tested
+- [ ] Test run all 4 NL queries in ontology
 - [ ] Browser tabs pre-loaded: Lakehouse, Notebooks, Report, Data Agents
 
 ---
@@ -36,7 +37,7 @@ A six-notebook Microsoft Fabric demo for university customers showcasing the ful
 
 **Talking points:**
 - "Today I want to show you how Microsoft Fabric can transform your university's data into actionable insights — from raw student records all the way to natural language Q&A."
-- "We'll walk through the complete journey: data generation, star-schema modelling, a Power BI semantic model, and then two AI-powered experiences — Copilot and Data Agents."
+- "We'll walk through the complete journey: data generation, star-schema modelling, a Power BI semantic model, and then three AI-powered experiences — an IQ Ontology, and Data Agents for Staff and Student personas."
 - "Everything you see today runs on a single Fabric workspace. No separate infrastructure to manage."
 
 ---
@@ -67,7 +68,7 @@ A six-notebook Microsoft Fabric demo for university customers showcasing the ful
 
 ### Act 2: The Semantic Model (7 min)
 
-**Show:** Notebook 03 — Semantic Model Configuration (reference), then switch to Power BI Model view
+**Show:** Power BI Model view (see `docs/semantic_model_setup.md` for configuration steps)
 
 **Talking points:**
 - "The semantic model is the bridge between raw data and business insight. It defines relationships, reusable measures, and security rules."
@@ -82,29 +83,28 @@ A six-notebook Microsoft Fabric demo for university customers showcasing the ful
 
 ---
 
-### Act 3: Fabric IQ Copilot (10 min)
+### Act 3: Fabric IQ Ontology (10 min)
 
-**Show:** Power BI report with Copilot panel open
+**Show:** Ontology preview experience in Fabric portal
 
 **Talking points:**
-- "Copilot reads the semantic model metadata — table names, measure definitions, relationships — to understand your data."
-- "It generates DAX queries, not SQL. This means it respects all your business logic and security rules."
+- "Now let's look at a newer Fabric capability: the IQ Ontology. It lets you define business concepts — like Student, Course, Program — as entity types, with typed properties and explicit relationships."
+- "Unlike a semantic model which is optimised for Power BI reporting, an ontology creates a shared vocabulary that any tool — Data Agents, notebooks, applications — can use."
+- "The ontology binds directly to our Delta tables. No data copying."
 
-**Demo Scene 1:** Type: *"Summarise student enrolment trends over the last 4 academic years"*
-- Wait for response
-- "Notice how Copilot identified the right dimension, aggregated correctly, and even spotted the trend."
+**Demo Scene 1:** Open the Student entity type overview, then query: *"Show me a summary of student enrolments by program and semester for the last 2 academic years"*
+- "Notice the ontology traverses relationships — Student → Course → Program → AcademicPeriod — automatically."
 
-**Demo Scene 2:** Type: *"What are the courses with the highest and lowest pass rates this year?"*
-- "It's using our Pass Rate measure definition. The semantic model gives Copilot the business logic."
+**Demo Scene 2:** Query: *"Compare the average exam scores between domestic and international students across all departments"*
+- "It uses the `examined_in` relationship and the Student property `domestic_international` — business terms, not table columns."
 
-**Demo Scene 3:** Type: *"Show me a financial summary for Semester 1 2024"*
-- "Financial data filtered to a specific period — charges, payments, outstanding balance — all from measure definitions."
+**Demo Scene 3:** Query: *"What is the outstanding balance by program, and which programs have the highest overdue amounts?"*
+- "Financial data aggregated by following `pays_for` and `studies_program` relationships."
 
-**Demo Scene 4:** Type: *"Which students are showing signs of academic risk?"*
-- "This is where it gets powerful. Copilot is surfacing actionable insights — students below a 2.0 GPA threshold on the NUS 5.0 scale."
-- "In a real deployment, this could trigger early intervention workflows."
+**Demo Scene 4:** Query: *"Show me students who have failed more than 2 courses and their current enrolment status"*
+- "This is cross-domain reasoning — combining enrolment outcomes with student status in one query."
 
-**Transition:** "Copilot is great for ad-hoc exploration. But what about purpose-built experiences for specific user roles?"
+**Transition:** "The ontology gives us a governed business vocabulary. Now let's see purpose-built Data Agent experiences for specific user roles."
 
 ---
 
@@ -116,7 +116,7 @@ A six-notebook Microsoft Fabric demo for university customers showcasing the ful
 - "Data Agents are conversational AI assistants connected to your semantic model. Think of them as specialised chatbots for your data."
 - "This agent is configured for university staff — full access, no row filters."
 
-**Demo 3-4 questions from the 10 in Notebook 05:**
+**Demo 3-4 questions from the staff test questions in `docs/fabric_setup_guide.md`:**
 1. *"How many students are currently enrolled this semester vs same semester last year?"*
 2. *"Which undergraduate program has the highest and lowest average GPA this semester?"*
 3. *"Do scholarship recipients perform better academically than non-scholarship students?"*
@@ -131,7 +131,7 @@ A six-notebook Microsoft Fabric demo for university customers showcasing the ful
 
 ### Act 5: Data Agent — Student Persona (5 min)
 
-**Show:** Fabric Data Agent interface (Student persona) or Notebook 06
+**Show:** Fabric Data Agent interface (Student persona)
 
 **Talking points:**
 - "Now the same technology, but for individual students. RLS automatically scopes everything to one person."
@@ -154,9 +154,9 @@ A six-notebook Microsoft Fabric demo for university customers showcasing the ful
   1. Synthetic data generation with PySpark
   2. Delta table creation with schema enforcement
   3. A semantic model with relationships, measures, and RLS
-  4. AI-powered insights via Copilot
+  4. An IQ Ontology with entity types, relationships, and natural language queries
   5. Role-based Data Agents for staff and students
-- "The key insight: **a well-structured semantic model is the foundation for every AI experience.** Copilot and Data Agents are only as good as your model."
+- "The key insight: **a well-structured data foundation powers every AI experience.** The semantic model drives reporting, the ontology provides a shared business vocabulary, and Data Agents deliver role-based conversational analytics."
 - "This entire demo can be replicated in your environment. We'll share the notebooks and documentation."
 
 **Questions:** Open for Q&A
@@ -167,7 +167,7 @@ A six-notebook Microsoft Fabric demo for university customers showcasing the ful
 
 | Issue | Resolution |
 |-------|-----------|
-| Copilot not responding | Verify F64+ capacity, check tenant admin Copilot settings |
+| Ontology not available | Enable Ontology (preview) and Graph (preview) in tenant admin settings |
 | Data Agent returns wrong numbers | Re-run Notebook 02, verify Delta tables match semantic model |
 | RLS not filtering | Check dim_student[email] filter, verify relationship cross-filter direction |
 | Notebook fails to run | Ensure Lakehouse is attached, check Fabric Runtime version (1.3+) |

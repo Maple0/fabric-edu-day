@@ -1,21 +1,7 @@
 # Fabric IQ Education Demo
 
-A six-notebook Microsoft Fabric demo for university customers showcasing the full data-to-insight pipeline: star-schema data model, Lakehouse Delta tables, Power BI semantic model, Fabric IQ Copilot insights, and Data Agent experiences for Staff and Student personas.
+A two-notebook Microsoft Fabric demo for university customers showcasing the full data-to-insight pipeline: star-schema data model, Lakehouse Delta tables, Power BI semantic model, Fabric IQ Ontology, and Data Agent experiences for Staff and Student personas.
 
-## Quick Start
-
-```bash
-# 1. Install dependencies
-pip install -r requirements.txt
-
-# 2. Generate sample data (local)
-python scripts/generate_data.py --format both --output-dir data
-
-# 3. Validate data integrity
-python scripts/validate_data.py --data-dir data
-
-# 4. Upload notebooks to Microsoft Fabric and follow the demo guide
-```
 
 ## Project Structure
 
@@ -37,11 +23,7 @@ edu-fabric-iq/
 │
 ├── notebooks/
 │   ├── 01_data_generation_and_ingestion   # PySpark data gen → Lakehouse
-│   ├── 02_star_schema_delta_tables        # Delta tables + DQ checks
-│   ├── 03_semantic_model_configuration    # Relationships, DAX, RLS
-│   ├── 04_fabric_iq_copilot_demo          # 4 Copilot demo scenes
-│   ├── 05_data_agent_staff_persona        # 10 staff NL questions
-│   └── 06_data_agent_student_persona      # 10 student NL questions
+│   └── 02_star_schema_delta_tables        # Delta tables + DQ checks
 │
 └── docs/
     ├── demo_guide.md                      # Presenter script (~45 min)
@@ -77,16 +59,12 @@ A star schema with 7 dimension tables, 1 bridge table, and 3 fact tables:
 |---|----------|---------|
 | 01 | Data Generation & Ingestion | Generate 13 tables with PySpark, write to Lakehouse |
 | 02 | Star Schema Delta Tables | Explicit schemas, DQ assertions, managed Delta tables |
-| 03 | Semantic Model Configuration | Relationships, DAX measures, hierarchies, RLS |
-| 04 | Fabric IQ Copilot Demo | 4 scripted Copilot scenes with verification queries |
-| 05 | Data Agent — Staff | 10 NL questions with full data access |
-| 06 | Data Agent — Student | 10 NL questions scoped by RLS to one student |
 
-**Execution order:** 01 → 02 → 03 (sequential), then 04/05/06 (independent).
+**Execution order:** 01 → 02 (sequential). Semantic model, ontology, and Data Agent setup is documented in `docs/fabric_setup_guide.md`.
 
 ## Requirements
 
-- **Fabric capacity:** F64 or higher (required for Copilot)
+- **Fabric capacity:** F8 or higher (required for AI features)
 - **Runtime:** Fabric Runtime 1.3 (PySpark)
 - **Local:** Python 3.9+, packages in `requirements.txt`
 
