@@ -88,10 +88,6 @@ The Lakehouse path `/lakehouse/default/` will now resolve correctly in all code 
 
 Follow the detailed instructions in `docs/semantic_model_setup.md`:
 
-1. From the Lakehouse, click **New semantic model**
-2. Name: `University Analytics`
-3. Select all 13 tables
-4. Create relationships, DAX measures, hierarchies, and RLS roles
 
 ---
 
@@ -112,7 +108,7 @@ Follow the detailed instructions in `docs/semantic_model_setup.md`:
 
 1. In the workspace, click **New** → **Data Agent**
 2. Name: `University Staff Analytics Assistant`
-3. Connect to the `University Analytics` semantic model
+3. Connect to the `university-analytics-model` semantic model
 4. Add system prompt (from Notebook 05)
 5. Test with sample questions
 
@@ -120,7 +116,7 @@ Follow the detailed instructions in `docs/semantic_model_setup.md`:
 
 1. Create another Data Agent
 2. Name: `Student Self-Service Assistant`
-3. Connect to the `University Analytics` semantic model
+3. Connect to the `university-analytics-model` semantic model
 4. Ensure the Student RLS role is active for the connected user
 5. Add system prompt (from Notebook 06)
 6. Test with sample questions using a test student account
@@ -138,8 +134,8 @@ Run through this checklist before presenting:
 - [ ] Row counts match expected values
 
 ### Semantic Model
-- [ ] `University Analytics` model exists
-- [ ] 18 relationships defined (no warnings)
+- [ ] `university-analytics-model` model exists
+- [ ] 13 relationships defined (no warnings)
 - [ ] All DAX measures calculate correctly
 - [ ] 4 hierarchies created
 - [ ] RLS roles configured and tested

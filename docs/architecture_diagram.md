@@ -15,8 +15,8 @@ graph LR
     end
 
     subgraph "Semantic Layer"
-        E --> F[Power BI<br>Semantic Model<br>'University Analytics']
-        F --> G[18 Relationships]
+        E --> F[Power BI<br>Semantic Model<br>'university-analytics-model']
+        F --> G[13 Relationships]
         F --> H[30+ DAX Measures]
         F --> I[RLS Roles]
     end
@@ -58,8 +58,8 @@ graph LR
 ┌──────────────────────────────────────────────────────────────────────┐
 │                    SEMANTIC MODEL                                    │
 │                                                                      │
-│  University Analytics (Power BI on Fabric)                          │
-│  ├── 18 Relationships (M:1, star schema)                            │
+│  university-analytics-model (Power BI on Fabric)                    │
+│  ├── 13 Relationships (M:1, star schema)                            │
 │  ├── 30+ DAX Measures (4 folders)                                   │
 │  ├── 4 Hierarchies                                                   │
 │  └── RLS: Staff (full) / Student (email filter)                     │
@@ -82,24 +82,21 @@ erDiagram
     dim_student ||--o{ fact_enrollments : "student_key"
     dim_student ||--o{ fact_exam_results : "student_key"
     dim_student ||--o{ fact_financial_transactions : "student_key"
-    dim_student }o--|| dim_program : "program_key"
 
     dim_course ||--o{ fact_enrollments : "course_key"
     dim_course ||--o{ fact_exam_results : "course_key"
-    dim_course }o--|| dim_department : "department_key"
 
     dim_exam_type ||--o{ fact_exam_results : "exam_type_key"
     dim_fee_type ||--o{ fact_financial_transactions : "fee_type_key"
     dim_staff ||--o{ fact_exam_results : "staff_key"
-    dim_staff }o--|| dim_department : "department_key"
 
     dim_academic_period ||--o{ fact_enrollments : "academic_period_key"
     dim_academic_period ||--o{ fact_exam_results : "academic_period_key"
     dim_academic_period ||--o{ fact_financial_transactions : "academic_period_key"
 
     dim_program ||--o{ fact_enrollments : "program_key"
-    dim_program }o--|| dim_department : "department_key"
 
+    dim_date ||--o{ fact_enrollments : "enroll_date_key"
     dim_date ||--o{ fact_exam_results : "exam_date_key"
     dim_date ||--o{ fact_financial_transactions : "transaction_date_key"
 

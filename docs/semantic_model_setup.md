@@ -1,6 +1,6 @@
 # Semantic Model Setup Guide
 
-Step-by-step instructions for creating the **University Analytics** Power BI semantic model on the Fabric Lakehouse Delta tables.
+Step-by-step instructions for creating the **university-analytics-model** Power BI semantic model on the Fabric Lakehouse Delta tables.
 
 ---
 
@@ -16,7 +16,7 @@ Step-by-step instructions for creating the **University Analytics** Power BI sem
 
 1. Navigate to your **Lakehouse** in the Fabric workspace
 2. Click **New semantic model** (top ribbon)
-3. Name: `University Analytics`
+3. Name: `university-analytics-model`
 4. Select all 13 tables from the `university` database:
    - dim_date, dim_department, dim_program, dim_staff, dim_course
    - bridge_course_program
@@ -28,9 +28,7 @@ Step-by-step instructions for creating the **University Analytics** Power BI sem
 
 ## Step 2: Define Relationships
 
-Switch to **Model view** and create 18 relationships:
-
-### Fact → Dimension Relationships (13)
+Switch to **Model view** and create 13 relationships.
 
 All are **Many-to-One**, **Single** cross-filter direction.
 
@@ -50,15 +48,7 @@ All are **Many-to-One**, **Single** cross-filter direction.
 | 12 | fact_financial_transactions | fee_type_key | dim_fee_type | fee_type_key |
 | 13 | fact_financial_transactions | academic_period_key | dim_academic_period | academic_period_key |
 
-### Dimension → Dimension Relationships (5)
-
-| # | From Table | From Column | To Table | To Column | Cross-Filter |
-|---|-----------|-------------|----------|-----------|-------------|
-| 14 | dim_program | department_key | dim_department | department_key | Single |
-| 15 | dim_staff | department_key | dim_department | department_key | Single |
-| 16 | dim_course | department_key | dim_department | department_key | Single |
-| 17 | dim_course | coordinator_staff_key | dim_staff | staff_key | Single |
-| 18 | dim_student | program_key | dim_program | program_key | Single |
+> **Note:** Dimension-to-dimension relationships (e.g., dim_course → dim_department, dim_student → dim_program) are intentionally omitted. They create ambiguous filter paths in Power BI when multiple dimensions share the same lookup table. Department and program context is available through denormalised columns (e.g., `dim_program[faculty]`) and through fact table joins.
 
 ### How to Create a Relationship
 
@@ -247,8 +237,6 @@ DIVIDE(
 2. Name: `Academic Structure`
 3. Add levels: `faculty` → `department_name`
 
-> Note: Extend through `dim_program[program_name]` in reports by using drill-through.
-
 ### Course Hierarchy (on dim_course)
 1. Right-click `level` → **Create hierarchy**
 2. Name: `Course Hierarchy`
@@ -294,7 +282,7 @@ DIVIDE(
 ## Validation Checklist
 
 - [ ] All 13 tables visible in the semantic model
-- [ ] All 18 relationships created (check Model view)
+- [ ] All 13 relationships created (check Model view)
 - [ ] No ambiguity warnings on relationships
 - [ ] All DAX measures calculate correctly (test in a report visual)
 - [ ] Hierarchies allow drill-down in visuals

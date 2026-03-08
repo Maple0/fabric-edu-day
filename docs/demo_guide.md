@@ -17,8 +17,8 @@ A six-notebook Microsoft Fabric demo for university customers showcasing the ful
 - [ ] All 6 notebooks uploaded to workspace
 - [ ] Notebook 01 executed successfully (data generated)
 - [ ] Notebook 02 executed successfully (13 Delta tables created)
-- [ ] Semantic model `University Analytics` created and configured
-- [ ] All 18 relationships defined
+- [ ] Semantic model `university-analytics-model` created and configured
+- [ ] All 13 relationships defined
 - [ ] All DAX measures created
 - [ ] RLS roles configured (Staff + Student)
 - [ ] Power BI report created with key visuals
@@ -71,8 +71,8 @@ A six-notebook Microsoft Fabric demo for university customers showcasing the ful
 
 **Talking points:**
 - "The semantic model is the bridge between raw data and business insight. It defines relationships, reusable measures, and security rules."
-- Show the Model view with all 18 relationships
-- "18 relationships connect our star schema. Fact tables point to dimensions. Filters flow from dimensions to facts."
+- Show the Model view with all 13 relationships
+- "13 relationships connect our star schema. Fact tables point to dimensions. Filters flow from dimensions to facts."
 - Click into a DAX measure
 - "We have 30+ measures organised into folders: Enrolment Analytics, Academic Performance, Financial Analytics, and Per-Student Metrics."
 - Show the RLS configuration
@@ -171,7 +171,7 @@ A six-notebook Microsoft Fabric demo for university customers showcasing the ful
 | Data Agent returns wrong numbers | Re-run Notebook 02, verify Delta tables match semantic model |
 | RLS not filtering | Check dim_student[email] filter, verify relationship cross-filter direction |
 | Notebook fails to run | Ensure Lakehouse is attached, check Fabric Runtime version (1.3+) |
-| Measures show blank | Verify all 16 relationships are created in Model view |
+| Measures show blank | Verify all 13 relationships are created in Model view |
 | "No data" in visuals | Run Notebook 01 + 02 again, refresh semantic model |
 
 ---
