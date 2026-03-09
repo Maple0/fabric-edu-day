@@ -32,6 +32,9 @@ fact_financial_transactions.
 Currency is SGD. Grading follows the NUS 5.0 GPA scale (A+/A = 5.0, A- = 4.5,
 B+ = 4.0, B = 3.5, B- = 3.0, C+ = 2.5, C = 2.0, D+ = 1.5, D = 1.0, F = 0.0).
 Each module is worth 4 Modular Credits (MC). Pass grades are D and above (>= 40%).
+
+student enrollments status contains "Withdrawn","Graduated","Suspended","Active"
+
 ```
 
 5. Test with these sample questions:
