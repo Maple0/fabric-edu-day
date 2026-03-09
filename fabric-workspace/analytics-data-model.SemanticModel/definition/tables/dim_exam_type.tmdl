@@ -1,20 +1,20 @@
 table dim_exam_type
-	lineageTag: 9cfce937-8d71-4914-a74f-12ff62964972
+	lineageTag: dc6bafbd-01c0-4f54-beec-43be178f5df9
 	sourceLineageTag: [university].[dim_exam_type]
 
 	column exam_type_key
 		dataType: int64
 		formatString: 0
-		lineageTag: 116e06bf-3d66-4eb1-a559-480922859e51
+		lineageTag: a46e3252-2512-43b5-95e7-15336255b8bf
 		sourceLineageTag: exam_type_key
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: exam_type_key
 
 		annotation SummarizationSetBy = Automatic
 
 	column exam_type_id
 		dataType: string
-		lineageTag: e913f621-3550-42c8-98fe-680c9fb35357
+		lineageTag: 3073864e-18ad-4499-9764-9519e8eb5639
 		sourceLineageTag: exam_type_id
 		summarizeBy: none
 		sourceColumn: exam_type_id
@@ -23,7 +23,7 @@ table dim_exam_type
 
 	column exam_type_name
 		dataType: string
-		lineageTag: ba5d37e8-0d24-4403-bcc8-2be3137f1108
+		lineageTag: f703ab53-03f7-499d-b299-46b29218fd85
 		sourceLineageTag: exam_type_name
 		summarizeBy: none
 		sourceColumn: exam_type_name
@@ -32,7 +32,7 @@ table dim_exam_type
 
 	column category
 		dataType: string
-		lineageTag: 11062b0f-6c2c-4b40-9217-0b0699d45264
+		lineageTag: eecc7244-eed5-4a0f-9d9e-cdb80f4fa7a2
 		sourceLineageTag: category
 		summarizeBy: none
 		sourceColumn: category
@@ -41,9 +41,9 @@ table dim_exam_type
 
 	column weighting_typical_pct
 		dataType: double
-		lineageTag: c7199618-61be-422d-9543-8919edd75c96
+		lineageTag: 05fe4005-ac55-40f0-b952-21a20232a007
 		sourceLineageTag: weighting_typical_pct
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: weighting_typical_pct
 
 		annotation SummarizationSetBy = Automatic
@@ -52,9 +52,9 @@ table dim_exam_type
 
 	column duration_minutes
 		dataType: double
-		lineageTag: 1a2f8411-d60e-49fe-9a2a-f1ef313d8ce6
+		lineageTag: 4310826c-9917-453c-8645-d643a6c1fcee
 		sourceLineageTag: duration_minutes
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: duration_minutes
 
 		annotation SummarizationSetBy = Automatic
@@ -64,7 +64,7 @@ table dim_exam_type
 	column is_open_book
 		dataType: boolean
 		formatString: """TRUE"";""TRUE"";""FALSE"""
-		lineageTag: a2a0ffa9-a442-4946-8456-849e5c0edc2e
+		lineageTag: b69bd78b-dac1-4ba8-8a61-d25102850105
 		sourceLineageTag: is_open_book
 		summarizeBy: none
 		sourceColumn: is_open_book

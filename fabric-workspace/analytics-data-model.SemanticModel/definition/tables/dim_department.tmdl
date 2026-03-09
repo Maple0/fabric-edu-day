@@ -1,20 +1,20 @@
 table dim_department
-	lineageTag: 39a90fca-15e0-4155-bdac-3462c6682905
+	lineageTag: 5f12aad9-4713-4094-88c0-c0afa007c13a
 	sourceLineageTag: [university].[dim_department]
 
 	column department_key
 		dataType: int64
 		formatString: 0
-		lineageTag: e82be318-0cb3-4387-80b5-c28a2aa4917b
+		lineageTag: a472384f-a544-4d04-92bb-5e5f3887529d
 		sourceLineageTag: department_key
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: department_key
 
 		annotation SummarizationSetBy = Automatic
 
 	column department_id
 		dataType: string
-		lineageTag: 849dda21-0ef8-4bb7-bd1c-5c94e363060f
+		lineageTag: 613e4fc7-7486-4ea2-939c-190887bcadad
 		sourceLineageTag: department_id
 		summarizeBy: none
 		sourceColumn: department_id
@@ -23,7 +23,7 @@ table dim_department
 
 	column department_name
 		dataType: string
-		lineageTag: 16d50605-0e1d-4e34-a137-271842e7b242
+		lineageTag: 85002d36-ce96-4a41-a433-6ece535017ef
 		sourceLineageTag: department_name
 		summarizeBy: none
 		sourceColumn: department_name
@@ -32,7 +32,7 @@ table dim_department
 
 	column faculty
 		dataType: string
-		lineageTag: 6b871976-0e90-46e4-90bf-d9ea27a71ea3
+		lineageTag: 27c14c7f-6d5f-401a-b3c6-4c8e3df4a888
 		sourceLineageTag: faculty
 		summarizeBy: none
 		sourceColumn: faculty
@@ -41,7 +41,7 @@ table dim_department
 
 	column head_of_department
 		dataType: string
-		lineageTag: 10362418-7e39-4631-8ef4-d7685fac82dd
+		lineageTag: ad201150-9b47-4040-933b-4f070c0d12f7
 		sourceLineageTag: head_of_department
 		summarizeBy: none
 		sourceColumn: head_of_department
@@ -50,7 +50,7 @@ table dim_department
 
 	column phone
 		dataType: string
-		lineageTag: e516d34b-6350-4fb2-94cf-47e108637dd6
+		lineageTag: 67668d7b-cddb-49fb-aac1-fccc994848aa
 		sourceLineageTag: phone
 		summarizeBy: none
 		sourceColumn: phone
@@ -59,7 +59,7 @@ table dim_department
 
 	column email
 		dataType: string
-		lineageTag: fc16c6b2-479d-4b49-bcbf-709d4922bd5e
+		lineageTag: a50e5cc7-1891-4000-b55c-c07d4fae543e
 		sourceLineageTag: email
 		summarizeBy: none
 		sourceColumn: email
@@ -68,7 +68,7 @@ table dim_department
 
 	column location_building
 		dataType: string
-		lineageTag: 29688d26-11a9-4fc4-853a-bd1264c4e6d6
+		lineageTag: 613fac81-0859-462f-bbc9-6acc634aca35
 		sourceLineageTag: location_building
 		summarizeBy: none
 		sourceColumn: location_building
@@ -77,7 +77,7 @@ table dim_department
 
 	column budget_code
 		dataType: string
-		lineageTag: 21f544bf-e1b9-4afb-82d3-112029c754e5
+		lineageTag: c8c212de-4bee-4c36-a3ca-6b3d407ba293
 		sourceLineageTag: budget_code
 		summarizeBy: none
 		sourceColumn: budget_code
@@ -87,12 +87,25 @@ table dim_department
 	column is_active
 		dataType: boolean
 		formatString: """TRUE"";""TRUE"";""FALSE"""
-		lineageTag: cd36fe99-a4bc-4da0-9281-cec271d6e958
+		lineageTag: 2cfb42a1-70e6-4882-a4d4-ea319195bd25
 		sourceLineageTag: is_active
 		summarizeBy: none
 		sourceColumn: is_active
 
 		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Academic Structure'
+		lineageTag: 461b4fb2-15ac-483a-9213-bc657b685ca7
+
+		level faculty
+			lineageTag: 67898505-5a61-4ea3-85ab-b93a24451f0d
+			column: faculty
+
+		level department_name
+			lineageTag: 1b569746-3c03-4879-8d47-c6b9e626eac4
+			column: department_name
+
+		changedProperty = Name
 
 	partition dim_department = entity
 		mode: directLake

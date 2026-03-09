@@ -1,0 +1,76 @@
+relationship ad3c34fd-0132-c1cc-2492-319f1e0c8e3d
+	fromColumn: fact_enrollments.student_key
+	toColumn: dim_student.student_key
+
+relationship ed8cd1f2-5f39-6f56-9180-2022709fda30
+	fromColumn: fact_enrollments.course_key
+	toColumn: dim_course.course_key
+
+relationship c3dc91fb-1508-f3ba-b43c-1a5661a99d08
+	fromColumn: fact_enrollments.academic_period_key
+	toColumn: dim_academic_period.academic_period_key
+
+relationship c05a4533-42ae-e4af-ca23-44497151da16
+	fromColumn: fact_enrollments.program_key
+	toColumn: dim_program.program_key
+
+relationship 88313ca6-10b1-04f8-30e4-8aa8396e68a2
+	fromColumn: fact_enrollments.enroll_date_key
+	toColumn: dim_date.date_key
+
+relationship 66c9b3aa-1f74-ca0a-ae18-22b47ceac147
+	fromColumn: fact_exam_results.student_key
+	toColumn: dim_student.student_key
+
+relationship 83f47722-3904-4203-a8e9-061916109ab5
+	fromColumn: fact_exam_results.course_key
+	toColumn: dim_course.course_key
+
+relationship 3513a35d-5cf6-2243-06be-d55e2f42b9ba
+	fromColumn: fact_exam_results.exam_type_key
+	toColumn: dim_exam_type.exam_type_key
+
+relationship 6345f999-9d0d-e0a2-93cc-201aa5406104
+	fromColumn: fact_exam_results.academic_period_key
+	toColumn: dim_academic_period.academic_period_key
+
+relationship 0d7b6833-4f9c-037f-19db-3e4ab0ed9627
+	fromColumn: fact_exam_results.staff_key
+	toColumn: dim_staff.staff_key
+
+relationship 75cb5a65-d873-cadb-e44b-2da8a64d5d07
+	fromColumn: fact_financial_transactions.student_key
+	toColumn: dim_student.student_key
+
+relationship 1125fbef-ff25-e764-4871-21c673b74119
+	fromColumn: fact_financial_transactions.fee_type_key
+	toColumn: dim_fee_type.fee_type_key
+
+relationship d671bc3a-4d11-b6f9-28ee-a840a65bb471
+	fromColumn: fact_financial_transactions.academic_period_key
+	toColumn: dim_academic_period.academic_period_key
+
+relationship 051efbf5-17ae-9972-e20f-2670cf8a4ceb
+	fromColumn: fact_financial_transactions.course_key
+	toColumn: dim_course.course_key
+
+relationship 64c23e5d-7076-1f19-77f5-7190485dcdad
+	fromColumn: fact_financial_transactions.transaction_date_key
+	toColumn: dim_date.date_key
+
+relationship 103c7f06-dd60-0624-7c83-a9548fa90994
+	fromColumn: bridge_course_program.program_key
+	toColumn: dim_program.program_key
+
+relationship c8e2d3cc-6127-cf9c-675e-5dd04fed5414
+	fromColumn: fact_exam_results.exam_date_key
+	toColumn: dim_date.date_key
+
+relationship 06d38139-b07d-9e79-cbe1-e4c04644c7d4
+	fromColumn: bridge_course_program.course_key
+	toColumn: dim_course.course_key
+
+relationship 269861e8-a461-0d3e-7091-e253daa63b42
+	fromColumn: dim_course.department_key
+	toColumn: dim_department.department_key
+

@@ -1,20 +1,20 @@
 table dim_staff
-	lineageTag: bc619648-51dd-4f0b-a9f6-55811a52e481
+	lineageTag: 9ddad1e9-7d8e-4035-b356-1e4ce6f4d04b
 	sourceLineageTag: [university].[dim_staff]
 
 	column staff_key
 		dataType: int64
 		formatString: 0
-		lineageTag: fdf106b7-fbb2-47c5-9a19-7c73ee8f3982
+		lineageTag: e40f847c-b820-4ea3-89c5-14400220068f
 		sourceLineageTag: staff_key
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: staff_key
 
 		annotation SummarizationSetBy = Automatic
 
 	column staff_id
 		dataType: string
-		lineageTag: 3da679dd-78cc-4f38-8822-2bbeb14b2179
+		lineageTag: d4049587-22d3-4743-bb4a-fb22e9b1e832
 		sourceLineageTag: staff_id
 		summarizeBy: none
 		sourceColumn: staff_id
@@ -23,7 +23,7 @@ table dim_staff
 
 	column first_name
 		dataType: string
-		lineageTag: e5bebb10-5761-424b-8132-31fcdf20cd00
+		lineageTag: e1fc1a7e-6914-49e0-b20f-883b8b196dc0
 		sourceLineageTag: first_name
 		summarizeBy: none
 		sourceColumn: first_name
@@ -32,7 +32,7 @@ table dim_staff
 
 	column last_name
 		dataType: string
-		lineageTag: 858bf024-9e74-4ef4-985e-6675e2333952
+		lineageTag: d89c14d1-dca0-4536-a5ae-caaaccc5a8fe
 		sourceLineageTag: last_name
 		summarizeBy: none
 		sourceColumn: last_name
@@ -41,7 +41,7 @@ table dim_staff
 
 	column email
 		dataType: string
-		lineageTag: c3011618-ec5b-48df-a9d1-c721bdf3dd1b
+		lineageTag: dbe336cd-c506-4eed-ae69-f9320ec06653
 		sourceLineageTag: email
 		summarizeBy: none
 		sourceColumn: email
@@ -50,7 +50,7 @@ table dim_staff
 
 	column role_title
 		dataType: string
-		lineageTag: ec1b7ec7-1633-4c2d-8809-763655f22f83
+		lineageTag: 41599a03-9b37-4be7-b954-0492a5e7abe6
 		sourceLineageTag: role_title
 		summarizeBy: none
 		sourceColumn: role_title
@@ -59,7 +59,7 @@ table dim_staff
 
 	column role_category
 		dataType: string
-		lineageTag: 3c72b426-fe1a-47dd-8e4a-c758abd612c3
+		lineageTag: afd49f05-2f03-43c8-a3f8-8d104f1797bc
 		sourceLineageTag: role_category
 		summarizeBy: none
 		sourceColumn: role_category
@@ -69,16 +69,16 @@ table dim_staff
 	column department_key
 		dataType: int64
 		formatString: 0
-		lineageTag: e7020b81-aa45-4dc1-a580-eddeb5ae866e
+		lineageTag: c3d04391-5dd2-4dbf-b849-05d278cacaa7
 		sourceLineageTag: department_key
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: department_key
 
 		annotation SummarizationSetBy = Automatic
 
 	column employment_type
 		dataType: string
-		lineageTag: 6fee714d-1854-4981-b364-74fe2d822a83
+		lineageTag: 9e8d315a-55ed-46cf-9c56-54b5765ecae8
 		sourceLineageTag: employment_type
 		summarizeBy: none
 		sourceColumn: employment_type
@@ -88,7 +88,7 @@ table dim_staff
 	column date_joined
 		dataType: dateTime
 		formatString: General Date
-		lineageTag: c2f96429-1048-4c0a-b330-52018daa4a98
+		lineageTag: c3343613-bc7b-45fd-ac59-7cf968b0499a
 		sourceLineageTag: date_joined
 		summarizeBy: none
 		sourceColumn: date_joined
@@ -97,7 +97,7 @@ table dim_staff
 
 	column salary_band
 		dataType: string
-		lineageTag: 2ef2bff8-d34f-46f3-99ef-18b8f08b686f
+		lineageTag: 7d06914d-2b91-42f3-98e8-9b0c8feef412
 		sourceLineageTag: salary_band
 		summarizeBy: none
 		sourceColumn: salary_band
@@ -107,7 +107,7 @@ table dim_staff
 	column is_active
 		dataType: boolean
 		formatString: """TRUE"";""TRUE"";""FALSE"""
-		lineageTag: 5ed84242-682b-4948-8064-cc64f32e4280
+		lineageTag: 8ce0b9da-7497-4c80-9ee2-26f29e6b26f6
 		sourceLineageTag: is_active
 		summarizeBy: none
 		sourceColumn: is_active

@@ -1,13 +1,13 @@
 table dim_date
-	lineageTag: f1a7c6af-8f22-4f3e-a43a-718770145629
+	lineageTag: 219f7f23-81d3-41ac-853b-c959a2d77c82
 	sourceLineageTag: [university].[dim_date]
 
 	column date_key
 		dataType: int64
 		formatString: 0
-		lineageTag: 63c1a1f2-89ee-427b-95bb-c6f257086841
+		lineageTag: 0f2b3c6d-d17b-41fa-a0ef-2f0d476e6f16
 		sourceLineageTag: date_key
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: date_key
 
 		annotation SummarizationSetBy = Automatic
@@ -15,7 +15,7 @@ table dim_date
 	column full_date
 		dataType: dateTime
 		formatString: General Date
-		lineageTag: 7ced802c-0aca-45aa-b83d-b40c08e56152
+		lineageTag: eee9ab81-67f1-48be-91b5-288b94a026be
 		sourceLineageTag: full_date
 		summarizeBy: none
 		sourceColumn: full_date
@@ -24,7 +24,7 @@ table dim_date
 
 	column day_of_week
 		dataType: string
-		lineageTag: 1edd49d5-3cb6-442f-a834-48d1b923ffc0
+		lineageTag: 274c3c93-65cf-4945-9fdd-e515a02d670d
 		sourceLineageTag: day_of_week
 		summarizeBy: none
 		sourceColumn: day_of_week
@@ -34,7 +34,7 @@ table dim_date
 	column day_number_in_week
 		dataType: int64
 		formatString: 0
-		lineageTag: c2d42091-fd83-4f9c-a78b-5bf8f366c4db
+		lineageTag: 588e2ad6-c4a3-49b6-9586-dbc760a38a8d
 		sourceLineageTag: day_number_in_week
 		summarizeBy: sum
 		sourceColumn: day_number_in_week
@@ -44,7 +44,7 @@ table dim_date
 	column day_number_in_month
 		dataType: int64
 		formatString: 0
-		lineageTag: 11c0eee7-62fe-42fd-a5e1-26a1614a1dc0
+		lineageTag: 833a7998-6913-4b64-a72d-1370a99844cb
 		sourceLineageTag: day_number_in_month
 		summarizeBy: sum
 		sourceColumn: day_number_in_month
@@ -54,7 +54,7 @@ table dim_date
 	column day_number_in_year
 		dataType: int64
 		formatString: 0
-		lineageTag: 706a3588-2d14-41d6-959e-c688aa8b9cbd
+		lineageTag: c20e6ab9-35b0-4c55-bd9a-49c6692a61e8
 		sourceLineageTag: day_number_in_year
 		summarizeBy: sum
 		sourceColumn: day_number_in_year
@@ -64,7 +64,7 @@ table dim_date
 	column week_number_in_year
 		dataType: int64
 		formatString: 0
-		lineageTag: 3edfd320-10aa-43a4-827f-1f7ea68bf78c
+		lineageTag: af2bf119-a66e-4293-b9de-eabd98e77595
 		sourceLineageTag: week_number_in_year
 		summarizeBy: sum
 		sourceColumn: week_number_in_year
@@ -74,7 +74,7 @@ table dim_date
 	column month_number
 		dataType: int64
 		formatString: 0
-		lineageTag: 11ba0424-fb36-480f-8156-5dfcef6a29d2
+		lineageTag: 09ce91f3-1d4f-47ce-aad7-730a174eaf2b
 		sourceLineageTag: month_number
 		summarizeBy: sum
 		sourceColumn: month_number
@@ -83,7 +83,7 @@ table dim_date
 
 	column month_name
 		dataType: string
-		lineageTag: 06bf6569-fbed-415f-b10f-6d0f37566088
+		lineageTag: 3cb237c6-8261-4c9d-8a09-adaa85a03d94
 		sourceLineageTag: month_name
 		summarizeBy: none
 		sourceColumn: month_name
@@ -92,7 +92,7 @@ table dim_date
 
 	column month_short
 		dataType: string
-		lineageTag: bd38428a-b062-4e5e-8efe-db89d3ee5c7f
+		lineageTag: 99031d43-5512-4675-a037-b3a78d52a062
 		sourceLineageTag: month_short
 		summarizeBy: none
 		sourceColumn: month_short
@@ -102,7 +102,7 @@ table dim_date
 	column quarter_number
 		dataType: int64
 		formatString: 0
-		lineageTag: 15329168-471b-469e-8374-32018f23dce2
+		lineageTag: 1066f991-a732-40c9-af8d-6b29fec82d32
 		sourceLineageTag: quarter_number
 		summarizeBy: sum
 		sourceColumn: quarter_number
@@ -111,7 +111,7 @@ table dim_date
 
 	column quarter_label
 		dataType: string
-		lineageTag: e5d63170-b259-4dcf-87a4-173644300c44
+		lineageTag: 685d423e-a9eb-4bb0-9a3d-9b387fbd8908
 		sourceLineageTag: quarter_label
 		summarizeBy: none
 		sourceColumn: quarter_label
@@ -121,7 +121,7 @@ table dim_date
 	column year
 		dataType: int64
 		formatString: 0
-		lineageTag: 8a7dc242-a1c7-4ce3-93bf-f29d3f623d6c
+		lineageTag: 97d1bb17-a4a4-4a32-a2ed-b00e9c587afa
 		sourceLineageTag: year
 		summarizeBy: sum
 		sourceColumn: year
@@ -131,7 +131,7 @@ table dim_date
 	column academic_year
 		dataType: int64
 		formatString: 0
-		lineageTag: e635da4c-7254-43b8-b09f-547c3dbdfe46
+		lineageTag: 399fe388-653d-463e-be03-1bc08bac52a0
 		sourceLineageTag: academic_year
 		summarizeBy: sum
 		sourceColumn: academic_year
@@ -141,7 +141,7 @@ table dim_date
 	column is_weekday
 		dataType: boolean
 		formatString: """TRUE"";""TRUE"";""FALSE"""
-		lineageTag: 4ac2e923-6755-4897-80fe-cf7f1d5e2310
+		lineageTag: 94cd1d49-0e3d-4461-be1c-2ad3fa407c48
 		sourceLineageTag: is_weekday
 		summarizeBy: none
 		sourceColumn: is_weekday
@@ -151,7 +151,7 @@ table dim_date
 	column is_public_holiday
 		dataType: boolean
 		formatString: """TRUE"";""TRUE"";""FALSE"""
-		lineageTag: 5cdee531-7cf9-42cb-8132-90af3535155c
+		lineageTag: de910100-91cc-40a3-9ef7-dec6e0db5499
 		sourceLineageTag: is_public_holiday
 		summarizeBy: none
 		sourceColumn: is_public_holiday
@@ -161,7 +161,7 @@ table dim_date
 	column is_exam_period
 		dataType: boolean
 		formatString: """TRUE"";""TRUE"";""FALSE"""
-		lineageTag: d59fc1a5-2f12-46b4-b81b-e21f7484d1f1
+		lineageTag: 2c9f1d72-5bbb-4a86-9da3-623f76c009a0
 		sourceLineageTag: is_exam_period
 		summarizeBy: none
 		sourceColumn: is_exam_period

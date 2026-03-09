@@ -1,20 +1,20 @@
 table dim_fee_type
-	lineageTag: 95fbc93d-5b37-4dc3-9b8a-e79f3e5d5609
+	lineageTag: c709fa81-efba-421f-ada6-4d8c0afef72d
 	sourceLineageTag: [university].[dim_fee_type]
 
 	column fee_type_key
 		dataType: int64
 		formatString: 0
-		lineageTag: 7ac6f173-5789-4292-84f1-2db5e1c646ab
+		lineageTag: baf19282-306d-4e66-81b0-2bef56bc9c1e
 		sourceLineageTag: fee_type_key
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: fee_type_key
 
 		annotation SummarizationSetBy = Automatic
 
 	column fee_type_id
 		dataType: string
-		lineageTag: 3e371b3a-a8ea-431a-8f41-d85ed2cc0042
+		lineageTag: d3381331-f617-4003-b2e9-3dab9ef8206e
 		sourceLineageTag: fee_type_id
 		summarizeBy: none
 		sourceColumn: fee_type_id
@@ -23,7 +23,7 @@ table dim_fee_type
 
 	column fee_type_name
 		dataType: string
-		lineageTag: d4432227-21e7-4a30-93e9-784a92f2499c
+		lineageTag: 9cd3b6f3-de86-4c79-9e12-f5ada975aaff
 		sourceLineageTag: fee_type_name
 		summarizeBy: none
 		sourceColumn: fee_type_name
@@ -32,7 +32,7 @@ table dim_fee_type
 
 	column fee_category
 		dataType: string
-		lineageTag: 45242c2e-c6a7-4e66-9c1a-3d2423af1c05
+		lineageTag: e094df7e-5efa-47c0-971a-48a305c5bf9d
 		sourceLineageTag: fee_category
 		summarizeBy: none
 		sourceColumn: fee_category
@@ -42,7 +42,7 @@ table dim_fee_type
 	column is_mandatory
 		dataType: boolean
 		formatString: """TRUE"";""TRUE"";""FALSE"""
-		lineageTag: f13b4c62-483e-491e-996b-128e4f58a368
+		lineageTag: 6cf4d120-8d5b-4988-875f-93785f04ab8e
 		sourceLineageTag: is_mandatory
 		summarizeBy: none
 		sourceColumn: is_mandatory
@@ -52,12 +52,25 @@ table dim_fee_type
 	column gst_applicable
 		dataType: boolean
 		formatString: """TRUE"";""TRUE"";""FALSE"""
-		lineageTag: 8d8f7a62-00ba-4ce3-94de-7ab7bd800e50
+		lineageTag: 6fe796e4-1405-4886-961f-d0a751b5d3ba
 		sourceLineageTag: gst_applicable
 		summarizeBy: none
 		sourceColumn: gst_applicable
 
 		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Fee Hierarchy'
+		lineageTag: 301704da-d33e-4d1b-aea6-d65eb6a52f7e
+
+		level fee_category
+			lineageTag: 6d5059e2-c029-452a-a780-3bf49ec9ff2e
+			column: fee_category
+
+		level fee_type_name
+			lineageTag: e2f926c4-8477-4903-b9f0-388c2d0ce18e
+			column: fee_type_name
+
+		changedProperty = Name
 
 	partition dim_fee_type = entity
 		mode: directLake

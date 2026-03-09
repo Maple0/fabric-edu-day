@@ -1,20 +1,20 @@
 table dim_academic_period
-	lineageTag: 42cbc4bb-14fe-420a-ab74-37421d21cca2
+	lineageTag: 1e8af4a1-f58a-41ab-9e39-26928ecbb509
 	sourceLineageTag: [university].[dim_academic_period]
 
 	column academic_period_key
 		dataType: int64
 		formatString: 0
-		lineageTag: f554bac0-6029-43a3-baaf-132e051c2d07
+		lineageTag: 482f8a23-9568-492b-a810-2b1c5b0bb00c
 		sourceLineageTag: academic_period_key
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: academic_period_key
 
 		annotation SummarizationSetBy = Automatic
 
 	column period_id
 		dataType: string
-		lineageTag: 64794153-7733-4182-a14f-3e15f53bb117
+		lineageTag: ff60818d-e706-4f83-821a-c53f2adfd447
 		sourceLineageTag: period_id
 		summarizeBy: none
 		sourceColumn: period_id
@@ -24,7 +24,7 @@ table dim_academic_period
 	column academic_year
 		dataType: int64
 		formatString: 0
-		lineageTag: 75fadbe7-5b04-4fbb-8d15-953ab3742e3d
+		lineageTag: cfef929b-f3fe-4441-8897-22972fed92f7
 		sourceLineageTag: academic_year
 		summarizeBy: sum
 		sourceColumn: academic_year
@@ -33,7 +33,7 @@ table dim_academic_period
 
 	column semester
 		dataType: string
-		lineageTag: 8ae6fe67-3bc4-4da7-96dc-dc61c249281b
+		lineageTag: 6317b27a-6437-44b2-8ed9-09208398549a
 		sourceLineageTag: semester
 		summarizeBy: none
 		sourceColumn: semester
@@ -42,7 +42,7 @@ table dim_academic_period
 
 	column period_label
 		dataType: string
-		lineageTag: 99f4da42-034e-4b7e-8da7-ee7c72b0a300
+		lineageTag: fc526732-c1fd-4e15-b0dd-15c36db952b8
 		sourceLineageTag: period_label
 		summarizeBy: none
 		sourceColumn: period_label
@@ -52,7 +52,7 @@ table dim_academic_period
 	column start_date
 		dataType: dateTime
 		formatString: General Date
-		lineageTag: 9e32907f-cd66-4e4b-a830-62596d3079cd
+		lineageTag: d21bbde7-a9cf-4d59-8c0b-b491f09de659
 		sourceLineageTag: start_date
 		summarizeBy: none
 		sourceColumn: start_date
@@ -62,7 +62,7 @@ table dim_academic_period
 	column end_date
 		dataType: dateTime
 		formatString: General Date
-		lineageTag: 785f0ce0-ba0e-48d1-b6c8-e91d0f62f356
+		lineageTag: f67d7204-ad55-4eb8-a749-4ad2caf259fe
 		sourceLineageTag: end_date
 		summarizeBy: none
 		sourceColumn: end_date
@@ -72,7 +72,7 @@ table dim_academic_period
 	column census_date
 		dataType: dateTime
 		formatString: General Date
-		lineageTag: e4bba252-8b04-47e4-bc16-633516555521
+		lineageTag: 6d507a90-8d3f-43e8-a762-3b25f66cb4f8
 		sourceLineageTag: census_date
 		summarizeBy: none
 		sourceColumn: census_date
@@ -82,7 +82,7 @@ table dim_academic_period
 	column exam_period_start
 		dataType: dateTime
 		formatString: General Date
-		lineageTag: f98fa8e9-1ce4-4cb8-b85f-af0095bdd3a7
+		lineageTag: 462fcb9f-1f36-4efb-ba89-114148dfcf30
 		sourceLineageTag: exam_period_start
 		summarizeBy: none
 		sourceColumn: exam_period_start
@@ -92,7 +92,7 @@ table dim_academic_period
 	column exam_period_end
 		dataType: dateTime
 		formatString: General Date
-		lineageTag: 0b91a2a3-b5b2-470b-b37d-20e0a6ba00e0
+		lineageTag: d6da310c-170e-4047-b939-f632eaea9500
 		sourceLineageTag: exam_period_end
 		summarizeBy: none
 		sourceColumn: exam_period_end
@@ -102,12 +102,25 @@ table dim_academic_period
 	column is_current
 		dataType: boolean
 		formatString: """TRUE"";""TRUE"";""FALSE"""
-		lineageTag: 462ad5b0-067c-4b82-bc5b-1c1efba19eb9
+		lineageTag: ad28657f-f679-495e-8f81-fe3a3d651e9f
 		sourceLineageTag: is_current
 		summarizeBy: none
 		sourceColumn: is_current
 
 		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Academic Calendar'
+		lineageTag: 2ffb1050-a9f5-40fc-b981-90648118e1d4
+
+		level academic_year
+			lineageTag: 0483834f-1bfa-4bca-8126-1298a211e88a
+			column: academic_year
+
+		level semester
+			lineageTag: 13c00e65-61e9-4d51-83b8-ba5a32f3e800
+			column: semester
+
+		changedProperty = Name
 
 	partition dim_academic_period = entity
 		mode: directLake

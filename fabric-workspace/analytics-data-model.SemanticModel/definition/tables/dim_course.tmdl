@@ -1,20 +1,20 @@
 table dim_course
-	lineageTag: b64482a6-9608-430c-80a2-bc736ecf901c
+	lineageTag: 5a6b85a4-69c9-488c-9925-5b1a4425a049
 	sourceLineageTag: [university].[dim_course]
 
 	column course_key
 		dataType: int64
 		formatString: 0
-		lineageTag: 431e0bc7-dd84-4a18-8f57-087b236715f3
+		lineageTag: d0fdd50b-f9c3-41d7-a4c1-8bfc857e538a
 		sourceLineageTag: course_key
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: course_key
 
 		annotation SummarizationSetBy = Automatic
 
 	column course_id
 		dataType: string
-		lineageTag: 14162f50-4048-4faa-aef2-96a8be421217
+		lineageTag: c95d3641-122b-43cc-8d64-997947c375ef
 		sourceLineageTag: course_id
 		summarizeBy: none
 		sourceColumn: course_id
@@ -23,7 +23,7 @@ table dim_course
 
 	column course_name
 		dataType: string
-		lineageTag: ccb89606-0292-4df9-be7f-12bdad5ca264
+		lineageTag: 552f6ca3-dd70-4281-99e1-aaf208a38709
 		sourceLineageTag: course_name
 		summarizeBy: none
 		sourceColumn: course_name
@@ -33,7 +33,7 @@ table dim_course
 	column credit_points
 		dataType: int64
 		formatString: 0
-		lineageTag: b9e80001-aa2f-49af-8a95-f7b963c12749
+		lineageTag: db3ecfdb-2e0b-4501-8231-e93be97c2e35
 		sourceLineageTag: credit_points
 		summarizeBy: sum
 		sourceColumn: credit_points
@@ -42,7 +42,7 @@ table dim_course
 
 	column level
 		dataType: string
-		lineageTag: 15943500-f24a-4a5a-95d8-e796e51deebe
+		lineageTag: b9a351e3-7836-485a-b03a-b98d1445bea6
 		sourceLineageTag: level
 		summarizeBy: none
 		sourceColumn: level
@@ -52,9 +52,9 @@ table dim_course
 	column department_key
 		dataType: int64
 		formatString: 0
-		lineageTag: f21d222e-ce23-42e0-8c50-847bc8a45079
+		lineageTag: 692fb0a1-a3f3-4017-a7cf-0cf033d988e4
 		sourceLineageTag: department_key
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: department_key
 
 		annotation SummarizationSetBy = Automatic
@@ -62,7 +62,7 @@ table dim_course
 	column coordinator_staff_key
 		dataType: int64
 		formatString: 0
-		lineageTag: 649a96ad-ea00-493c-95b9-4bb8e427edb0
+		lineageTag: 40984e77-cc3f-40b4-b97f-fd3e12a30daf
 		sourceLineageTag: coordinator_staff_key
 		summarizeBy: sum
 		sourceColumn: coordinator_staff_key
@@ -72,7 +72,7 @@ table dim_course
 	column prerequisite_course_id
 		dataType: int64
 		formatString: 0
-		lineageTag: 2dce95c2-1217-4aed-858d-0864200e249e
+		lineageTag: 28f9a6a7-4604-456c-9fe6-7649b6d7e438
 		sourceLineageTag: prerequisite_course_id
 		summarizeBy: sum
 		sourceColumn: prerequisite_course_id
@@ -81,7 +81,7 @@ table dim_course
 
 	column delivery_mode
 		dataType: string
-		lineageTag: 9245cb97-b325-48af-9839-69c4a785eb39
+		lineageTag: e40093dd-5f4e-4a50-8c9a-840eb4015836
 		sourceLineageTag: delivery_mode
 		summarizeBy: none
 		sourceColumn: delivery_mode
@@ -91,7 +91,7 @@ table dim_course
 	column is_core
 		dataType: boolean
 		formatString: """TRUE"";""TRUE"";""FALSE"""
-		lineageTag: d7423127-0973-4457-b349-027f8c80b93c
+		lineageTag: 82efecdc-25bf-4ff1-8fdb-e19713525286
 		sourceLineageTag: is_core
 		summarizeBy: none
 		sourceColumn: is_core
@@ -101,7 +101,7 @@ table dim_course
 	column is_active
 		dataType: boolean
 		formatString: """TRUE"";""TRUE"";""FALSE"""
-		lineageTag: 0187a2f4-1740-45c0-beed-cf972c6304ef
+		lineageTag: 88d3d53f-7fd2-42b3-8caa-2498780728f5
 		sourceLineageTag: is_active
 		summarizeBy: none
 		sourceColumn: is_active
@@ -110,12 +110,25 @@ table dim_course
 
 	column description
 		dataType: string
-		lineageTag: 46c04d82-f219-4ecf-adf8-891c7ea08e28
+		lineageTag: c287c98f-1e3b-47d0-80f9-79239e774014
 		sourceLineageTag: description
 		summarizeBy: none
 		sourceColumn: description
 
 		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Course Hierarchy'
+		lineageTag: 35607783-653b-4b27-97f4-58a4928272e2
+
+		level level
+			lineageTag: 125a2dfd-f6a3-46b0-ac84-03d782b1e123
+			column: level
+
+		level course_name
+			lineageTag: 96122e7b-5792-4b4b-bdbb-4a29b6ae445f
+			column: course_name
+
+		changedProperty = Name
 
 	partition dim_course = entity
 		mode: directLake
