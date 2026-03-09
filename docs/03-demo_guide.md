@@ -68,7 +68,7 @@ A two-notebook Microsoft Fabric demo for university customers showcasing the ful
 
 ### Act 2: The Semantic Model (7 min)
 
-**Show:** Power BI Model view (see Step 6 in `docs/06-fabric_setup_guide.md` for configuration steps)
+**Show:** Power BI Model view (see Step 6 in `docs/04-fabric_setup_guide.md` for configuration steps)
 
 **Talking points:**
 - "The semantic model is the bridge between raw data and business insight. It defines relationships, reusable measures, and security rules."
@@ -116,7 +116,7 @@ A two-notebook Microsoft Fabric demo for university customers showcasing the ful
 - "Data Agents are conversational AI assistants connected to your semantic model. Think of them as specialised chatbots for your data."
 - "This agent is configured for university staff — full access, no row filters."
 
-**Demo 3-4 questions from the staff test questions in [`docs/05-data_agent_lab.md`](05-data_agent_lab.md):**
+**Demo 3-4 questions from the staff test questions in [`docs/06-data_agent_lab.md`](06-data_agent_lab.md):**
 1. *"How many students are currently enrolled this semester vs same semester last year?"*
 2. *"Which undergraduate program has the highest and lowest average GPA this semester?"*
 3. *"Do scholarship recipients perform better academically than non-scholarship students?"*

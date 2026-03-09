@@ -158,7 +158,7 @@ erDiagram
 │  └──────────┘   └──────────┘                                  │
 │                                                                  │
 │  Sequential: 01 → 02 (must run in order)                        │
-│  Semantic model, ontology, agents: see 06-fabric_setup_guide.md   │
+│  Semantic model, ontology, agents: see 04-fabric_setup_guide.md   │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
