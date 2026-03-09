@@ -1,7 +1,5 @@
 # Generated data files
-data/raw/
-data/parquet/
-
+data/*
 # Python
 __pycache__/
 *.py[cod]

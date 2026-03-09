@@ -1,4 +1,4 @@
-# Fabric IQ Education Demo
+# Fabric Education Demo
 
 A two-notebook Microsoft Fabric demo for university customers showcasing the full data-to-insight pipeline: star-schema data model, Lakehouse Delta tables, Power BI semantic model, Fabric IQ Ontology, and Data Agent experiences for Staff and Student personas.
 
