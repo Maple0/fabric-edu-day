@@ -1,6 +1,6 @@
 expression 'DirectLake - university_lakehouse' =
 		let
-		    Source = AzureStorage.DataLake("https://onelake.dfs.fabric.microsoft.com/7c9771e8-a91d-4115-b9ba-b39c0a3c79b1/dbcbadb4-fbbe-4751-9bab-ef25ff473bfb", [HierarchicalNavigation=true])
+		    Source = AzureStorage.DataLake("https://onelake.dfs.fabric.microsoft.com/39778116-f694-4254-9245-676601fe8f6d/1668b27e-be25-4f6f-8139-a3ffc5efef0d", [HierarchicalNavigation=true])
 		in
 		    Source
 	lineageTag: c1e11bd3-d25c-4b4b-8401-73a7bc84f5bc
