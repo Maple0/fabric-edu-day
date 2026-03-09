@@ -33,7 +33,11 @@ Currency is SGD. Grading follows the NUS 5.0 GPA scale (A+/A = 5.0, A- = 4.5,
 B+ = 4.0, B = 3.5, B- = 3.0, C+ = 2.5, C = 2.0, D+ = 1.5, D = 1.0, F = 0.0).
 Each module is worth 4 Modular Credits (MC). Pass grades are D and above (>= 40%).
 
-student enrollments status contains "Withdrawn","Graduated","Suspended","Active"
+IMPORTANT DATA FILTERING GUIDELINES:
+- Student enrollment status: Use "Active" in dim_student.enrolment_status to identify currently enrolled students (NOT "Enrolled"). Valid status values are: "Active", "Graduated", "Withdrawn", "Suspended"
+- Semester references: When filtering by semester in dim_academic_period.semester, always use full names like "Semester 1" or "Semester 2" , do NOT use value '1' or '2' to filter the semester
+- Financial transactions: For revenue analysis, include ALL transaction types (Charge, Payment, Credit) from fact_financial_transactions.transaction_type unless specifically asked to filter by payment type
+- Scholarship queries: Use dim_fee_type.fee_type_id = 'FEE-SCH' when filtering for scholarship-related transactions
 
 ```
 
