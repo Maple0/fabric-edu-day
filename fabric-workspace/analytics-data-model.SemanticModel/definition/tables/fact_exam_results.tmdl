@@ -1,0 +1,205 @@
+table fact_exam_results
+	lineageTag: 3f16c6da-c465-4193-ab32-3021c8f9ee2a
+	sourceLineageTag: [university].[fact_exam_results]
+
+	column exam_result_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 9eaf77f6-d753-40c2-b307-08c132245871
+		sourceLineageTag: exam_result_key
+		summarizeBy: sum
+		sourceColumn: exam_result_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column student_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 2b3e3d0c-49eb-4563-9edf-5807b26b3146
+		sourceLineageTag: student_key
+		summarizeBy: sum
+		sourceColumn: student_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column course_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 72860616-d265-4bdb-93ba-4caa7203780c
+		sourceLineageTag: course_key
+		summarizeBy: sum
+		sourceColumn: course_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column exam_type_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 2d9c9d84-e1a0-49c5-951d-476eed89a5d2
+		sourceLineageTag: exam_type_key
+		summarizeBy: sum
+		sourceColumn: exam_type_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column academic_period_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 36348f21-6e38-4799-b8aa-f3cd3229e9a2
+		sourceLineageTag: academic_period_key
+		summarizeBy: sum
+		sourceColumn: academic_period_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column staff_key
+		dataType: int64
+		formatString: 0
+		lineageTag: dfd3f2eb-225d-48e4-bc9c-45a88fbd77dc
+		sourceLineageTag: staff_key
+		summarizeBy: sum
+		sourceColumn: staff_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column exam_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 52dea88a-73c0-451b-82a6-3f983f9404e3
+		sourceLineageTag: exam_date_key
+		summarizeBy: sum
+		sourceColumn: exam_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column submission_date_key
+		dataType: double
+		lineageTag: 1e6148ab-bdc1-4290-9222-61969f502bf5
+		sourceLineageTag: submission_date_key
+		summarizeBy: sum
+		sourceColumn: submission_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column raw_score
+		dataType: double
+		lineageTag: 3feb0d2d-ff34-4b0d-98ad-ce1833ccd595
+		sourceLineageTag: raw_score
+		summarizeBy: sum
+		sourceColumn: raw_score
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column max_score
+		dataType: double
+		lineageTag: 20e05649-003d-44bd-a0b6-625e52c1ee07
+		sourceLineageTag: max_score
+		summarizeBy: sum
+		sourceColumn: max_score
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column score_percentage
+		dataType: double
+		lineageTag: 9a26da6a-45eb-485d-91a4-b179d033bc13
+		sourceLineageTag: score_percentage
+		summarizeBy: sum
+		sourceColumn: score_percentage
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column grade_letter
+		dataType: string
+		lineageTag: 64b73340-76e2-4348-9d12-07e37dd068bc
+		sourceLineageTag: grade_letter
+		summarizeBy: none
+		sourceColumn: grade_letter
+
+		annotation SummarizationSetBy = Automatic
+
+	column grade_points
+		dataType: double
+		lineageTag: 3ea7c8f0-c33a-40c0-9baa-d7cb2dbaa165
+		sourceLineageTag: grade_points
+		summarizeBy: sum
+		sourceColumn: grade_points
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column weighting_pct
+		dataType: double
+		lineageTag: df1484d7-9c64-4d4e-9c28-846d10dbe7e5
+		sourceLineageTag: weighting_pct
+		summarizeBy: sum
+		sourceColumn: weighting_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column weighted_score
+		dataType: double
+		lineageTag: 4ac378e1-81c8-4498-8767-52a072058f74
+		sourceLineageTag: weighted_score
+		summarizeBy: sum
+		sourceColumn: weighted_score
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column attempt_number
+		dataType: int64
+		formatString: 0
+		lineageTag: e1d12b15-35b0-461f-aedd-bbc1fa403c16
+		sourceLineageTag: attempt_number
+		summarizeBy: sum
+		sourceColumn: attempt_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_supplementary
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 7e371ba5-a52f-45b7-9a8e-8abfa09740e4
+		sourceLineageTag: is_supplementary
+		summarizeBy: none
+		sourceColumn: is_supplementary
+
+		annotation SummarizationSetBy = Automatic
+
+	column submission_status
+		dataType: string
+		lineageTag: 168ddd6d-a07f-4a6d-99a3-3e348154eb3c
+		sourceLineageTag: submission_status
+		summarizeBy: none
+		sourceColumn: submission_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column grading_status
+		dataType: string
+		lineageTag: cab2aa0c-5c49-410f-9933-01ff5c547040
+		sourceLineageTag: grading_status
+		summarizeBy: none
+		sourceColumn: grading_status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_exam_results = entity
+		mode: directLake
+		source
+			entityName: fact_exam_results
+			schemaName: university
+			expressionSource: 'DirectLake - university_lakehouse'
+

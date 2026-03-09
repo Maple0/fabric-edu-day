@@ -1,0 +1,103 @@
+table dim_department
+	lineageTag: 39a90fca-15e0-4155-bdac-3462c6682905
+	sourceLineageTag: [university].[dim_department]
+
+	column department_key
+		dataType: int64
+		formatString: 0
+		lineageTag: e82be318-0cb3-4387-80b5-c28a2aa4917b
+		sourceLineageTag: department_key
+		summarizeBy: sum
+		sourceColumn: department_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_id
+		dataType: string
+		lineageTag: 849dda21-0ef8-4bb7-bd1c-5c94e363060f
+		sourceLineageTag: department_id
+		summarizeBy: none
+		sourceColumn: department_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_name
+		dataType: string
+		lineageTag: 16d50605-0e1d-4e34-a137-271842e7b242
+		sourceLineageTag: department_name
+		summarizeBy: none
+		sourceColumn: department_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column faculty
+		dataType: string
+		lineageTag: 6b871976-0e90-46e4-90bf-d9ea27a71ea3
+		sourceLineageTag: faculty
+		summarizeBy: none
+		sourceColumn: faculty
+
+		annotation SummarizationSetBy = Automatic
+
+	column head_of_department
+		dataType: string
+		lineageTag: 10362418-7e39-4631-8ef4-d7685fac82dd
+		sourceLineageTag: head_of_department
+		summarizeBy: none
+		sourceColumn: head_of_department
+
+		annotation SummarizationSetBy = Automatic
+
+	column phone
+		dataType: string
+		lineageTag: e516d34b-6350-4fb2-94cf-47e108637dd6
+		sourceLineageTag: phone
+		summarizeBy: none
+		sourceColumn: phone
+
+		annotation SummarizationSetBy = Automatic
+
+	column email
+		dataType: string
+		lineageTag: fc16c6b2-479d-4b49-bcbf-709d4922bd5e
+		sourceLineageTag: email
+		summarizeBy: none
+		sourceColumn: email
+
+		annotation SummarizationSetBy = Automatic
+
+	column location_building
+		dataType: string
+		lineageTag: 29688d26-11a9-4fc4-853a-bd1264c4e6d6
+		sourceLineageTag: location_building
+		summarizeBy: none
+		sourceColumn: location_building
+
+		annotation SummarizationSetBy = Automatic
+
+	column budget_code
+		dataType: string
+		lineageTag: 21f544bf-e1b9-4afb-82d3-112029c754e5
+		sourceLineageTag: budget_code
+		summarizeBy: none
+		sourceColumn: budget_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_active
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: cd36fe99-a4bc-4da0-9281-cec271d6e958
+		sourceLineageTag: is_active
+		summarizeBy: none
+		sourceColumn: is_active
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_department = entity
+		mode: directLake
+		source
+			entityName: dim_department
+			schemaName: university
+			expressionSource: 'DirectLake - university_lakehouse'
+

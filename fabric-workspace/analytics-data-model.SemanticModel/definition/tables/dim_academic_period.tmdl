@@ -1,0 +1,118 @@
+table dim_academic_period
+	lineageTag: 42cbc4bb-14fe-420a-ab74-37421d21cca2
+	sourceLineageTag: [university].[dim_academic_period]
+
+	column academic_period_key
+		dataType: int64
+		formatString: 0
+		lineageTag: f554bac0-6029-43a3-baaf-132e051c2d07
+		sourceLineageTag: academic_period_key
+		summarizeBy: sum
+		sourceColumn: academic_period_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column period_id
+		dataType: string
+		lineageTag: 64794153-7733-4182-a14f-3e15f53bb117
+		sourceLineageTag: period_id
+		summarizeBy: none
+		sourceColumn: period_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column academic_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 75fadbe7-5b04-4fbb-8d15-953ab3742e3d
+		sourceLineageTag: academic_year
+		summarizeBy: sum
+		sourceColumn: academic_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column semester
+		dataType: string
+		lineageTag: 8ae6fe67-3bc4-4da7-96dc-dc61c249281b
+		sourceLineageTag: semester
+		summarizeBy: none
+		sourceColumn: semester
+
+		annotation SummarizationSetBy = Automatic
+
+	column period_label
+		dataType: string
+		lineageTag: 99f4da42-034e-4b7e-8da7-ee7c72b0a300
+		sourceLineageTag: period_label
+		summarizeBy: none
+		sourceColumn: period_label
+
+		annotation SummarizationSetBy = Automatic
+
+	column start_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9e32907f-cd66-4e4b-a830-62596d3079cd
+		sourceLineageTag: start_date
+		summarizeBy: none
+		sourceColumn: start_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column end_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 785f0ce0-ba0e-48d1-b6c8-e91d0f62f356
+		sourceLineageTag: end_date
+		summarizeBy: none
+		sourceColumn: end_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column census_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e4bba252-8b04-47e4-bc16-633516555521
+		sourceLineageTag: census_date
+		summarizeBy: none
+		sourceColumn: census_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column exam_period_start
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f98fa8e9-1ce4-4cb8-b85f-af0095bdd3a7
+		sourceLineageTag: exam_period_start
+		summarizeBy: none
+		sourceColumn: exam_period_start
+
+		annotation SummarizationSetBy = Automatic
+
+	column exam_period_end
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0b91a2a3-b5b2-470b-b37d-20e0a6ba00e0
+		sourceLineageTag: exam_period_end
+		summarizeBy: none
+		sourceColumn: exam_period_end
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_current
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 462ad5b0-067c-4b82-bc5b-1c1efba19eb9
+		sourceLineageTag: is_current
+		summarizeBy: none
+		sourceColumn: is_current
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_academic_period = entity
+		mode: directLake
+		source
+			entityName: dim_academic_period
+			schemaName: university
+			expressionSource: 'DirectLake - university_lakehouse'
+

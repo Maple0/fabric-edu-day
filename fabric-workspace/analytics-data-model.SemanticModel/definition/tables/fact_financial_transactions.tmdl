@@ -1,0 +1,179 @@
+table fact_financial_transactions
+	lineageTag: e7f2aa06-3ccd-4f0d-bff5-1b879933a266
+	sourceLineageTag: [university].[fact_financial_transactions]
+
+	column transaction_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 518ba0f7-4d66-45d6-9093-6c792a50e29b
+		sourceLineageTag: transaction_key
+		summarizeBy: sum
+		sourceColumn: transaction_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column student_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 121524e2-5609-4c16-898f-9b30e22b7956
+		sourceLineageTag: student_key
+		summarizeBy: sum
+		sourceColumn: student_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column fee_type_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 078fb014-be0b-45a1-b091-0ea849d5c982
+		sourceLineageTag: fee_type_key
+		summarizeBy: sum
+		sourceColumn: fee_type_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column academic_period_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 08c0bc52-71ee-41d8-9748-6e039ae1d252
+		sourceLineageTag: academic_period_key
+		summarizeBy: sum
+		sourceColumn: academic_period_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column course_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 7e340179-96d5-43fd-8c57-a281e8020836
+		sourceLineageTag: course_key
+		summarizeBy: sum
+		sourceColumn: course_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column transaction_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 9b0b87e6-10df-4e70-af46-01ec1b369d0a
+		sourceLineageTag: transaction_date_key
+		summarizeBy: sum
+		sourceColumn: transaction_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column due_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 0fa3b9a0-f8bb-4980-83fa-9f34474105dd
+		sourceLineageTag: due_date_key
+		summarizeBy: sum
+		sourceColumn: due_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column transaction_id
+		dataType: string
+		lineageTag: a6853740-f868-424b-ac1c-fcf1edd57c9e
+		sourceLineageTag: transaction_id
+		summarizeBy: none
+		sourceColumn: transaction_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column transaction_type
+		dataType: string
+		lineageTag: daae9047-275e-4c0c-bdaf-f6ab01027200
+		sourceLineageTag: transaction_type
+		summarizeBy: none
+		sourceColumn: transaction_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column amount
+		dataType: double
+		lineageTag: 49425508-cba6-4a2f-8138-de694f658ae4
+		sourceLineageTag: amount
+		summarizeBy: sum
+		sourceColumn: amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column signed_amount
+		dataType: double
+		lineageTag: 15b9a65b-9e76-4d55-902e-521bab9c3a1e
+		sourceLineageTag: signed_amount
+		summarizeBy: sum
+		sourceColumn: signed_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column currency
+		dataType: string
+		lineageTag: 0e138d3b-efc7-460a-9dbc-8d58f8822659
+		sourceLineageTag: currency
+		summarizeBy: none
+		sourceColumn: currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_method
+		dataType: string
+		lineageTag: e9692a53-638a-4523-9ed1-bcd2eeebbd44
+		sourceLineageTag: payment_method
+		summarizeBy: none
+		sourceColumn: payment_method
+
+		annotation SummarizationSetBy = Automatic
+
+	column reference_number
+		dataType: string
+		lineageTag: 767d1d56-3324-47a1-8657-389e2921cec2
+		sourceLineageTag: reference_number
+		summarizeBy: none
+		sourceColumn: reference_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_overdue
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 70deb992-d9cd-4c43-83fa-dd97b1e5e547
+		sourceLineageTag: is_overdue
+		summarizeBy: none
+		sourceColumn: is_overdue
+
+		annotation SummarizationSetBy = Automatic
+
+	column days_overdue
+		dataType: int64
+		formatString: 0
+		lineageTag: c8ec2538-579b-4432-aabf-f2fb0c155fb3
+		sourceLineageTag: days_overdue
+		summarizeBy: sum
+		sourceColumn: days_overdue
+
+		annotation SummarizationSetBy = Automatic
+
+	column outstanding_balance_after
+		dataType: double
+		lineageTag: d9c84bec-f286-4699-8a44-e2127303ee67
+		sourceLineageTag: outstanding_balance_after
+		summarizeBy: sum
+		sourceColumn: outstanding_balance_after
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fact_financial_transactions = entity
+		mode: directLake
+		source
+			entityName: fact_financial_transactions
+			schemaName: university
+			expressionSource: 'DirectLake - university_lakehouse'
+

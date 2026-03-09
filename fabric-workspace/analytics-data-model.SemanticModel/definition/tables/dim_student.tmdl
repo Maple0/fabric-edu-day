@@ -1,0 +1,256 @@
+table dim_student
+	lineageTag: 2cfd24d4-8c12-4b76-96ce-8df8685dc7d9
+	sourceLineageTag: [university].[dim_student]
+
+	column student_key
+		dataType: int64
+		formatString: 0
+		lineageTag: c7989167-680d-4e09-9662-0697ece85132
+		sourceLineageTag: student_key
+		summarizeBy: sum
+		sourceColumn: student_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column student_id
+		dataType: string
+		lineageTag: cb94c8fe-1033-4946-973d-4ac819bba071
+		sourceLineageTag: student_id
+		summarizeBy: none
+		sourceColumn: student_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column first_name
+		dataType: string
+		lineageTag: bf34a3e5-8869-4221-a3d7-d01e8afa2a5e
+		sourceLineageTag: first_name
+		summarizeBy: none
+		sourceColumn: first_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_name
+		dataType: string
+		lineageTag: 7729e9db-c077-4716-88e4-731c7a27ecb2
+		sourceLineageTag: last_name
+		summarizeBy: none
+		sourceColumn: last_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_of_birth
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7f72b80e-0274-4037-9725-5ac2e5fc9802
+		sourceLineageTag: date_of_birth
+		summarizeBy: none
+		sourceColumn: date_of_birth
+
+		annotation SummarizationSetBy = Automatic
+
+	column gender
+		dataType: string
+		lineageTag: 3fc8f308-aee6-4d75-b6c5-7ebc26689c7d
+		sourceLineageTag: gender
+		summarizeBy: none
+		sourceColumn: gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column email
+		dataType: string
+		lineageTag: de502ab6-eb66-4437-8763-1c52f8a152ef
+		sourceLineageTag: email
+		summarizeBy: none
+		sourceColumn: email
+
+		annotation SummarizationSetBy = Automatic
+
+	column phone
+		dataType: string
+		lineageTag: 7d864711-b5e8-41c2-b097-25727cf6f1e5
+		sourceLineageTag: phone
+		summarizeBy: none
+		sourceColumn: phone
+
+		annotation SummarizationSetBy = Automatic
+
+	column address_street
+		dataType: string
+		lineageTag: 114b81eb-fc89-4e34-b397-106db857a034
+		sourceLineageTag: address_street
+		summarizeBy: none
+		sourceColumn: address_street
+
+		annotation SummarizationSetBy = Automatic
+
+	column address_suburb
+		dataType: string
+		lineageTag: 01fa0bb7-3fbf-4bc9-808d-5c2c62127016
+		sourceLineageTag: address_suburb
+		summarizeBy: none
+		sourceColumn: address_suburb
+
+		annotation SummarizationSetBy = Automatic
+
+	column address_state
+		dataType: string
+		lineageTag: d6588718-3421-4087-9344-882067c6c7ee
+		sourceLineageTag: address_state
+		summarizeBy: none
+		sourceColumn: address_state
+
+		annotation SummarizationSetBy = Automatic
+
+	column address_postcode
+		dataType: string
+		lineageTag: aa70fd45-7281-4773-9c6e-5bc576ada689
+		sourceLineageTag: address_postcode
+		summarizeBy: none
+		sourceColumn: address_postcode
+
+		annotation SummarizationSetBy = Automatic
+
+	column country_of_birth
+		dataType: string
+		lineageTag: 8b7b5843-a357-493d-938f-45389ba825ce
+		sourceLineageTag: country_of_birth
+		summarizeBy: none
+		sourceColumn: country_of_birth
+
+		annotation SummarizationSetBy = Automatic
+
+	column nationality
+		dataType: string
+		lineageTag: 15c1d120-ab6e-4642-b40d-aeed55fae978
+		sourceLineageTag: nationality
+		summarizeBy: none
+		sourceColumn: nationality
+
+		annotation SummarizationSetBy = Automatic
+
+	column domestic_international
+		dataType: string
+		lineageTag: 3ab3126c-133e-42e2-92f7-38641ae4c84a
+		sourceLineageTag: domestic_international
+		summarizeBy: none
+		sourceColumn: domestic_international
+
+		annotation SummarizationSetBy = Automatic
+
+	column enrolment_status
+		dataType: string
+		lineageTag: 00c50c4a-ec33-4674-b3e0-82865eabf402
+		sourceLineageTag: enrolment_status
+		summarizeBy: none
+		sourceColumn: enrolment_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column enrolment_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c75f7697-9e51-449d-abb5-60d377d02267
+		sourceLineageTag: enrolment_date
+		summarizeBy: none
+		sourceColumn: enrolment_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column expected_graduation_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4aefee75-a8bd-4704-ae9f-38e8e01e71e1
+		sourceLineageTag: expected_graduation_date
+		summarizeBy: none
+		sourceColumn: expected_graduation_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column program_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 99d49477-2ca2-4c17-b8a8-90763eb69c48
+		sourceLineageTag: program_key
+		summarizeBy: sum
+		sourceColumn: program_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_key
+		dataType: int64
+		formatString: 0
+		lineageTag: f68199e5-42af-49d4-9146-67ee5a1f8a55
+		sourceLineageTag: department_key
+		summarizeBy: sum
+		sourceColumn: department_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column academic_year_start
+		dataType: int64
+		formatString: 0
+		lineageTag: 5f58e510-4b50-4d11-a352-5fb19fc6db3f
+		sourceLineageTag: academic_year_start
+		summarizeBy: sum
+		sourceColumn: academic_year_start
+
+		annotation SummarizationSetBy = Automatic
+
+	column scholarship_flag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 56dc9ed4-5cab-4cb3-a9d9-39ff0e460991
+		sourceLineageTag: scholarship_flag
+		summarizeBy: none
+		sourceColumn: scholarship_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column scholarship_type
+		dataType: string
+		lineageTag: 65f745bf-bf52-4027-8b5a-51636967215f
+		sourceLineageTag: scholarship_type
+		summarizeBy: none
+		sourceColumn: scholarship_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column disability_support_flag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f2bf383f-2e56-4679-87d2-cb7433a2d795
+		sourceLineageTag: disability_support_flag
+		summarizeBy: none
+		sourceColumn: disability_support_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column first_in_family_flag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 40ad7d6d-bcde-4dc7-b75d-2fd87b7adc6d
+		sourceLineageTag: first_in_family_flag
+		summarizeBy: none
+		sourceColumn: first_in_family_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column permanent_resident_flag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 9608b9a9-b6c3-4db7-9286-bdccd88890d5
+		sourceLineageTag: permanent_resident_flag
+		summarizeBy: none
+		sourceColumn: permanent_resident_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_student = entity
+		mode: directLake
+		source
+			entityName: dim_student
+			schemaName: university
+			expressionSource: 'DirectLake - university_lakehouse'
+

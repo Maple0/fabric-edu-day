@@ -1,0 +1,61 @@
+table bridge_course_program
+	lineageTag: 469d7a09-61e6-4a05-b4ef-83d800b2cd4e
+	sourceLineageTag: [university].[bridge_course_program]
+
+	column course_key
+		dataType: int64
+		formatString: 0
+		lineageTag: d6de2598-d4c4-4446-b088-245c265f9b25
+		sourceLineageTag: course_key
+		summarizeBy: sum
+		sourceColumn: course_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column program_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 17d41627-2638-4f89-ad09-8b7b8edf2c91
+		sourceLineageTag: program_key
+		summarizeBy: sum
+		sourceColumn: program_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column course_sequence
+		dataType: int64
+		formatString: 0
+		lineageTag: dc59ff8a-1be3-48d0-a58b-45bffedf2d7e
+		sourceLineageTag: course_sequence
+		summarizeBy: sum
+		sourceColumn: course_sequence
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_core
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: c907fb01-e18b-4ae2-a0f0-a52fb11e73dc
+		sourceLineageTag: is_core
+		summarizeBy: none
+		sourceColumn: is_core
+
+		annotation SummarizationSetBy = Automatic
+
+	column year_of_program
+		dataType: int64
+		formatString: 0
+		lineageTag: b98ce0b5-3769-45e2-b3b6-a10b9930bbae
+		sourceLineageTag: year_of_program
+		summarizeBy: sum
+		sourceColumn: year_of_program
+
+		annotation SummarizationSetBy = Automatic
+
+	partition bridge_course_program = entity
+		mode: directLake
+		source
+			entityName: bridge_course_program
+			schemaName: university
+			expressionSource: 'DirectLake - university_lakehouse'
+

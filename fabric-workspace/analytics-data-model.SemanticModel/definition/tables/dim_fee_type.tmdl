@@ -1,0 +1,68 @@
+table dim_fee_type
+	lineageTag: 95fbc93d-5b37-4dc3-9b8a-e79f3e5d5609
+	sourceLineageTag: [university].[dim_fee_type]
+
+	column fee_type_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 7ac6f173-5789-4292-84f1-2db5e1c646ab
+		sourceLineageTag: fee_type_key
+		summarizeBy: sum
+		sourceColumn: fee_type_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column fee_type_id
+		dataType: string
+		lineageTag: 3e371b3a-a8ea-431a-8f41-d85ed2cc0042
+		sourceLineageTag: fee_type_id
+		summarizeBy: none
+		sourceColumn: fee_type_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column fee_type_name
+		dataType: string
+		lineageTag: d4432227-21e7-4a30-93e9-784a92f2499c
+		sourceLineageTag: fee_type_name
+		summarizeBy: none
+		sourceColumn: fee_type_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column fee_category
+		dataType: string
+		lineageTag: 45242c2e-c6a7-4e66-9c1a-3d2423af1c05
+		sourceLineageTag: fee_category
+		summarizeBy: none
+		sourceColumn: fee_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_mandatory
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f13b4c62-483e-491e-996b-128e4f58a368
+		sourceLineageTag: is_mandatory
+		summarizeBy: none
+		sourceColumn: is_mandatory
+
+		annotation SummarizationSetBy = Automatic
+
+	column gst_applicable
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 8d8f7a62-00ba-4ce3-94de-7ab7bd800e50
+		sourceLineageTag: gst_applicable
+		summarizeBy: none
+		sourceColumn: gst_applicable
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_fee_type = entity
+		mode: directLake
+		source
+			entityName: dim_fee_type
+			schemaName: university
+			expressionSource: 'DirectLake - university_lakehouse'
+

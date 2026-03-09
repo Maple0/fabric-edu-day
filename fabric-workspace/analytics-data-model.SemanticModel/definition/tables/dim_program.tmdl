@@ -1,0 +1,149 @@
+table dim_program
+	lineageTag: bc60b6ae-cd94-4dc5-86f2-c62d77bc1e08
+	sourceLineageTag: [university].[dim_program]
+
+	column program_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 1295e761-1df1-441f-b840-99f33384e4e9
+		sourceLineageTag: program_key
+		summarizeBy: sum
+		sourceColumn: program_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column program_id
+		dataType: string
+		lineageTag: c35f1de3-dd7c-4d04-8279-ac3553a42bbf
+		sourceLineageTag: program_id
+		summarizeBy: none
+		sourceColumn: program_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column program_name
+		dataType: string
+		lineageTag: 175629e9-cbaa-43cf-a665-1754d49fdaac
+		sourceLineageTag: program_name
+		summarizeBy: none
+		sourceColumn: program_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column program_type
+		dataType: string
+		lineageTag: acd693cb-f7bc-43f6-81e5-fc42ea35595d
+		sourceLineageTag: program_type
+		summarizeBy: none
+		sourceColumn: program_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column duration_years
+		dataType: double
+		lineageTag: ddbad559-05a1-4375-87c5-ade5d6596421
+		sourceLineageTag: duration_years
+		summarizeBy: sum
+		sourceColumn: duration_years
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_credit_points
+		dataType: int64
+		formatString: 0
+		lineageTag: 91811c22-4620-412d-85cb-9901d424939e
+		sourceLineageTag: total_credit_points
+		summarizeBy: sum
+		sourceColumn: total_credit_points
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_key
+		dataType: int64
+		formatString: 0
+		lineageTag: bb416a91-424e-4152-bb3d-c65eadb11aa5
+		sourceLineageTag: department_key
+		summarizeBy: sum
+		sourceColumn: department_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column faculty
+		dataType: string
+		lineageTag: 93e600e3-4c7a-4804-882f-e82657a3d222
+		sourceLineageTag: faculty
+		summarizeBy: none
+		sourceColumn: faculty
+
+		annotation SummarizationSetBy = Automatic
+
+	column igp_score
+		dataType: double
+		lineageTag: 68c5f80a-31bd-49b4-a279-89f2c2db429a
+		sourceLineageTag: igp_score
+		summarizeBy: sum
+		sourceColumn: igp_score
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column annual_domestic_fee
+		dataType: double
+		lineageTag: 7a2f7895-226e-47d7-8e2d-554105e0d9cc
+		sourceLineageTag: annual_domestic_fee
+		summarizeBy: sum
+		sourceColumn: annual_domestic_fee
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column annual_international_fee
+		dataType: double
+		lineageTag: a3aa8dfc-0913-4692-a704-879a6d6e20c0
+		sourceLineageTag: annual_international_fee
+		summarizeBy: sum
+		sourceColumn: annual_international_fee
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column delivery_mode
+		dataType: string
+		lineageTag: 8127f1c7-b0b3-4efd-982a-88dd4636c686
+		sourceLineageTag: delivery_mode
+		summarizeBy: none
+		sourceColumn: delivery_mode
+
+		annotation SummarizationSetBy = Automatic
+
+	column accreditation_body
+		dataType: string
+		lineageTag: 8b29682d-92bb-4f6e-aa27-b55f863255c6
+		sourceLineageTag: accreditation_body
+		summarizeBy: none
+		sourceColumn: accreditation_body
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_active
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: ac9fc74c-9c4c-4930-af87-31c2bcad2369
+		sourceLineageTag: is_active
+		summarizeBy: none
+		sourceColumn: is_active
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_program = entity
+		mode: directLake
+		source
+			entityName: dim_program
+			schemaName: university
+			expressionSource: 'DirectLake - university_lakehouse'
+

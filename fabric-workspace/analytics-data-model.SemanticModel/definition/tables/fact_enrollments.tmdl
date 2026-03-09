@@ -1,0 +1,180 @@
+table fact_enrollments
+	lineageTag: 9a4d5def-4045-429f-924d-79b6543d11c7
+	sourceLineageTag: [university].[fact_enrollments]
+
+	column enrollment_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 078f6fa0-ee47-4e4c-9814-2c987c1b7a25
+		sourceLineageTag: enrollment_key
+		summarizeBy: sum
+		sourceColumn: enrollment_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column student_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 2db7ca53-ae6d-4521-b080-2ed40e5c570c
+		sourceLineageTag: student_key
+		summarizeBy: sum
+		sourceColumn: student_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column course_key
+		dataType: int64
+		formatString: 0
+		lineageTag: f069673b-adf0-46f5-9148-5a9fd3a06f7c
+		sourceLineageTag: course_key
+		summarizeBy: sum
+		sourceColumn: course_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column academic_period_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 535538d0-e322-4027-bde2-cd1d7659f1e4
+		sourceLineageTag: academic_period_key
+		summarizeBy: sum
+		sourceColumn: academic_period_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column program_key
+		dataType: int64
+		formatString: 0
+		lineageTag: c9430d12-e4b7-4101-9dd8-f46ab1e8f694
+		sourceLineageTag: program_key
+		summarizeBy: sum
+		sourceColumn: program_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column enroll_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: edf29f5e-6a2c-4fd3-a3d7-c15bc14a597e
+		sourceLineageTag: enroll_date_key
+		summarizeBy: sum
+		sourceColumn: enroll_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column withdraw_date_key
+		dataType: double
+		lineageTag: 5cd26ed4-5d00-42af-abc7-669ed666bdd0
+		sourceLineageTag: withdraw_date_key
+		summarizeBy: sum
+		sourceColumn: withdraw_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column enrollment_status
+		dataType: string
+		lineageTag: 8e42b2fc-de61-4c78-b08e-1e3921fa6b9f
+		sourceLineageTag: enrollment_status
+		summarizeBy: none
+		sourceColumn: enrollment_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column enrollment_type
+		dataType: string
+		lineageTag: 4c50a82e-29ca-4143-b752-835181c0216f
+		sourceLineageTag: enrollment_type
+		summarizeBy: none
+		sourceColumn: enrollment_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column delivery_mode
+		dataType: string
+		lineageTag: d658da3c-b59d-4b07-8f66-365a7d70ad99
+		sourceLineageTag: delivery_mode
+		summarizeBy: none
+		sourceColumn: delivery_mode
+
+		annotation SummarizationSetBy = Automatic
+
+	column course_final_grade_letter
+		dataType: string
+		lineageTag: 4a8453f8-09cf-440e-a8ce-eab52deadc7b
+		sourceLineageTag: course_final_grade_letter
+		summarizeBy: none
+		sourceColumn: course_final_grade_letter
+
+		annotation SummarizationSetBy = Automatic
+
+	column course_gpa_points
+		dataType: double
+		lineageTag: 5c1c830e-2758-457e-b21e-a10975b473f1
+		sourceLineageTag: course_gpa_points
+		summarizeBy: sum
+		sourceColumn: course_gpa_points
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column credit_points_attempted
+		dataType: int64
+		formatString: 0
+		lineageTag: 43f28566-08ea-4e04-9306-cae2aa70c7dd
+		sourceLineageTag: credit_points_attempted
+		summarizeBy: sum
+		sourceColumn: credit_points_attempted
+
+		annotation SummarizationSetBy = Automatic
+
+	column credit_points_earned
+		dataType: int64
+		formatString: 0
+		lineageTag: 8fc85941-8db8-4235-b69c-fa8275905d43
+		sourceLineageTag: credit_points_earned
+		summarizeBy: sum
+		sourceColumn: credit_points_earned
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_repeat
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 5ca6fdda-4d76-4f9d-8e2e-1d7fba321b6c
+		sourceLineageTag: is_repeat
+		summarizeBy: none
+		sourceColumn: is_repeat
+
+		annotation SummarizationSetBy = Automatic
+
+	column withdrew_before_census
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 44964971-7b89-4ce1-9896-55b212359c6c
+		sourceLineageTag: withdrew_before_census
+		summarizeBy: none
+		sourceColumn: withdrew_before_census
+
+		annotation SummarizationSetBy = Automatic
+
+	column academic_load
+		dataType: double
+		lineageTag: fed7aea8-1acf-4382-9a0e-75405f9def55
+		sourceLineageTag: academic_load
+		summarizeBy: sum
+		sourceColumn: academic_load
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fact_enrollments = entity
+		mode: directLake
+		source
+			entityName: fact_enrollments
+			schemaName: university
+			expressionSource: 'DirectLake - university_lakehouse'
+
