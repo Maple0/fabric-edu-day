@@ -12,7 +12,6 @@ annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBI_ProTooling = ["DirectLakeOnOneLakeInWeb","WebModelingEdit"]
 
-ref table dim_date
 ref table dim_course
 ref table fact_enrollments
 ref table dim_exam_type
@@ -25,6 +24,8 @@ ref table dim_staff
 ref table fact_financial_transactions
 ref table dim_department
 ref table dim_fee_type
+ref table dim_date
 
 ref role Staff
 ref role Student
+
