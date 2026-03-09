@@ -1,4 +1,4 @@
-# Fabric IQ Education Demo — Presenter Guide
+# Fabric for Education Demo — Presenter Guide
 
 ## Overview
 
@@ -18,7 +18,7 @@ A two-notebook Microsoft Fabric demo for university customers showcasing the ful
 - [ ] Notebook 01 executed successfully (data generated)
 - [ ] Notebook 02 executed successfully (13 Delta tables created)
 - [ ] Semantic model `university-analytics-model` created and configured
-- [ ] All 13 relationships defined
+- [ ] All 19 relationships defined
 - [ ] All DAX measures created
 - [ ] RLS roles configured (Staff + Student)
 - [ ] Power BI report created with key visuals
@@ -68,12 +68,12 @@ A two-notebook Microsoft Fabric demo for university customers showcasing the ful
 
 ### Act 2: The Semantic Model (7 min)
 
-**Show:** Power BI Model view (see `docs/semantic_model_setup.md` for configuration steps)
+**Show:** Power BI Model view (see Step 6 in `docs/06-fabric_setup_guide.md` for configuration steps)
 
 **Talking points:**
 - "The semantic model is the bridge between raw data and business insight. It defines relationships, reusable measures, and security rules."
-- Show the Model view with all 13 relationships
-- "13 relationships connect our star schema. Fact tables point to dimensions. Filters flow from dimensions to facts."
+- Show the Model view with all 19 relationships
+- "19 relationships connect our star schema. Fact tables point to dimensions. Filters flow from dimensions to facts."
 - Click into a DAX measure
 - "We have 30+ measures organised into folders: Enrolment Analytics, Academic Performance, Financial Analytics, and Per-Student Metrics."
 - Show the RLS configuration
@@ -116,7 +116,7 @@ A two-notebook Microsoft Fabric demo for university customers showcasing the ful
 - "Data Agents are conversational AI assistants connected to your semantic model. Think of them as specialised chatbots for your data."
 - "This agent is configured for university staff — full access, no row filters."
 
-**Demo 3-4 questions from the staff test questions in `docs/fabric_setup_guide.md`:**
+**Demo 3-4 questions from the staff test questions in [`docs/05-data_agent_lab.md`](05-data_agent_lab.md):**
 1. *"How many students are currently enrolled this semester vs same semester last year?"*
 2. *"Which undergraduate program has the highest and lowest average GPA this semester?"*
 3. *"Do scholarship recipients perform better academically than non-scholarship students?"*
@@ -171,7 +171,7 @@ A two-notebook Microsoft Fabric demo for university customers showcasing the ful
 | Data Agent returns wrong numbers | Re-run Notebook 02, verify Delta tables match semantic model |
 | RLS not filtering | Check dim_student[email] filter, verify relationship cross-filter direction |
 | Notebook fails to run | Ensure Lakehouse is attached, check Fabric Runtime version (1.3+) |
-| Measures show blank | Verify all 13 relationships are created in Model view |
+| Measures show blank | Verify all 19 relationships are created in Model view |
 | "No data" in visuals | Run Notebook 01 + 02 again, refresh semantic model |
 
 ---

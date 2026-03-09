@@ -26,11 +26,12 @@ edu-fabric-iq/
 │   └── 02_star_schema_delta_tables        # Delta tables + DQ checks
 │
 └── docs/
-    ├── demo_guide.md                      # Presenter script (~45 min)
-    ├── data_dictionary.md                 # All tables + columns
-    ├── semantic_model_setup.md            # Step-by-step model setup
-    ├── fabric_setup_guide.md              # Environment setup
-    └── architecture_diagram.md            # Mermaid + ASCII diagrams
+    ├── 01-architecture_diagram.md            # Mermaid + ASCII diagrams
+    ├── 02-data_dictionary.md                 # All tables + columns
+    ├── 03-demo_guide.md                      # Presenter script (~45 min)
+    ├── 04-fabric_setup_guide.md              # Environment setup + semantic model
+    ├── 05-ontology_lab.md                    # Hands-on lab: Fabric IQ Ontology
+    └── 06-data_agent_lab.md                  # Hands-on lab: Data Agents
 ```
 
 ## Data Model
@@ -60,7 +61,7 @@ A star schema with 7 dimension tables, 1 bridge table, and 3 fact tables:
 | 01 | Data Generation & Ingestion | Generate 13 tables with PySpark, write to Lakehouse |
 | 02 | Star Schema Delta Tables | Explicit schemas, DQ assertions, managed Delta tables |
 
-**Execution order:** 01 → 02 (sequential). Semantic model, ontology, and Data Agent setup is documented in `docs/fabric_setup_guide.md`.
+**Execution order:** 01 → 02 (sequential). Semantic model, ontology, and Data Agent setup is documented in `docs/04-fabric_setup_guide.md`.
 
 ## Requirements
 
@@ -70,11 +71,12 @@ A star schema with 7 dimension tables, 1 bridge table, and 3 fact tables:
 
 ## Documentation
 
-- **[Demo Guide](docs/demo_guide.md)** — Full presenter script with talking points
-- **[Data Dictionary](docs/data_dictionary.md)** — All tables, columns, and business definitions
-- **[Semantic Model Setup](docs/semantic_model_setup.md)** — Relationships, DAX measures, RLS
-- **[Fabric Setup Guide](docs/fabric_setup_guide.md)** — Environment setup checklist
-- **[Architecture Diagram](docs/architecture_diagram.md)** — Mermaid and ASCII diagrams
+- **[Demo Guide](docs/03-demo_guide.md)** — Full presenter script with talking points
+- **[Data Dictionary](docs/02-data_dictionary.md)** — All tables, columns, and business definitions
+- **[Fabric Setup Guide](docs/04-fabric_setup_guide.md)** — Environment setup + semantic model
+- **[Architecture Diagram](docs/01-architecture_diagram.md)** — Mermaid and ASCII diagrams
+- **[Ontology Lab](docs/05-ontology_lab.md)** — Hands-on lab for Fabric IQ Ontology
+- **[Data Agent Lab](docs/06-data_agent_lab.md)** — Hands-on lab for Data Agents
 
 ## Key Highlights
 

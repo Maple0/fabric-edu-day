@@ -16,7 +16,7 @@ graph LR
 
     subgraph "Semantic Layer"
         E --> F[Power BI<br>Semantic Model<br>'university-analytics-model']
-        F --> G[13 Relationships]
+        F --> G[19 Relationships]
         F --> H[30+ DAX Measures]
         F --> I[RLS Roles]
     end
@@ -59,7 +59,7 @@ graph LR
 │                    SEMANTIC MODEL                                    │
 │                                                                      │
 │  university-analytics-model (Power BI on Fabric)                    │
-│  ├── 13 Relationships (M:1, star schema)                            │
+│  ├── 19 Relationships (M:1, star schema)                            │
 │  ├── 30+ DAX Measures (4 folders)                                   │
 │  ├── 4 Hierarchies                                                   │
 │  └── RLS: Staff (full) / Student (email filter)                     │
@@ -85,6 +85,7 @@ erDiagram
 
     dim_course ||--o{ fact_enrollments : "course_key"
     dim_course ||--o{ fact_exam_results : "course_key"
+    dim_course ||--o{ fact_financial_transactions : "course_key"
 
     dim_exam_type ||--o{ fact_exam_results : "exam_type_key"
     dim_fee_type ||--o{ fact_financial_transactions : "fee_type_key"
@@ -100,6 +101,7 @@ erDiagram
     dim_date ||--o{ fact_exam_results : "exam_date_key"
     dim_date ||--o{ fact_financial_transactions : "transaction_date_key"
 
+    dim_department ||--o{ dim_course : "department_key"
     dim_course ||--o{ bridge_course_program : "course_key"
     dim_program ||--o{ bridge_course_program : "program_key"
 ```
@@ -122,25 +124,25 @@ erDiagram
 ┌──────────────┴──┐         ┌──────┴───────┐    ┌──────────────────┐
 │  dim_department │         │  dim_student ├────┤  dim_program     │
 │                 │         │              │    │                  │
-└────────┬────────┘         └──┬───────┬───┘    └────────┬─────────┘
-         │                     │       │                 │
-         │              ┌──────┴──┐ ┌──┴────────────┐    │
-┌────────┴────────┐     │  fact_  │ │  fact_         │    │
-│  dim_course     ├─────┤  enrol- │ │  financial_   │    │
-│                 │     │  ments  │ │  transactions │    │
-└────────┬────────┘     └─────────┘ └───────┬───────┘    │
-         │                                  │            │
-         │              ┌───────────────────┘            │
-         │              │                                │
-    ┌────┴──────────┐   │    ┌──────────────────┐       │
-    │ bridge_course │   │    │  dim_fee_type    │       │
-    │ _program      │   │    │                  │       │
-    └───────────────┘   │    └──────────────────┘       │
-                        │                                │
-                  ┌─────┴──────────────┐                │
-                  │ dim_academic_period │                │
-                  │                    │                │
-                  └────────────────────┘                │
+└────────┬────────┘         └──┬───────┬───┘    └──────────────────┘
+         │                     │       │                  
+         │              ┌──────┴──┐ ┌──┴────────────┐     
+┌────────┴────────┐     │  fact_  │ │  fact_        │     
+│  dim_course     ├─────┤  enrol- │ │  financial_   │     
+│                 │     │  ments  │ │  transactions │     
+└────────┬────────┘     └─────────┘ └───────┬───────┘     
+         │                                  │             
+         │              ┌───────────────────┘             
+         │              │                                 
+    ┌────┴──────────┐   │    ┌──────────────────┐        
+    │ bridge_course │   │    │  dim_fee_type    │        
+    │ _program      │   │    │                  │        
+    └───────────────┘   │    └──────────────────┘        
+                        │                                 
+                  ┌─────┴──────────────┐                 
+                  │ dim_academic_period│                 
+                  │                    │                 
+                  └────────────────────┘                 
 ```
 
 ## Notebook Pipeline
@@ -156,7 +158,7 @@ erDiagram
 │  └──────────┘   └──────────┘                                  │
 │                                                                  │
 │  Sequential: 01 → 02 (must run in order)                        │
-│  Semantic model, ontology, agents: see fabric_setup_guide.md    │
+│  Semantic model, ontology, agents: see 06-fabric_setup_guide.md   │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
