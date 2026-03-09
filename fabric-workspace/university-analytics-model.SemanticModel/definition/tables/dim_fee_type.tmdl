@@ -1,0 +1,81 @@
+table dim_fee_type
+	lineageTag: c709fa81-efba-421f-ada6-4d8c0afef72d
+	sourceLineageTag: [university].[dim_fee_type]
+
+	column fee_type_key
+		dataType: int64
+		formatString: 0
+		lineageTag: baf19282-306d-4e66-81b0-2bef56bc9c1e
+		sourceLineageTag: fee_type_key
+		summarizeBy: none
+		sourceColumn: fee_type_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column fee_type_id
+		dataType: string
+		lineageTag: d3381331-f617-4003-b2e9-3dab9ef8206e
+		sourceLineageTag: fee_type_id
+		summarizeBy: none
+		sourceColumn: fee_type_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column fee_type_name
+		dataType: string
+		lineageTag: 9cd3b6f3-de86-4c79-9e12-f5ada975aaff
+		sourceLineageTag: fee_type_name
+		summarizeBy: none
+		sourceColumn: fee_type_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column fee_category
+		dataType: string
+		lineageTag: e094df7e-5efa-47c0-971a-48a305c5bf9d
+		sourceLineageTag: fee_category
+		summarizeBy: none
+		sourceColumn: fee_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_mandatory
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 6cf4d120-8d5b-4988-875f-93785f04ab8e
+		sourceLineageTag: is_mandatory
+		summarizeBy: none
+		sourceColumn: is_mandatory
+
+		annotation SummarizationSetBy = Automatic
+
+	column gst_applicable
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 6fe796e4-1405-4886-961f-d0a751b5d3ba
+		sourceLineageTag: gst_applicable
+		summarizeBy: none
+		sourceColumn: gst_applicable
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Fee Hierarchy'
+		lineageTag: 301704da-d33e-4d1b-aea6-d65eb6a52f7e
+
+		level fee_category
+			lineageTag: 6d5059e2-c029-452a-a780-3bf49ec9ff2e
+			column: fee_category
+
+		level fee_type_name
+			lineageTag: e2f926c4-8477-4903-b9f0-388c2d0ce18e
+			column: fee_type_name
+
+		changedProperty = Name
+
+	partition dim_fee_type = entity
+		mode: directLake
+		source
+			entityName: dim_fee_type
+			schemaName: university
+			expressionSource: 'DirectLake - university_lakehouse'
+

@@ -1,0 +1,139 @@
+table dim_course
+	lineageTag: 5a6b85a4-69c9-488c-9925-5b1a4425a049
+	sourceLineageTag: [university].[dim_course]
+
+	column course_key
+		dataType: int64
+		formatString: 0
+		lineageTag: d0fdd50b-f9c3-41d7-a4c1-8bfc857e538a
+		sourceLineageTag: course_key
+		summarizeBy: none
+		sourceColumn: course_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column course_id
+		dataType: string
+		lineageTag: c95d3641-122b-43cc-8d64-997947c375ef
+		sourceLineageTag: course_id
+		summarizeBy: none
+		sourceColumn: course_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column course_name
+		dataType: string
+		lineageTag: 552f6ca3-dd70-4281-99e1-aaf208a38709
+		sourceLineageTag: course_name
+		summarizeBy: none
+		sourceColumn: course_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column credit_points
+		dataType: int64
+		formatString: 0
+		lineageTag: db3ecfdb-2e0b-4501-8231-e93be97c2e35
+		sourceLineageTag: credit_points
+		summarizeBy: sum
+		sourceColumn: credit_points
+
+		annotation SummarizationSetBy = Automatic
+
+	column level
+		dataType: string
+		lineageTag: b9a351e3-7836-485a-b03a-b98d1445bea6
+		sourceLineageTag: level
+		summarizeBy: none
+		sourceColumn: level
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 692fb0a1-a3f3-4017-a7cf-0cf033d988e4
+		sourceLineageTag: department_key
+		summarizeBy: none
+		sourceColumn: department_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column coordinator_staff_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 40984e77-cc3f-40b4-b97f-fd3e12a30daf
+		sourceLineageTag: coordinator_staff_key
+		summarizeBy: sum
+		sourceColumn: coordinator_staff_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column prerequisite_course_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 28f9a6a7-4604-456c-9fe6-7649b6d7e438
+		sourceLineageTag: prerequisite_course_id
+		summarizeBy: sum
+		sourceColumn: prerequisite_course_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column delivery_mode
+		dataType: string
+		lineageTag: e40093dd-5f4e-4a50-8c9a-840eb4015836
+		sourceLineageTag: delivery_mode
+		summarizeBy: none
+		sourceColumn: delivery_mode
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_core
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 82efecdc-25bf-4ff1-8fdb-e19713525286
+		sourceLineageTag: is_core
+		summarizeBy: none
+		sourceColumn: is_core
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_active
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 88d3d53f-7fd2-42b3-8caa-2498780728f5
+		sourceLineageTag: is_active
+		summarizeBy: none
+		sourceColumn: is_active
+
+		annotation SummarizationSetBy = Automatic
+
+	column description
+		dataType: string
+		lineageTag: c287c98f-1e3b-47d0-80f9-79239e774014
+		sourceLineageTag: description
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Course Hierarchy'
+		lineageTag: 35607783-653b-4b27-97f4-58a4928272e2
+
+		level level
+			lineageTag: 125a2dfd-f6a3-46b0-ac84-03d782b1e123
+			column: level
+
+		level course_name
+			lineageTag: 96122e7b-5792-4b4b-bdbb-4a29b6ae445f
+			column: course_name
+
+		changedProperty = Name
+
+	partition dim_course = entity
+		mode: directLake
+		source
+			entityName: dim_course
+			schemaName: university
+			expressionSource: 'DirectLake - university_lakehouse'
+

@@ -1,0 +1,9 @@
+role Student
+	modelPermission: read
+
+	tablePermission dim_staff
+
+	tablePermission dim_student = [email] = USERPRINCIPALNAME()
+
+	annotation PBI_Id = 8d3900fe46794f14a17d2e3e3d15290d
+

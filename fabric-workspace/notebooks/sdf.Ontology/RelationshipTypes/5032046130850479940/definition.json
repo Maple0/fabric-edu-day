@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/relationshipType/1.0.0/schema.json",
+  "namespace": "usertypes",
+  "id": "5032046130850479940",
+  "name": "dim_staff_has_dim_department",
+  "namespaceType": "Imported",
+  "source": {
+    "entityTypeId": "227950793142078"
+  },
+  "target": {
+    "entityTypeId": "12340667427726"
+  }
+}

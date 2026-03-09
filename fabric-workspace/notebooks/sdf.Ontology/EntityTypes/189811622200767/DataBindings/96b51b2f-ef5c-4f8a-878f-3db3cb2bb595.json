@@ -1,0 +1,120 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "96b51b2f-ef5c-4f8a-878f-3db3cb2bb595",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "student_key",
+        "targetPropertyId": "5031179472562332322"
+      },
+      {
+        "sourceColumnName": "student_id",
+        "targetPropertyId": "5031179493394676847"
+      },
+      {
+        "sourceColumnName": "first_name",
+        "targetPropertyId": "5031179515717324697"
+      },
+      {
+        "sourceColumnName": "last_name",
+        "targetPropertyId": "5031179536390733597"
+      },
+      {
+        "sourceColumnName": "date_of_birth",
+        "targetPropertyId": "5031179559649693910"
+      },
+      {
+        "sourceColumnName": "gender",
+        "targetPropertyId": "5031179580330813649"
+      },
+      {
+        "sourceColumnName": "email",
+        "targetPropertyId": "5031179604024363071"
+      },
+      {
+        "sourceColumnName": "phone",
+        "targetPropertyId": "5031179627451857254"
+      },
+      {
+        "sourceColumnName": "address_street",
+        "targetPropertyId": "5031179649724570363"
+      },
+      {
+        "sourceColumnName": "address_suburb",
+        "targetPropertyId": "5031179673500997294"
+      },
+      {
+        "sourceColumnName": "address_state",
+        "targetPropertyId": "5031179695257360641"
+      },
+      {
+        "sourceColumnName": "address_postcode",
+        "targetPropertyId": "5031179714220265879"
+      },
+      {
+        "sourceColumnName": "country_of_birth",
+        "targetPropertyId": "5031179739055021874"
+      },
+      {
+        "sourceColumnName": "nationality",
+        "targetPropertyId": "5031179757191188544"
+      },
+      {
+        "sourceColumnName": "domestic_international",
+        "targetPropertyId": "5031179785250121915"
+      },
+      {
+        "sourceColumnName": "enrolment_status",
+        "targetPropertyId": "5031179807592945248"
+      },
+      {
+        "sourceColumnName": "enrolment_date",
+        "targetPropertyId": "5031179826004607350"
+      },
+      {
+        "sourceColumnName": "expected_graduation_date",
+        "targetPropertyId": "5031179849908051016"
+      },
+      {
+        "sourceColumnName": "program_key",
+        "targetPropertyId": "5031179874487142055"
+      },
+      {
+        "sourceColumnName": "department_key",
+        "targetPropertyId": "5031179895420453784"
+      },
+      {
+        "sourceColumnName": "academic_year_start",
+        "targetPropertyId": "5031179916416818665"
+      },
+      {
+        "sourceColumnName": "scholarship_flag",
+        "targetPropertyId": "5031179939972345466"
+      },
+      {
+        "sourceColumnName": "scholarship_type",
+        "targetPropertyId": "5031179959708310948"
+      },
+      {
+        "sourceColumnName": "disability_support_flag",
+        "targetPropertyId": "5031179986516540349"
+      },
+      {
+        "sourceColumnName": "first_in_family_flag",
+        "targetPropertyId": "5031180006822946876"
+      },
+      {
+        "sourceColumnName": "permanent_resident_flag",
+        "targetPropertyId": "5031180030754942059"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "39778116-f694-4254-9245-676601fe8f6d",
+      "itemId": "1668b27e-be25-4f6f-8139-a3ffc5efef0d",
+      "sourceTableName": "dim_student",
+      "sourceSchema": "university"
+    }
+  }
+}

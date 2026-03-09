@@ -1,0 +1,64 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "0a85ecdf-c686-41c7-838d-cd78cae1000e",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "staff_key",
+        "targetPropertyId": "5031180078077683389"
+      },
+      {
+        "sourceColumnName": "staff_id",
+        "targetPropertyId": "5031180098232313859"
+      },
+      {
+        "sourceColumnName": "first_name",
+        "targetPropertyId": "5031180118279406037"
+      },
+      {
+        "sourceColumnName": "last_name",
+        "targetPropertyId": "5031180146315361007"
+      },
+      {
+        "sourceColumnName": "email",
+        "targetPropertyId": "5031180164799034548"
+      },
+      {
+        "sourceColumnName": "role_title",
+        "targetPropertyId": "5031180188973242759"
+      },
+      {
+        "sourceColumnName": "role_category",
+        "targetPropertyId": "5031180210072500275"
+      },
+      {
+        "sourceColumnName": "department_key",
+        "targetPropertyId": "5031180235635920138"
+      },
+      {
+        "sourceColumnName": "employment_type",
+        "targetPropertyId": "5031180254692418309"
+      },
+      {
+        "sourceColumnName": "date_joined",
+        "targetPropertyId": "5031180281124370954"
+      },
+      {
+        "sourceColumnName": "salary_band",
+        "targetPropertyId": "5031180302436478481"
+      },
+      {
+        "sourceColumnName": "is_active",
+        "targetPropertyId": "5031180326054293502"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "39778116-f694-4254-9245-676601fe8f6d",
+      "itemId": "1668b27e-be25-4f6f-8139-a3ffc5efef0d",
+      "sourceTableName": "dim_staff",
+      "sourceSchema": "university"
+    }
+  }
+}
