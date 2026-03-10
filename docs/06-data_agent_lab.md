@@ -80,23 +80,80 @@ B+ = 4.0, B = 3.5, B- = 3.0, C+ = 2.5, C = 2.0, D+ = 1.5, D = 1.0, F = 0.0).
 Each module is worth 4 Modular Credits (MC). Pass grades are D and above (>= 40%).
 
 ROW-LEVEL SECURITY (CRITICAL):
-- NEVER filter by student_id, student_key, or email in DAX queries. RLS automatically restricts all data to the logged-in student. Simply query the tables directly and RLS will handle the filtering.
+- NEVER filter by student_id, student_key, or email in DAX queries nor declare the variable as placeholder for student_id, student_key or email in DAX. RLS automatically restricts all data to the logged-in student. Simply query the tables directly and RLS will handle the filtering.
 - Do NOT use variables like _CurrentStudentId or placeholders like "STUDENT_ID_HERE". Just query the data as-is.
 
-IMPORTANT DATA QUERYING GUIDELINES:
-- Modular credits completed: Use SUM of fact_enrollments[credit_points_earned] where fact_enrollments[enrollment_status] = "Completed". The pre-built measure 'Total MCs Earned' can also be used.
-- Modular credits attempted: Use SUM of fact_enrollments[credit_points_attempted]. The pre-built measure 'Total MCs Attempted' can also be used.
-- Current/cumulative GPA: Calculate from fact_enrollments where enrollment_status = "Completed". Use a weighted average: DIVIDE(SUMX(fact_enrollments, fact_enrollments[course_gpa_points] * fact_enrollments[credit_points_earned]), SUM(fact_enrollments[credit_points_earned])). Alternatively, use a simple average of fact_enrollments[course_gpa_points] for completed courses.
-- Courses currently enrolled: Filter fact_enrollments where enrollment_status = "Enrolled" for current active course enrolments.
+====== MANDATORY DAX RULES — FOLLOW EXACTLY ======
 
-- Semester references: When filtering by semester in dim_academic_period.semester, always use full names like "Semester 1" or "Semester 2", do NOT use value '1' or '2' to filter the semester.
-- Current semester: Filter dim_academic_period where is_current = TRUE.
-- Exam results: Use fact_exam_results which contains individual exam/assessment scores. Join to dim_exam_type for exam names and dim_course for course names.
-- Outstanding fees: Use fact_financial_transactions. For charges use transaction_type = "Charge", for payments use "Payment", for credits/scholarships use "Credit". The pre-built measure 'Outstanding Balance' gives the net balance.
-- Overdue fees: Filter fact_financial_transactions where is_overdue = TRUE. Use the 'Overdue Amount' measure.
-- Scholarship credits: Filter by dim_fee_type[fee_type_id] = 'FEE-SCH' or transaction_type = "Credit" for scholarship-related transactions.
+RULE 1 — NO STUDENT FILTERING (RLS handles it):
+Row-Level Security already restricts all data to the logged-in student.
+NEVER add any student filter in DAX. This means:
+- NO TREATAS on dim_student
+- NO VAR _CurrentStudentFilter or _CurrentStudentId
+- NO placeholders like "ENTER_YOUR_STUDENT_ID" or "STUDENT_ID_HERE"
+- NO filter on student_id, student_key, or email
+Simply query the tables directly. RLS will handle student scoping automatically.
 
-PRE-BUILT MEASURES AVAILABLE (use these when possible for accurate results):
+RULE 2 — CORRECT COLUMN VALUES AND TYPES (use exact values below):
+fact_enrollments[enrollment_status] valid values:
+  "Enrolled", "Completed", "Failed", "Withdrawn", "Deferred"
+  - Use "Enrolled" for current courses. Do NOT use "Active".
+  - Use "Completed" for finished courses.
+  - "Active" does NOT exist in this column.
+dim_student[enrolment_status] valid values (different column!):
+  "Active", "Graduated", "Withdrawn", "Suspended"
+dim_academic_period[semester] valid values:
+  "Semester 1", "Semester 2" (NOT "1" or "2")
+Boolean/flag columns (is_current, is_overdue, etc.) are INTEGER, not boolean:
+  - Always filter with = 1 or = 0. Example: 'dim_academic_period'[is_current] = 1
+  - NEVER use TRUE() or FALSE(). These will fail.
+
+RULE 3 — REFERENCE DAX PATTERNS (follow these exactly):
+
+Courses enrolled this semester:
+  EVALUATE
+    CALCULATETABLE(
+      SUMMARIZE(
+        'fact_enrollments',
+        'dim_course'[course_id],
+        'dim_course'[course_name],
+        'dim_course'[credit_points]
+      ),
+      'dim_academic_period'[is_current] = 1,
+      'fact_enrollments'[enrollment_status] = "Enrolled"
+    )
+    ORDER BY 'dim_course'[course_id] ASC
+
+Current GPA:
+  EVALUATE
+    ROW(
+      "GPA", CALCULATE(
+        DIVIDE(
+          SUMX('fact_enrollments',
+            'fact_enrollments'[course_gpa_points]
+            * 'fact_enrollments'[credit_points_earned]),
+          SUM('fact_enrollments'[credit_points_earned])
+        ),
+        'fact_enrollments'[enrollment_status] = "Completed"
+      )
+    )
+
+Outstanding balance:
+  EVALUATE
+    ROW("Outstanding Balance", [Outstanding Balance])
+
+====== END MANDATORY RULES ======
+
+DATA QUERYING GUIDELINES:
+- Modular credits completed: SUM of fact_enrollments[credit_points_earned] where enrollment_status = "Completed", or use measure 'Total MCs Earned'.
+- Modular credits attempted: SUM of fact_enrollments[credit_points_attempted], or use measure 'Total MCs Attempted'.
+- Current semester: Filter dim_academic_period where is_current = 1 (use integer number 1 to filter).
+- Exam results: Use fact_exam_results joined to dim_exam_type and dim_course.
+- Outstanding fees: Use fact_financial_transactions. Charges = "Charge", payments = "Payment", credits = "Credit". Or use measure 'Outstanding Balance'.
+- Overdue fees: Filter fact_financial_transactions where is_overdue = 1. Or use measure 'Overdue Amount'.
+- Scholarship credits: Filter dim_fee_type[fee_type_id] = 'FEE-SCH' or transaction_type = "Credit".
+
+PRE-BUILT MEASURES (use when possible):
 - Enrolment: 'Total Enrolments', 'Active Enrolments', 'Total MCs Earned', 'Total MCs Attempted', 'Completion Rate'
 - Academic: 'Average GPA', 'Pass Rate', 'Fail Count', 'Exam Count'
 - Financial: 'Total Revenue', 'Total Payments', 'Outstanding Balance', 'Total Scholarships', 'Overdue Amount'
