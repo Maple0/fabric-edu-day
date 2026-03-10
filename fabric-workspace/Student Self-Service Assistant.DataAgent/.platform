@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataAgent",
+    "displayName": "Student Self-Service Assistant"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "0ded3792-d48c-bdfe-4b10-2a5b59c901c5"
+  }
+}

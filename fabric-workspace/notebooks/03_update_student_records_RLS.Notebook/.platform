@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "03_update_student_records_RLS"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "4b11103a-9221-b670-41ef-29bdb14ccca6"
+  }
+}

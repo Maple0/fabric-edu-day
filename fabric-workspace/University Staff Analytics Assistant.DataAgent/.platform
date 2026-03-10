@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataAgent",
+    "displayName": "University Staff Analytics Assistant"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "131dcfe6-3c60-958a-47fa-8af573aaa37b"
+  }
+}
