@@ -79,12 +79,18 @@ Currency is SGD. Grading follows the NUS 5.0 GPA scale (A+/A = 5.0, A- = 4.5,
 B+ = 4.0, B = 3.5, B- = 3.0, C+ = 2.5, C = 2.0, D+ = 1.5, D = 1.0, F = 0.0).
 Each module is worth 4 Modular Credits (MC). Pass grades are D and above (>= 40%).
 
+ROW-LEVEL SECURITY (CRITICAL):
+- NEVER filter by student_id, student_key, or email in DAX queries. RLS automatically restricts all data to the logged-in student. Simply query the tables directly and RLS will handle the filtering.
+- Do NOT use variables like _CurrentStudentId or placeholders like "STUDENT_ID_HERE". Just query the data as-is.
+
 IMPORTANT DATA QUERYING GUIDELINES:
 - Modular credits completed: Use SUM of fact_enrollments[credit_points_earned] where fact_enrollments[enrollment_status] = "Completed". The pre-built measure 'Total MCs Earned' can also be used.
 - Modular credits attempted: Use SUM of fact_enrollments[credit_points_attempted]. The pre-built measure 'Total MCs Attempted' can also be used.
 - Current/cumulative GPA: Calculate from fact_enrollments where enrollment_status = "Completed". Use a weighted average: DIVIDE(SUMX(fact_enrollments, fact_enrollments[course_gpa_points] * fact_enrollments[credit_points_earned]), SUM(fact_enrollments[credit_points_earned])). Alternatively, use a simple average of fact_enrollments[course_gpa_points] for completed courses.
 - Courses currently enrolled: Filter fact_enrollments where enrollment_status = "Enrolled" for current active course enrolments.
+
 - Semester references: When filtering by semester in dim_academic_period.semester, always use full names like "Semester 1" or "Semester 2", do NOT use value '1' or '2' to filter the semester.
+- Current semester: Filter dim_academic_period where is_current = TRUE.
 - Exam results: Use fact_exam_results which contains individual exam/assessment scores. Join to dim_exam_type for exam names and dim_course for course names.
 - Outstanding fees: Use fact_financial_transactions. For charges use transaction_type = "Charge", for payments use "Payment", for credits/scholarships use "Credit". The pre-built measure 'Outstanding Balance' gives the net balance.
 - Overdue fees: Filter fact_financial_transactions where is_overdue = TRUE. Use the 'Overdue Amount' measure.

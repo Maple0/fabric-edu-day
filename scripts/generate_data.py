@@ -648,6 +648,11 @@ def generate_fact_enrollments(
                     final_grade = None
                     gpa_points = None
                     cp_earned = 0
+                elif period["is_current"]:
+                    enroll_status = "Enrolled"
+                    final_grade = None
+                    gpa_points = None
+                    cp_earned = 0
                 else:
                     # Determine final grade from a placeholder score
                     # (actual grades live in fact_exam_results; this is the course aggregate)
