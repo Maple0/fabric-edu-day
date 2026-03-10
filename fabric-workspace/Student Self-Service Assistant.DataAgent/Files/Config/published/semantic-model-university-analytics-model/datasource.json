@@ -1,0 +1,1974 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/dataAgent/definition/dataSource/1.0.0/schema.json",
+  "artifactId": "52fa43bd-33bc-8c9b-4584-5869443256e2",
+  "workspaceId": "00000000-0000-0000-0000-000000000000",
+  "dataSourceInstructions": null,
+  "displayName": "university-analytics-model",
+  "type": "semantic_model",
+  "userDescription": null,
+  "metadata": {},
+  "elements": [
+    {
+      "id": "75120a14-de9f-4fc4-96e2-9bb59deca794",
+      "is_selected": true,
+      "display_name": "bridge_course_program",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "d61dce65-a487-4a91-a343-c2d6acf7db7c",
+          "is_selected": true,
+          "display_name": "course_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "c2f5267d-8e26-4a1f-8d69-dab765a1245c",
+          "is_selected": true,
+          "display_name": "course_sequence",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "305b53e8-79e1-420c-9053-568e0829e551",
+          "is_selected": true,
+          "display_name": "is_core",
+          "type": "semantic_model.column",
+          "data_type": "Boolean",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "ad6c1f8f-313f-453d-bbe5-6e3982e7fd20",
+          "is_selected": true,
+          "display_name": "program_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "cca655e0-f93f-42be-aea4-23d49d10f12c",
+          "is_selected": true,
+          "display_name": "year_of_program",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "1e8af4a1-f58a-41ab-9e39-26928ecbb509",
+      "is_selected": true,
+      "display_name": "dim_academic_period",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "482f8a23-9568-492b-a810-2b1c5b0bb00c",
+          "is_selected": true,
+          "display_name": "academic_period_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "cfef929b-f3fe-4441-8897-22972fed92f7",
+          "is_selected": true,
+          "display_name": "academic_year",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "6d507a90-8d3f-43e8-a762-3b25f66cb4f8",
+          "is_selected": true,
+          "display_name": "census_date",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "f67d7204-ad55-4eb8-a749-4ad2caf259fe",
+          "is_selected": true,
+          "display_name": "end_date",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "d6da310c-170e-4047-b939-f632eaea9500",
+          "is_selected": true,
+          "display_name": "exam_period_end",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "462fcb9f-1f36-4efb-ba89-114148dfcf30",
+          "is_selected": true,
+          "display_name": "exam_period_start",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "ad28657f-f679-495e-8f81-fe3a3d651e9f",
+          "is_selected": true,
+          "display_name": "is_current",
+          "type": "semantic_model.column",
+          "data_type": "Boolean",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "ff60818d-e706-4f83-821a-c53f2adfd447",
+          "is_selected": true,
+          "display_name": "period_id",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "fc526732-c1fd-4e15-b0dd-15c36db952b8",
+          "is_selected": true,
+          "display_name": "period_label",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "6317b27a-6437-44b2-8ed9-09208398549a",
+          "is_selected": true,
+          "display_name": "semester",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "d21bbde7-a9cf-4d59-8c0b-b491f09de659",
+          "is_selected": true,
+          "display_name": "start_date",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "5a6b85a4-69c9-488c-9925-5b1a4425a049",
+      "is_selected": true,
+      "display_name": "dim_course",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "40984e77-cc3f-40b4-b97f-fd3e12a30daf",
+          "is_selected": true,
+          "display_name": "coordinator_staff_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "c95d3641-122b-43cc-8d64-997947c375ef",
+          "is_selected": true,
+          "display_name": "course_id",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "d0fdd50b-f9c3-41d7-a4c1-8bfc857e538a",
+          "is_selected": true,
+          "display_name": "course_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "552f6ca3-dd70-4281-99e1-aaf208a38709",
+          "is_selected": true,
+          "display_name": "course_name",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "db3ecfdb-2e0b-4501-8231-e93be97c2e35",
+          "is_selected": true,
+          "display_name": "credit_points",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "e40093dd-5f4e-4a50-8c9a-840eb4015836",
+          "is_selected": true,
+          "display_name": "delivery_mode",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "692fb0a1-a3f3-4017-a7cf-0cf033d988e4",
+          "is_selected": true,
+          "display_name": "department_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "c287c98f-1e3b-47d0-80f9-79239e774014",
+          "is_selected": true,
+          "display_name": "description",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "88d3d53f-7fd2-42b3-8caa-2498780728f5",
+          "is_selected": true,
+          "display_name": "is_active",
+          "type": "semantic_model.column",
+          "data_type": "Boolean",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "82efecdc-25bf-4ff1-8fdb-e19713525286",
+          "is_selected": true,
+          "display_name": "is_core",
+          "type": "semantic_model.column",
+          "data_type": "Boolean",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "b9a351e3-7836-485a-b03a-b98d1445bea6",
+          "is_selected": true,
+          "display_name": "level",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "28f9a6a7-4604-456c-9fe6-7649b6d7e438",
+          "is_selected": true,
+          "display_name": "prerequisite_course_id",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "219f7f23-81d3-41ac-853b-c959a2d77c82",
+      "is_selected": true,
+      "display_name": "dim_date",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "399fe388-653d-463e-be03-1bc08bac52a0",
+          "is_selected": true,
+          "display_name": "academic_year",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "0f2b3c6d-d17b-41fa-a0ef-2f0d476e6f16",
+          "is_selected": true,
+          "display_name": "date_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "833a7998-6913-4b64-a72d-1370a99844cb",
+          "is_selected": true,
+          "display_name": "day_number_in_month",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "588e2ad6-c4a3-49b6-9586-dbc760a38a8d",
+          "is_selected": true,
+          "display_name": "day_number_in_week",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "c20e6ab9-35b0-4c55-bd9a-49c6692a61e8",
+          "is_selected": true,
+          "display_name": "day_number_in_year",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "274c3c93-65cf-4945-9fdd-e515a02d670d",
+          "is_selected": true,
+          "display_name": "day_of_week",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "eee9ab81-67f1-48be-91b5-288b94a026be",
+          "is_selected": true,
+          "display_name": "full_date",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "2c9f1d72-5bbb-4a86-9da3-623f76c009a0",
+          "is_selected": true,
+          "display_name": "is_exam_period",
+          "type": "semantic_model.column",
+          "data_type": "Boolean",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "de910100-91cc-40a3-9ef7-dec6e0db5499",
+          "is_selected": true,
+          "display_name": "is_public_holiday",
+          "type": "semantic_model.column",
+          "data_type": "Boolean",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "94cd1d49-0e3d-4461-be1c-2ad3fa407c48",
+          "is_selected": true,
+          "display_name": "is_weekday",
+          "type": "semantic_model.column",
+          "data_type": "Boolean",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "3cb237c6-8261-4c9d-8a09-adaa85a03d94",
+          "is_selected": true,
+          "display_name": "month_name",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "09ce91f3-1d4f-47ce-aad7-730a174eaf2b",
+          "is_selected": true,
+          "display_name": "month_number",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "99031d43-5512-4675-a037-b3a78d52a062",
+          "is_selected": true,
+          "display_name": "month_short",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "685d423e-a9eb-4bb0-9a3d-9b387fbd8908",
+          "is_selected": true,
+          "display_name": "quarter_label",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "1066f991-a732-40c9-af8d-6b29fec82d32",
+          "is_selected": true,
+          "display_name": "quarter_number",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "af2bf119-a66e-4293-b9de-eabd98e77595",
+          "is_selected": true,
+          "display_name": "week_number_in_year",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "97d1bb17-a4a4-4a32-a2ed-b00e9c587afa",
+          "is_selected": true,
+          "display_name": "year",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "5f12aad9-4713-4094-88c0-c0afa007c13a",
+      "is_selected": true,
+      "display_name": "dim_department",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "c8c212de-4bee-4c36-a3ca-6b3d407ba293",
+          "is_selected": true,
+          "display_name": "budget_code",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "613e4fc7-7486-4ea2-939c-190887bcadad",
+          "is_selected": true,
+          "display_name": "department_id",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "a472384f-a544-4d04-92bb-5e5f3887529d",
+          "is_selected": true,
+          "display_name": "department_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "85002d36-ce96-4a41-a433-6ece535017ef",
+          "is_selected": true,
+          "display_name": "department_name",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "a50e5cc7-1891-4000-b55c-c07d4fae543e",
+          "is_selected": true,
+          "display_name": "email",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "27c14c7f-6d5f-401a-b3c6-4c8e3df4a888",
+          "is_selected": true,
+          "display_name": "faculty",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "ad201150-9b47-4040-933b-4f070c0d12f7",
+          "is_selected": true,
+          "display_name": "head_of_department",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "2cfb42a1-70e6-4882-a4d4-ea319195bd25",
+          "is_selected": true,
+          "display_name": "is_active",
+          "type": "semantic_model.column",
+          "data_type": "Boolean",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "613fac81-0859-462f-bbc9-6acc634aca35",
+          "is_selected": true,
+          "display_name": "location_building",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "67668d7b-cddb-49fb-aac1-fccc994848aa",
+          "is_selected": true,
+          "display_name": "phone",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "dc6bafbd-01c0-4f54-beec-43be178f5df9",
+      "is_selected": true,
+      "display_name": "dim_exam_type",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "eecc7244-eed5-4a0f-9d9e-cdb80f4fa7a2",
+          "is_selected": true,
+          "display_name": "category",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "4310826c-9917-453c-8645-d643a6c1fcee",
+          "is_selected": true,
+          "display_name": "duration_minutes",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "3073864e-18ad-4499-9764-9519e8eb5639",
+          "is_selected": true,
+          "display_name": "exam_type_id",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "a46e3252-2512-43b5-95e7-15336255b8bf",
+          "is_selected": true,
+          "display_name": "exam_type_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "f703ab53-03f7-499d-b299-46b29218fd85",
+          "is_selected": true,
+          "display_name": "exam_type_name",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "b69bd78b-dac1-4ba8-8a61-d25102850105",
+          "is_selected": true,
+          "display_name": "is_open_book",
+          "type": "semantic_model.column",
+          "data_type": "Boolean",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "05fe4005-ac55-40f0-b952-21a20232a007",
+          "is_selected": true,
+          "display_name": "weighting_typical_pct",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "c709fa81-efba-421f-ada6-4d8c0afef72d",
+      "is_selected": true,
+      "display_name": "dim_fee_type",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "e094df7e-5efa-47c0-971a-48a305c5bf9d",
+          "is_selected": true,
+          "display_name": "fee_category",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "d3381331-f617-4003-b2e9-3dab9ef8206e",
+          "is_selected": true,
+          "display_name": "fee_type_id",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "baf19282-306d-4e66-81b0-2bef56bc9c1e",
+          "is_selected": true,
+          "display_name": "fee_type_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "9cd3b6f3-de86-4c79-9e12-f5ada975aaff",
+          "is_selected": true,
+          "display_name": "fee_type_name",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "6fe796e4-1405-4886-961f-d0a751b5d3ba",
+          "is_selected": true,
+          "display_name": "gst_applicable",
+          "type": "semantic_model.column",
+          "data_type": "Boolean",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "6cf4d120-8d5b-4988-875f-93785f04ab8e",
+          "is_selected": true,
+          "display_name": "is_mandatory",
+          "type": "semantic_model.column",
+          "data_type": "Boolean",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "b087e1af-617b-4223-85b7-6851b1ac89bc",
+      "is_selected": true,
+      "display_name": "dim_program",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "f4d910f5-dacc-4c60-9bce-68ef76ba4d38",
+          "is_selected": true,
+          "display_name": "accreditation_body",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "83f09b9c-6c33-4b5d-bffd-1fe6c5393e48",
+          "is_selected": true,
+          "display_name": "annual_domestic_fee",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "3ad9d3cd-1f58-478e-9a9c-6f1a235657c5",
+          "is_selected": true,
+          "display_name": "annual_international_fee",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "8c488d08-9f48-420c-9e66-c5048a00976e",
+          "is_selected": true,
+          "display_name": "delivery_mode",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "3d8ee098-e5f1-47d5-8801-0f34d767fc73",
+          "is_selected": true,
+          "display_name": "department_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "ea306944-cc84-4089-a115-8169b062d996",
+          "is_selected": true,
+          "display_name": "duration_years",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "b891d6a3-c9a1-449b-a28c-f1d841a49d3e",
+          "is_selected": true,
+          "display_name": "faculty",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "54d56b72-c668-4cd1-8942-a168409ad48e",
+          "is_selected": true,
+          "display_name": "igp_score",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "4e186f91-8196-4fdb-8630-64403b06cc8c",
+          "is_selected": true,
+          "display_name": "is_active",
+          "type": "semantic_model.column",
+          "data_type": "Boolean",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "a162ce11-a114-4dd6-bd34-4606a9d430bb",
+          "is_selected": true,
+          "display_name": "program_id",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "8fb9b973-497a-461c-ad16-7dbb3babdc15",
+          "is_selected": true,
+          "display_name": "program_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "97c3f9de-78cb-4fdb-8c21-1e95055d2260",
+          "is_selected": true,
+          "display_name": "program_name",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "7ebfe2a4-63ec-44ee-80ee-eab56a610c9d",
+          "is_selected": true,
+          "display_name": "program_type",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "51b9d7f0-4c1d-4c12-973f-65e17a50a840",
+          "is_selected": true,
+          "display_name": "total_credit_points",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "9ddad1e9-7d8e-4035-b356-1e4ce6f4d04b",
+      "is_selected": true,
+      "display_name": "dim_staff",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "c3343613-bc7b-45fd-ac59-7cf968b0499a",
+          "is_selected": true,
+          "display_name": "date_joined",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "c3d04391-5dd2-4dbf-b849-05d278cacaa7",
+          "is_selected": true,
+          "display_name": "department_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "dbe336cd-c506-4eed-ae69-f9320ec06653",
+          "is_selected": true,
+          "display_name": "email",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "9e8d315a-55ed-46cf-9c56-54b5765ecae8",
+          "is_selected": true,
+          "display_name": "employment_type",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "e1fc1a7e-6914-49e0-b20f-883b8b196dc0",
+          "is_selected": true,
+          "display_name": "first_name",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "8ce0b9da-7497-4c80-9ee2-26f29e6b26f6",
+          "is_selected": true,
+          "display_name": "is_active",
+          "type": "semantic_model.column",
+          "data_type": "Boolean",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "d89c14d1-dca0-4536-a5ae-caaaccc5a8fe",
+          "is_selected": true,
+          "display_name": "last_name",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "afd49f05-2f03-43c8-a3f8-8d104f1797bc",
+          "is_selected": true,
+          "display_name": "role_category",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "41599a03-9b37-4be7-b954-0492a5e7abe6",
+          "is_selected": true,
+          "display_name": "role_title",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "7d06914d-2b91-42f3-98e8-9b0c8feef412",
+          "is_selected": true,
+          "display_name": "salary_band",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "d4049587-22d3-4743-bb4a-fb22e9b1e832",
+          "is_selected": true,
+          "display_name": "staff_id",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "e40f847c-b820-4ea3-89c5-14400220068f",
+          "is_selected": true,
+          "display_name": "staff_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "081ad1a5-49fa-46f6-8454-4b1a6a4d5c30",
+      "is_selected": true,
+      "display_name": "dim_student",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "759189de-98c6-4f25-94d0-7df258f2fc73",
+          "is_selected": true,
+          "display_name": "academic_year_start",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "b2ff3ab9-a4e8-4d9b-a580-51c523df25b5",
+          "is_selected": true,
+          "display_name": "address_postcode",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "af5e67db-0a35-4c68-b08c-95b195e7dd3e",
+          "is_selected": true,
+          "display_name": "address_state",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "b8776e2b-7a6f-4868-aec8-ec23b582176b",
+          "is_selected": true,
+          "display_name": "address_street",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "695a6b5a-56af-4330-8aa6-9a8821b8c2f0",
+          "is_selected": true,
+          "display_name": "address_suburb",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "0c96ff87-de74-4e0a-8fab-ae773540fdd3",
+          "is_selected": true,
+          "display_name": "country_of_birth",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "90ed9499-79a5-41a7-b161-7ee9e02fddad",
+          "is_selected": true,
+          "display_name": "date_of_birth",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "5569ec41-9bb0-42fd-9bee-173e11b79f05",
+          "is_selected": true,
+          "display_name": "department_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "1a82a024-bfdc-42bd-bee1-0bac3ada1d78",
+          "is_selected": true,
+          "display_name": "disability_support_flag",
+          "type": "semantic_model.column",
+          "data_type": "Boolean",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "86c61968-e13f-4886-b6f9-9acfb19365c8",
+          "is_selected": true,
+          "display_name": "domestic_international",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "66c274fc-6aa0-4fef-96ce-ad8856f2f51e",
+          "is_selected": true,
+          "display_name": "email",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "852b5942-6839-4907-b248-09b00500df5c",
+          "is_selected": true,
+          "display_name": "enrolment_date",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "1d36db1a-c9f1-4590-aff5-0c4619ef59d0",
+          "is_selected": true,
+          "display_name": "enrolment_status",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "34f14678-69c6-404b-886f-5a9eddc2ef2f",
+          "is_selected": true,
+          "display_name": "expected_graduation_date",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "6be34aad-bfce-44a9-8fe7-b38fea264595",
+          "is_selected": true,
+          "display_name": "first_in_family_flag",
+          "type": "semantic_model.column",
+          "data_type": "Boolean",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "5e751112-3543-41cc-ac30-a5fc28ff6acf",
+          "is_selected": true,
+          "display_name": "first_name",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "8000a573-b22e-4430-80f8-6a5be1f021ea",
+          "is_selected": true,
+          "display_name": "gender",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "3d91dad3-4e95-4e08-b61f-562ac9186d6c",
+          "is_selected": true,
+          "display_name": "last_name",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "e370c5d9-e002-4051-a759-509584a9b540",
+          "is_selected": true,
+          "display_name": "nationality",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "80e0273d-7730-47a7-9304-6c983c7c148f",
+          "is_selected": true,
+          "display_name": "permanent_resident_flag",
+          "type": "semantic_model.column",
+          "data_type": "Boolean",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "0a55770d-f71e-47e3-af0f-c674c07cc443",
+          "is_selected": true,
+          "display_name": "phone",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "4aaa2e6d-895c-4153-9cad-017e179714df",
+          "is_selected": true,
+          "display_name": "program_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "9504f9aa-ada4-4056-a255-182c5f3cfeb0",
+          "is_selected": true,
+          "display_name": "scholarship_flag",
+          "type": "semantic_model.column",
+          "data_type": "Boolean",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "d5a1c2b3-375e-4fa2-8da4-80c3c96ed07e",
+          "is_selected": true,
+          "display_name": "scholarship_type",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "937de294-7875-4088-85f6-8844b645fcfa",
+          "is_selected": true,
+          "display_name": "student_id",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "d35defa6-5344-492f-aa62-0cadbdfef22f",
+          "is_selected": true,
+          "display_name": "student_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "66ad7950-54ae-439b-8628-60724f4b47a1",
+      "is_selected": true,
+      "display_name": "fact_enrollments",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "9988198f-c0d0-438a-ba20-916a75d5c6ff",
+          "is_selected": true,
+          "display_name": "academic_load",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "0b7b9169-abda-4426-b363-5cee4708a2d2",
+          "is_selected": true,
+          "display_name": "academic_period_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "655f7254-cd09-44f3-8564-9033e41c32f3",
+          "is_selected": true,
+          "display_name": "Active Enrolments",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "6a034b64-46e8-4469-a94b-30e40c7a5449",
+          "is_selected": true,
+          "display_name": "Completion Rate",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "fe8c5907-9d43-4d13-acd1-7e71029ff377",
+          "is_selected": true,
+          "display_name": "course_final_grade_letter",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "8bab7858-e9df-4294-9f6d-19b3b27c235b",
+          "is_selected": true,
+          "display_name": "course_gpa_points",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "5861ea96-f54e-406b-95e2-13c323b54c11",
+          "is_selected": true,
+          "display_name": "course_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "ca932256-4908-4b93-9d23-8c54abfe4fc1",
+          "is_selected": true,
+          "display_name": "credit_points_attempted",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "2d15ba6f-e218-49d9-a3ce-e399b5c94689",
+          "is_selected": true,
+          "display_name": "credit_points_earned",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "1cd1702d-4cba-4375-870e-b0db85927f03",
+          "is_selected": true,
+          "display_name": "delivery_mode",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "d7b3f050-ae47-45ab-ab4e-78204e5d11ec",
+          "is_selected": true,
+          "display_name": "enroll_date_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "6f8e8cb1-e1d2-452c-ad40-e4485c3168c6",
+          "is_selected": true,
+          "display_name": "enrollment_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "8d30ed98-0590-47cc-9ccb-f67d5540fe30",
+          "is_selected": true,
+          "display_name": "enrollment_status",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "ada5b202-30b0-44fb-91fb-4252c5fd5879",
+          "is_selected": true,
+          "display_name": "enrollment_type",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "752fa71b-e922-4188-a593-7bec2f4b4487",
+          "is_selected": true,
+          "display_name": "is_repeat",
+          "type": "semantic_model.column",
+          "data_type": "Boolean",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "ebe87603-6f5c-46a3-a6a5-70097a4e3c6b",
+          "is_selected": true,
+          "display_name": "program_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "c2ca0f72-fcd7-4812-a432-b09c835ef563",
+          "is_selected": true,
+          "display_name": "student_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "781a83ab-27e4-4bea-948f-477bfbebf5ad",
+          "is_selected": true,
+          "display_name": "Total Enrolments",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "9ac0d4f8-1290-4c11-84c6-c28391f06cec",
+          "is_selected": true,
+          "display_name": "Total MCs Attempted",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "4054320f-a0d9-4a24-9aab-4e1d66c2152c",
+          "is_selected": true,
+          "display_name": "Total MCs Earned",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "c4ec4349-09f4-4a49-87af-cc663783d700",
+          "is_selected": true,
+          "display_name": "Unique Students",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "eea8f544-149c-4c10-b701-53f6e68a7e9e",
+          "is_selected": true,
+          "display_name": "withdraw_date_key",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "db7833c1-2ae0-45be-8a0f-cfcae31dc94b",
+          "is_selected": true,
+          "display_name": "Withdrawal Rate",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "a18e04b8-d144-47de-85bf-dfc57bc04bcf",
+          "is_selected": true,
+          "display_name": "withdrew_before_census",
+          "type": "semantic_model.column",
+          "data_type": "Boolean",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "3417d640-3c63-44e5-beb1-83bad97d4eb1",
+      "is_selected": true,
+      "display_name": "fact_exam_results",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "a16a8e47-65e0-488a-be03-3298506c8efd",
+          "is_selected": true,
+          "display_name": "academic_period_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "529c5029-4638-4b42-a1f1-2b507eefe492",
+          "is_selected": true,
+          "display_name": "attempt_number",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "e2839eb3-3a82-4a94-bd4f-0f98b5197d7f",
+          "is_selected": true,
+          "display_name": "Average GPA",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "2641c2e6-a219-4081-8769-71fd7bd2a4e0",
+          "is_selected": true,
+          "display_name": "Average Score",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "2be62416-e679-442a-bdff-7976f43236f4",
+          "is_selected": true,
+          "display_name": "Average Weighted Score",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "0a4bbc5f-b364-4c93-b40c-fad1be3626d7",
+          "is_selected": true,
+          "display_name": "Course Difficulty Index",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "0f05a18f-bdbb-4b52-bacb-2b3a6cfb168b",
+          "is_selected": true,
+          "display_name": "course_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "95f1b729-faea-423a-bec0-6031a643a2cf",
+          "is_selected": true,
+          "display_name": "Distinction Rate",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "fee90f04-f554-4dac-b955-d4635cd52278",
+          "is_selected": true,
+          "display_name": "Exam Count",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "d9ded7dd-ec8d-44c8-9573-278760bf8f25",
+          "is_selected": true,
+          "display_name": "exam_date_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "6ee3c75f-5cfb-4f47-a726-a99b03821ece",
+          "is_selected": true,
+          "display_name": "exam_result_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "44e22f66-e25c-44d3-8cf8-ffe4d6194aab",
+          "is_selected": true,
+          "display_name": "exam_type_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "0f689f2f-4fe2-4625-80c3-d90bd7e745a2",
+          "is_selected": true,
+          "display_name": "Fail Count",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "6f76ef27-c537-478e-8ca1-cec8f04095b4",
+          "is_selected": true,
+          "display_name": "grade_letter",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "775152f2-f613-47d6-88b9-a39a927368a9",
+          "is_selected": true,
+          "display_name": "grade_points",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "2c03b60d-1cf8-46ef-8042-905b4671915f",
+          "is_selected": true,
+          "display_name": "grading_status",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "e052d36f-533c-48c2-8e19-6512c10e3d4a",
+          "is_selected": true,
+          "display_name": "is_supplementary",
+          "type": "semantic_model.column",
+          "data_type": "Boolean",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "5c014fdc-b525-44ab-9e8c-4d3836bc4baa",
+          "is_selected": true,
+          "display_name": "max_score",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "d5e9caf3-ee9d-4972-aebb-f765527324c0",
+          "is_selected": true,
+          "display_name": "Pass Rate",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "a2ee34d4-3dd5-4a18-a09e-7b6734688f19",
+          "is_selected": true,
+          "display_name": "raw_score",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "6e2aa12e-0ebb-47fc-9d0c-e70c359ea3ba",
+          "is_selected": true,
+          "display_name": "score_percentage",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "1c7a32a0-f7e7-4fb6-94ac-e7f9dcde2ace",
+          "is_selected": true,
+          "display_name": "staff_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "146c711c-f370-4ad0-97ac-56032849d19d",
+          "is_selected": true,
+          "display_name": "student_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "dc41927c-6de6-4a4f-b753-9c8df284f061",
+          "is_selected": true,
+          "display_name": "Students at Academic Risk",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "cc76e750-720f-4de8-944e-ab5f2c9cd755",
+          "is_selected": true,
+          "display_name": "submission_date_key",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "ec072658-bfc8-4221-a6ab-482f5c5bc46c",
+          "is_selected": true,
+          "display_name": "submission_status",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "0c43761a-0e1b-4791-993e-0a390c5902fc",
+          "is_selected": true,
+          "display_name": "weighted_score",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "ce75f5a9-9a97-496b-8bba-507ecda4a5d8",
+          "is_selected": true,
+          "display_name": "weighting_pct",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "40740e13-4b59-4dfe-a9b2-3dd9751b3621",
+      "is_selected": true,
+      "display_name": "fact_financial_transactions",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "578cff3d-4915-4c84-ae2c-c787a366a785",
+          "is_selected": true,
+          "display_name": "academic_period_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "ca427ea4-d285-4f2c-b030-7ee2c29bb08f",
+          "is_selected": true,
+          "display_name": "amount",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "044ef8c7-ae83-494a-b306-613db7930d14",
+          "is_selected": true,
+          "display_name": "Average Tuition",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "b1ffb1b6-1970-422b-94bd-676850c91ba9",
+          "is_selected": true,
+          "display_name": "Avg Courses Per Student",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "c8bd1ffc-5e28-46d5-949f-3407f597c66d",
+          "is_selected": true,
+          "display_name": "Avg Exams Per Student",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "45c3063e-ecce-4c96-bdad-bd7c21db38c6",
+          "is_selected": true,
+          "display_name": "Collection Rate",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "9d0bc70e-50c9-4be7-826f-02a6593f4cfd",
+          "is_selected": true,
+          "display_name": "course_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "f63cfbaa-add1-4da1-ba07-45de8ba23e19",
+          "is_selected": true,
+          "display_name": "currency",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "d506b910-9f11-4b1b-9f2d-787508652f13",
+          "is_selected": true,
+          "display_name": "days_overdue",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "f255f177-a937-4f31-acb2-4e086a68b0cf",
+          "is_selected": true,
+          "display_name": "due_date_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "a836a4dd-9bcf-491e-9b7c-6fe9f0c2f294",
+          "is_selected": true,
+          "display_name": "fee_type_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "8dd0a7ca-cf13-4448-af81-c6d77ad7cb7e",
+          "is_selected": true,
+          "display_name": "GPA Per Student",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "3fb25692-bd79-470c-98a4-5e0afd032bdf",
+          "is_selected": true,
+          "display_name": "is_overdue",
+          "type": "semantic_model.column",
+          "data_type": "Boolean",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "0e371fc5-a9dd-4fda-8671-29c191009d6a",
+          "is_selected": true,
+          "display_name": "MCs Per Student",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "e151d217-a8f2-48df-a82d-742854d6f542",
+          "is_selected": true,
+          "display_name": "Outstanding Balance",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "ae0a365d-13f1-49ac-8425-aea93bfde74e",
+          "is_selected": true,
+          "display_name": "outstanding_balance_after",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "4fb1384a-3def-4b80-9d7a-8e93e6bd1676",
+          "is_selected": true,
+          "display_name": "Overdue Amount",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "08ac46b7-6e80-4247-b55b-fa76a9a6c006",
+          "is_selected": true,
+          "display_name": "Payment Rate",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "fa704f8b-7bf6-4e5a-948b-3bdbaf0d7ac5",
+          "is_selected": true,
+          "display_name": "payment_method",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "d7ec6ca0-aa8a-4c8a-a3e3-b89136814c1f",
+          "is_selected": true,
+          "display_name": "reference_number",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "a43a4376-09f6-41b5-a65d-ad64c4df9680",
+          "is_selected": true,
+          "display_name": "Revenue Per Student",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "71603939-c923-4d1d-a0ac-18ddf0184ef1",
+          "is_selected": true,
+          "display_name": "Scholarship Rate",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "0d4029b0-59f1-4657-8e47-dcc38b3debf3",
+          "is_selected": true,
+          "display_name": "signed_amount",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "c0b69ab4-3f95-40e8-bb30-fd5c834fcb88",
+          "is_selected": true,
+          "display_name": "student_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "a3d9cf55-32b4-4880-8c5b-c3610aa202fe",
+          "is_selected": true,
+          "display_name": "Students with Overdue Balance",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "7b0ac289-d63c-46ac-8151-80f33418c8f0",
+          "is_selected": true,
+          "display_name": "Total Payments",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "4e3696a7-f5fe-4f94-9b67-23ea7582869e",
+          "is_selected": true,
+          "display_name": "Total Revenue",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "9b82bf99-6d0d-4c36-9009-0a1b9cd9b72c",
+          "is_selected": true,
+          "display_name": "Total Scholarships",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "29d7c2ec-d748-4cb8-969f-795b1c5f2a62",
+          "is_selected": true,
+          "display_name": "Transaction Count",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "9a5f4934-d4ef-43cd-b396-41d7d26c2a45",
+          "is_selected": true,
+          "display_name": "transaction_date_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "d03c8775-fe6e-44b4-9979-ffa7bef2932f",
+          "is_selected": true,
+          "display_name": "transaction_id",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "47a8d3d7-9a44-4301-84b0-97e3e40845df",
+          "is_selected": true,
+          "display_name": "transaction_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "42bfb2a8-b283-44dd-b912-28629b052042",
+          "is_selected": true,
+          "display_name": "transaction_type",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

@@ -25,7 +25,7 @@
 # MAGIC %%sql
 # MAGIC 
 # MAGIC UPDATE university.dim_student
-# MAGIC SET email = 'ligen@microsoft.com'
+# MAGIC SET email = 'DannyLiu@MngEnvMCAP906235.onmicrosoft.com'
 # MAGIC WHERE student_key = 1;
 
 # METADATA ********************
