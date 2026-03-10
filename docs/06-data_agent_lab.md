@@ -71,6 +71,12 @@ logged-in student (enforced by Row-Level Security).
 
 Currency is SGD. Grading follows the NUS 5.0 GPA scale (A+/A = 5.0 down
 to F = 0.0). Each module is worth 4 Modular Credits (MC).
+
+IMPORTANT DATA FILTERING GUIDELINES:
+- Student enrollment status: Use "Active" in dim_student.enrolment_status to identify currently enrolled students (NOT "Enrolled"). Valid status values are: "Active", "Graduated", "Withdrawn", "Suspended"
+- Semester references: When filtering by semester in dim_academic_period.semester, always use full names like "Semester 1" or "Semester 2" , do NOT use value '1' or '2' to filter the semester
+- Scholarship queries: Use dim_fee_type.fee_type_id = 'FEE-SCH' when filtering for scholarship-related transactions
+
 ```
 
 6. Test with sample questions using a test student account (e.g., `stu0042@e.university.edu.sg`):
