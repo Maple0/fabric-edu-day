@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/relationshipType/1.0.0/schema.json",
+  "namespace": "usertypes",
+  "id": "7218896597192075938",
+  "name": "bridge_course_program_has_dim_program",
+  "namespaceType": "Imported",
+  "source": {
+    "entityTypeId": "74944511284621"
+  },
+  "target": {
+    "entityTypeId": "120408147551990"
+  }
+}

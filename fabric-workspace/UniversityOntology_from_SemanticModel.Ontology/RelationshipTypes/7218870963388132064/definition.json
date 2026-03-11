@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/relationshipType/1.0.0/schema.json",
+  "namespace": "usertypes",
+  "id": "7218870963388132064",
+  "name": "fact_exam_results_has_dim_date",
+  "namespaceType": "Imported",
+  "source": {
+    "entityTypeId": "166009485526432"
+  },
+  "target": {
+    "entityTypeId": "70121474070573"
+  }
+}

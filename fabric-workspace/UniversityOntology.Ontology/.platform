@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Ontology",
+    "displayName": "UniversityOntology"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "faabe649-268c-95fb-48df-c2245ec59ec0"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/contextualization/1.0.0/schema.json",
+  "id": "bd47d112-76cd-4de2-ae3c-f1ce4d7ad618",
+  "dataBindingTable": {
+    "workspaceId": "00000000-0000-0000-0000-000000000000",
+    "itemId": "c5efef0d-a3ff-8139-4f6f-be251668b27e",
+    "sourceTableName": "fact_exam_results",
+    "sourceSchema": "university",
+    "sourceType": "LakehouseTable"
+  },
+  "sourceKeyRefBindings": [
+    {
+      "sourceColumnName": "student_key",
+      "targetPropertyId": "7750068609972751892"
+    }
+  ],
+  "targetKeyRefBindings": [
+    {
+      "sourceColumnName": "course_key",
+      "targetPropertyId": "7754924954567193390"
+    }
+  ]
+}

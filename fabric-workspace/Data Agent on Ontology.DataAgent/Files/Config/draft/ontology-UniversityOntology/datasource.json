@@ -1,0 +1,60 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/dataAgent/definition/dataSource/1.0.0/schema.json",
+  "artifactId": "faabe649-268c-95fb-48df-c2245ec59ec0",
+  "workspaceId": "00000000-0000-0000-0000-000000000000",
+  "dataSourceInstructions": null,
+  "displayName": "UniversityOntology",
+  "type": "ontology",
+  "userDescription": null,
+  "metadata": {},
+  "elements": [
+    {
+      "id": "Student",
+      "is_selected": true,
+      "display_name": "Student",
+      "type": "ontology.entity",
+      "description": "student_key,student_id,first_name,last_name,date_of_birth,gender,email,phone,address_street,address_suburb,address_state,address_postcode,country_of_birth,nationality,domestic_international,enrolment_status,enrolment_date,expected_graduation_date,program_key,department_key,academic_year_start,scholarship_flag,scholarship_type,disability_support_flag,first_in_family_flag,permanent_resident_flag",
+      "children": []
+    },
+    {
+      "id": "Course",
+      "is_selected": true,
+      "display_name": "Course",
+      "type": "ontology.entity",
+      "description": "course_key,course_id,course_name,credit_points,level,department_key,coordinator_staff_key,prerequisite_course_id,delivery_mode,is_core,is_active,description",
+      "children": []
+    },
+    {
+      "id": "Program",
+      "is_selected": true,
+      "display_name": "Program",
+      "type": "ontology.entity",
+      "description": "program_key,program_id,program_name,program_type,duration_years,total_credit_points,department_key,faculty,igp_score,annual_domestic_fee,annual_international_fee,delivery_mode,accreditation_body,is_active",
+      "children": []
+    },
+    {
+      "id": "Department",
+      "is_selected": true,
+      "display_name": "Department",
+      "type": "ontology.entity",
+      "description": "department_key,department_id,department_name,faculty,head_of_department,phone,email,location_building,budget_code,is_active",
+      "children": []
+    },
+    {
+      "id": "AcademicPeriod",
+      "is_selected": true,
+      "display_name": "AcademicPeriod",
+      "type": "ontology.entity",
+      "description": "academic_period_key,period_id,academic_year,semester,period_label,start_date,end_date,census_date,exam_period_start,exam_period_end,is_current",
+      "children": []
+    },
+    {
+      "id": "Staff",
+      "is_selected": true,
+      "display_name": "Staff",
+      "type": "ontology.entity",
+      "description": "staff_key,staff_id,first_name,last_name,email,role_title,role_category,department_key,employment_type,date_joined,salary_band,is_active",
+      "children": []
+    }
+  ]
+}

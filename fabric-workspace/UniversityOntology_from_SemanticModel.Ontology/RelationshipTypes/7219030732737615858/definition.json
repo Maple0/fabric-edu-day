@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/relationshipType/1.0.0/schema.json",
+  "namespace": "usertypes",
+  "id": "7219030732737615858",
+  "name": "fact_financial_transactions_has_dim_student",
+  "namespaceType": "Imported",
+  "source": {
+    "entityTypeId": "227962527593450"
+  },
+  "target": {
+    "entityTypeId": "32455654774582"
+  }
+}
