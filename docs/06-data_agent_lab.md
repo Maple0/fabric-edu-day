@@ -39,6 +39,14 @@ IMPORTANT DATA FILTERING GUIDELINES:
 - Financial transactions: For revenue analysis, include ALL transaction types (Charge, Payment, Credit) from fact_financial_transactions.transaction_type unless specifically asked to filter by payment type
 - Scholarship queries: Use dim_fee_type.fee_type_id = 'FEE-SCH' when filtering for scholarship-related transactions
 
+CRITICAL — GPA AND GRADE QUERIES:
+- The current semester (dim_academic_period.is_current = 1) is still in progress. Students enrolled in the current semester have enrollment_status = 'Enrolled' and their course_gpa_points and course_final_grade_letter are NULL because grades are not finalised yet.
+- NEVER use is_current = 1 when calculating GPA or grade averages — it will return no meaningful data.
+- When asked about "current academic year" GPA or grades, filter by dim_academic_period.academic_year = 2024 (the latest academic year) AND fact_enrollments.enrollment_status IN ('Completed', 'Failed'). This returns only semesters where grades have been finalised.
+- When asked about "current semester" GPA or grades, explain that the current semester is still in progress and grades are not yet available. Offer to show grades from the most recently completed semester instead.
+- Always compute GPA only from rows where course_gpa_points IS NOT NULL and enrollment_status IN ('Completed', 'Failed').
+- fact_enrollments.enrollment_status values: 'Enrolled' (in-progress, no grade yet), 'Completed' (passed), 'Failed' (failed), 'Withdrawn' (dropped), 'Deferred' (deferred). Only 'Completed' and 'Failed' have GPA values.
+
 ```
 
 5. Test with these sample questions:
@@ -148,6 +156,7 @@ DATA QUERYING GUIDELINES:
 - Modular credits completed: SUM of fact_enrollments[credit_points_earned] where enrollment_status = "Completed", or use measure 'Total MCs Earned'.
 - Modular credits attempted: SUM of fact_enrollments[credit_points_attempted], or use measure 'Total MCs Attempted'.
 - Current semester: Filter dim_academic_period where is_current = 1 (use integer number 1 to filter).
+- IMPORTANT GPA NOTE: The current semester (is_current = 1) is still in progress — enrolled courses have NULL course_gpa_points. NEVER include enrollment_status = 'Enrolled' rows in GPA calculations. When asked about "current academic year" GPA, filter by dim_academic_period[academic_year] = 2024 AND enrollment_status IN ('Completed', 'Failed'). When asked about "current semester" GPA, explain grades are not yet available and offer the most recently completed semester instead.
 - Exam results: Use fact_exam_results joined to dim_exam_type and dim_course.
 - Outstanding fees: Use fact_financial_transactions. Charges = "Charge", payments = "Payment", credits = "Credit". Or use measure 'Outstanding Balance'.
 - Overdue fees: Filter fact_financial_transactions where is_overdue = 1. Or use measure 'Overdue Amount'.

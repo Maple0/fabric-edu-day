@@ -648,7 +648,8 @@ def generate_fact_enrollments(
                     final_grade = None
                     gpa_points = None
                     cp_earned = 0
-                elif period["is_current"]:
+                elif period["is_current"] and status == "Active":
+                    # Active students in the current period are still enrolled
                     enroll_status = "Enrolled"
                     final_grade = None
                     gpa_points = None
@@ -706,9 +707,9 @@ def generate_fact_exam_results(
 ) -> pd.DataFrame:
     print("Generating fact_exam_results ...")
 
-    # Only generate results for non-withdrawn, non-deferred enrollments
+    # Only generate results for completed/failed enrollments (not withdrawn, deferred, or still enrolled)
     active_enrollments = df_enrollments[
-        ~df_enrollments["enrollment_status"].isin(["Withdrawn", "Deferred"])
+        ~df_enrollments["enrollment_status"].isin(["Withdrawn", "Deferred", "Enrolled"])
     ]
 
     student_intl: dict[int, bool] = dict(
