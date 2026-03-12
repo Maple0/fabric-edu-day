@@ -184,8 +184,9 @@ Resolves many-to-many between courses and programs.
 
 | Column | Type | Nullable | Description |
 |--------|------|----------|-------------|
-| course_key | INT | No | FK → dim_course (composite PK) |
-| program_key | INT | No | FK → dim_program (composite PK) |
+| bridge_key | INT | No | Primary key (surrogate) |
+| course_key | INT | No | FK → dim_course |
+| program_key | INT | No | FK → dim_program |
 | course_sequence | INT | No | Order within the program structure |
 | is_core | BOOLEAN | No | Core requirement vs elective |
 | year_of_program | INT | No | Typical year of study (1, 2, 3, or 4) |

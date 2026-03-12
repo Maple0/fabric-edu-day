@@ -82,6 +82,7 @@ def run_all_checks(tables: dict[str, pd.DataFrame]) -> int:
         "dim_program": "program_key",
         "dim_staff": "staff_key",
         "dim_course": "course_key",
+        "bridge_course_program": "bridge_key",
         "dim_exam_type": "exam_type_key",
         "dim_fee_type": "fee_type_key",
         "dim_academic_period": "academic_period_key",

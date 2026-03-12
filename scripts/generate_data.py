@@ -379,6 +379,8 @@ def generate_bridge_course_program(
             seq += 1
 
     df = pd.DataFrame(rows).drop_duplicates(subset=["course_key", "program_key"])
+    # Add surrogate key after dedup
+    df.insert(0, "bridge_key", range(1, len(df) + 1))
     print(f"  bridge_course_program: {len(df):,} rows")
     return df
 
