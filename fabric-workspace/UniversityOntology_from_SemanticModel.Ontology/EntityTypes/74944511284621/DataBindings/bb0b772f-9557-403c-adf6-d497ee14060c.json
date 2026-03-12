@@ -1,0 +1,36 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "bb0b772f-9557-403c-adf6-d497ee14060c",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "course_key",
+        "targetPropertyId": "7220001903737564097"
+      },
+      {
+        "sourceColumnName": "program_key",
+        "targetPropertyId": "7220001882633917099"
+      },
+      {
+        "sourceColumnName": "course_sequence",
+        "targetPropertyId": "7220001855691396556"
+      },
+      {
+        "sourceColumnName": "is_core",
+        "targetPropertyId": "7220001834831572568"
+      },
+      {
+        "sourceColumnName": "year_of_program",
+        "targetPropertyId": "7220001814664886588"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "7c9771e8-a91d-4115-b9ba-b39c0a3c79b1",
+      "itemId": "dbcbadb4-fbbe-4751-9bab-ef25ff473bfb",
+      "sourceTableName": "bridge_course_program",
+      "sourceSchema": "university"
+    }
+  }
+}

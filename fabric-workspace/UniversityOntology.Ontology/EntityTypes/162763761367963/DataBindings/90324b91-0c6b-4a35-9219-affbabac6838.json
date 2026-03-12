@@ -1,0 +1,64 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "90324b91-0c6b-4a35-9219-affbabac6838",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "course_key",
+        "targetPropertyId": "7754924954567193390"
+      },
+      {
+        "sourceColumnName": "course_id",
+        "targetPropertyId": "7754924953695604920"
+      },
+      {
+        "sourceColumnName": "course_name",
+        "targetPropertyId": "7754924958056990642"
+      },
+      {
+        "sourceColumnName": "credit_points",
+        "targetPropertyId": "7754924959199224195"
+      },
+      {
+        "sourceColumnName": "level",
+        "targetPropertyId": "7754924956933323474"
+      },
+      {
+        "sourceColumnName": "department_key",
+        "targetPropertyId": "7754924959572253281"
+      },
+      {
+        "sourceColumnName": "coordinator_staff_key",
+        "targetPropertyId": "7754924956167272468"
+      },
+      {
+        "sourceColumnName": "prerequisite_course_id",
+        "targetPropertyId": "7754924957205484078"
+      },
+      {
+        "sourceColumnName": "delivery_mode",
+        "targetPropertyId": "7754924958203840421"
+      },
+      {
+        "sourceColumnName": "is_core",
+        "targetPropertyId": "7754924956040216921"
+      },
+      {
+        "sourceColumnName": "is_active",
+        "targetPropertyId": "7754924958554782747"
+      },
+      {
+        "sourceColumnName": "description",
+        "targetPropertyId": "7754924956683289490"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "00000000-0000-0000-0000-000000000000",
+      "itemId": "c5efef0d-a3ff-8139-4f6f-be251668b27e",
+      "sourceTableName": "dim_course",
+      "sourceSchema": "university"
+    }
+  }
+}

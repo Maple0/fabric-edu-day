@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Ontology",
+    "displayName": "UniversityOntology_from_SemanticModel"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "36d1f245-9b2e-97a4-45df-ddf51e6589ab"
+  }
+}

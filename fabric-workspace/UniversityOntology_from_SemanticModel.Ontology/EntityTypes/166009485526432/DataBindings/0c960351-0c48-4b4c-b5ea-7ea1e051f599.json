@@ -1,0 +1,92 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "0c960351-0c48-4b4c-b5ea-7ea1e051f599",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "exam_result_key",
+        "targetPropertyId": "7220003119576814663"
+      },
+      {
+        "sourceColumnName": "student_key",
+        "targetPropertyId": "7220003096046310444"
+      },
+      {
+        "sourceColumnName": "course_key",
+        "targetPropertyId": "7220003075271587725"
+      },
+      {
+        "sourceColumnName": "exam_type_key",
+        "targetPropertyId": "7220003052723320152"
+      },
+      {
+        "sourceColumnName": "academic_period_key",
+        "targetPropertyId": "7220003027420649422"
+      },
+      {
+        "sourceColumnName": "staff_key",
+        "targetPropertyId": "7220003007528051082"
+      },
+      {
+        "sourceColumnName": "exam_date_key",
+        "targetPropertyId": "7220002987799676108"
+      },
+      {
+        "sourceColumnName": "submission_date_key",
+        "targetPropertyId": "7220002958786339037"
+      },
+      {
+        "sourceColumnName": "raw_score",
+        "targetPropertyId": "7220002937420792337"
+      },
+      {
+        "sourceColumnName": "max_score",
+        "targetPropertyId": "7220002917343073534"
+      },
+      {
+        "sourceColumnName": "score_percentage",
+        "targetPropertyId": "7220002891743651685"
+      },
+      {
+        "sourceColumnName": "grade_letter",
+        "targetPropertyId": "7220002869723906051"
+      },
+      {
+        "sourceColumnName": "grade_points",
+        "targetPropertyId": "7220002849625535096"
+      },
+      {
+        "sourceColumnName": "weighting_pct",
+        "targetPropertyId": "7220002826327482725"
+      },
+      {
+        "sourceColumnName": "weighted_score",
+        "targetPropertyId": "7220002803002156116"
+      },
+      {
+        "sourceColumnName": "attempt_number",
+        "targetPropertyId": "7220002779831237620"
+      },
+      {
+        "sourceColumnName": "is_supplementary",
+        "targetPropertyId": "7220002760209102073"
+      },
+      {
+        "sourceColumnName": "submission_status",
+        "targetPropertyId": "7220002737303694989"
+      },
+      {
+        "sourceColumnName": "grading_status",
+        "targetPropertyId": "7220002716240816994"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "7c9771e8-a91d-4115-b9ba-b39c0a3c79b1",
+      "itemId": "dbcbadb4-fbbe-4751-9bab-ef25ff473bfb",
+      "sourceTableName": "fact_exam_results",
+      "sourceSchema": "university"
+    }
+  }
+}

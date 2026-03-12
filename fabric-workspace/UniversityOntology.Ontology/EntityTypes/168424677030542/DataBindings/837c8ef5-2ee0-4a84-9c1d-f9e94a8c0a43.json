@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "837c8ef5-2ee0-4a84-9c1d-f9e94a8c0a43",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "department_key",
+        "targetPropertyId": "7761142589541519406"
+      },
+      {
+        "sourceColumnName": "department_id",
+        "targetPropertyId": "7761142594311669019"
+      },
+      {
+        "sourceColumnName": "department_name",
+        "targetPropertyId": "7761142595380664277"
+      },
+      {
+        "sourceColumnName": "faculty",
+        "targetPropertyId": "7761142594052227417"
+      },
+      {
+        "sourceColumnName": "head_of_department",
+        "targetPropertyId": "7761142591319381180"
+      },
+      {
+        "sourceColumnName": "phone",
+        "targetPropertyId": "7761142591622977027"
+      },
+      {
+        "sourceColumnName": "email",
+        "targetPropertyId": "7761142594711143626"
+      },
+      {
+        "sourceColumnName": "location_building",
+        "targetPropertyId": "7761142593375109764"
+      },
+      {
+        "sourceColumnName": "budget_code",
+        "targetPropertyId": "7761142592563349664"
+      },
+      {
+        "sourceColumnName": "is_active",
+        "targetPropertyId": "7761142591331163183"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "00000000-0000-0000-0000-000000000000",
+      "itemId": "c5efef0d-a3ff-8139-4f6f-be251668b27e",
+      "sourceTableName": "dim_department",
+      "sourceSchema": "university"
+    }
+  }
+}

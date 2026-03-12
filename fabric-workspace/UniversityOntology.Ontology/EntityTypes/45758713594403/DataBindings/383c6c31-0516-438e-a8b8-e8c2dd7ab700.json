@@ -1,0 +1,60 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "383c6c31-0516-438e-a8b8-e8c2dd7ab700",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "academic_period_key",
+        "targetPropertyId": "7764087578337587205"
+      },
+      {
+        "sourceColumnName": "period_id",
+        "targetPropertyId": "7764087579682999251"
+      },
+      {
+        "sourceColumnName": "academic_year",
+        "targetPropertyId": "7764087578811949482"
+      },
+      {
+        "sourceColumnName": "semester",
+        "targetPropertyId": "7764087580887104996"
+      },
+      {
+        "sourceColumnName": "period_label",
+        "targetPropertyId": "7764087579329486458"
+      },
+      {
+        "sourceColumnName": "start_date",
+        "targetPropertyId": "7764087580971450142"
+      },
+      {
+        "sourceColumnName": "end_date",
+        "targetPropertyId": "7764087577658832818"
+      },
+      {
+        "sourceColumnName": "census_date",
+        "targetPropertyId": "7764087578541327830"
+      },
+      {
+        "sourceColumnName": "exam_period_start",
+        "targetPropertyId": "7764087577879824807"
+      },
+      {
+        "sourceColumnName": "exam_period_end",
+        "targetPropertyId": "7764087581481655057"
+      },
+      {
+        "sourceColumnName": "is_current",
+        "targetPropertyId": "7764087579157655149"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "00000000-0000-0000-0000-000000000000",
+      "itemId": "c5efef0d-a3ff-8139-4f6f-be251668b27e",
+      "sourceTableName": "dim_academic_period",
+      "sourceSchema": "university"
+    }
+  }
+}
