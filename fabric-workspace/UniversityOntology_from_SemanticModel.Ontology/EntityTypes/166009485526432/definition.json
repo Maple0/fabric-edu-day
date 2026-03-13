@@ -4,8 +4,10 @@
   "namespace": "usertypes",
   "baseEntityTypeId": null,
   "name": "fact_exam_results",
-  "entityIdParts": [],
-  "displayNamePropertyId": null,
+  "entityIdParts": [
+    "7220003119576814663"
+  ],
+  "displayNamePropertyId": "7220003119576814663",
   "namespaceType": "Imported",
   "visibility": "Visible",
   "properties": [

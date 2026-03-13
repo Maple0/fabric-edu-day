@@ -1,0 +1,124 @@
+table dim_staff
+	lineageTag: 9ddad1e9-7d8e-4035-b356-1e4ce6f4d04b
+	sourceLineageTag: [university].[dim_staff]
+
+	column staff_key
+		dataType: int64
+		formatString: 0
+		lineageTag: e40f847c-b820-4ea3-89c5-14400220068f
+		sourceLineageTag: staff_key
+		isDefaultLabel
+		summarizeBy: none
+		sourceColumn: staff_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column staff_id
+		dataType: string
+		lineageTag: d4049587-22d3-4743-bb4a-fb22e9b1e832
+		sourceLineageTag: staff_id
+		summarizeBy: none
+		sourceColumn: staff_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column first_name
+		dataType: string
+		lineageTag: e1fc1a7e-6914-49e0-b20f-883b8b196dc0
+		sourceLineageTag: first_name
+		summarizeBy: none
+		sourceColumn: first_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_name
+		dataType: string
+		lineageTag: d89c14d1-dca0-4536-a5ae-caaaccc5a8fe
+		sourceLineageTag: last_name
+		summarizeBy: none
+		sourceColumn: last_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column email
+		dataType: string
+		lineageTag: dbe336cd-c506-4eed-ae69-f9320ec06653
+		sourceLineageTag: email
+		summarizeBy: none
+		sourceColumn: email
+
+		annotation SummarizationSetBy = Automatic
+
+	column role_title
+		dataType: string
+		lineageTag: 41599a03-9b37-4be7-b954-0492a5e7abe6
+		sourceLineageTag: role_title
+		summarizeBy: none
+		sourceColumn: role_title
+
+		annotation SummarizationSetBy = Automatic
+
+	column role_category
+		dataType: string
+		lineageTag: afd49f05-2f03-43c8-a3f8-8d104f1797bc
+		sourceLineageTag: role_category
+		summarizeBy: none
+		sourceColumn: role_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_key
+		dataType: int64
+		formatString: 0
+		lineageTag: c3d04391-5dd2-4dbf-b849-05d278cacaa7
+		sourceLineageTag: department_key
+		summarizeBy: none
+		sourceColumn: department_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column employment_type
+		dataType: string
+		lineageTag: 9e8d315a-55ed-46cf-9c56-54b5765ecae8
+		sourceLineageTag: employment_type
+		summarizeBy: none
+		sourceColumn: employment_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_joined
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c3343613-bc7b-45fd-ac59-7cf968b0499a
+		sourceLineageTag: date_joined
+		summarizeBy: none
+		sourceColumn: date_joined
+
+		annotation SummarizationSetBy = Automatic
+
+	column salary_band
+		dataType: string
+		lineageTag: 7d06914d-2b91-42f3-98e8-9b0c8feef412
+		sourceLineageTag: salary_band
+		summarizeBy: none
+		sourceColumn: salary_band
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_active
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 8ce0b9da-7497-4c80-9ee2-26f29e6b26f6
+		sourceLineageTag: is_active
+		summarizeBy: none
+		sourceColumn: is_active
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_staff = entity
+		mode: directLake
+		source
+			entityName: dim_staff
+			schemaName: university
+			expressionSource: 'DirectLake - university_lakehouse'
+

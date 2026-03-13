@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/contextualization/1.0.0/schema.json",
   "id": "0d451d07-40be-4c37-a054-d9b74be1a7e4",
   "dataBindingTable": {
-    "workspaceId": "7c9771e8-a91d-4115-b9ba-b39c0a3c79b1",
-    "itemId": "dbcbadb4-fbbe-4751-9bab-ef25ff473bfb",
+    "workspaceId": "00000000-0000-0000-0000-000000000000",
+    "itemId": "c5efef0d-a3ff-8139-4f6f-be251668b27e",
     "sourceTableName": "dim_course",
     "sourceSchema": "university",
     "sourceType": "LakehouseTable"

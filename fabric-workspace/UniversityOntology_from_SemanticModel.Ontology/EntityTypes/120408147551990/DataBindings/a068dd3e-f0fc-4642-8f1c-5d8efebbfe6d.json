@@ -1,0 +1,72 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "a068dd3e-f0fc-4642-8f1c-5d8efebbfe6d",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "program_key",
+        "targetPropertyId": "7220002251191684413"
+      },
+      {
+        "sourceColumnName": "program_id",
+        "targetPropertyId": "7220002231042354037"
+      },
+      {
+        "sourceColumnName": "program_name",
+        "targetPropertyId": "7220002205346762913"
+      },
+      {
+        "sourceColumnName": "program_type",
+        "targetPropertyId": "7220002183520227667"
+      },
+      {
+        "sourceColumnName": "duration_years",
+        "targetPropertyId": "7220002157096633576"
+      },
+      {
+        "sourceColumnName": "total_credit_points",
+        "targetPropertyId": "7220002137326407285"
+      },
+      {
+        "sourceColumnName": "department_key",
+        "targetPropertyId": "7220002109728436274"
+      },
+      {
+        "sourceColumnName": "faculty",
+        "targetPropertyId": "7220002087622137745"
+      },
+      {
+        "sourceColumnName": "igp_score",
+        "targetPropertyId": "7220002067900003332"
+      },
+      {
+        "sourceColumnName": "annual_domestic_fee",
+        "targetPropertyId": "7220002041228981576"
+      },
+      {
+        "sourceColumnName": "annual_international_fee",
+        "targetPropertyId": "7220002020848506278"
+      },
+      {
+        "sourceColumnName": "delivery_mode",
+        "targetPropertyId": "7220001992657144082"
+      },
+      {
+        "sourceColumnName": "accreditation_body",
+        "targetPropertyId": "7220001974644046957"
+      },
+      {
+        "sourceColumnName": "is_active",
+        "targetPropertyId": "7220001951519362942"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "00000000-0000-0000-0000-000000000000",
+      "itemId": "c5efef0d-a3ff-8139-4f6f-be251668b27e",
+      "sourceTableName": "dim_program",
+      "sourceSchema": "university"
+    }
+  }
+}

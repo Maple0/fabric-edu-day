@@ -81,7 +81,7 @@ CONFIG = {
     "n_programs": 12,
     "n_courses": 60,
     "n_staff": 80,
-    "academic_years": [2021, 2022, 2023, 2024],
+    "academic_years": [2021, 2022, 2023, 2024, 2025, 2026],
     "semesters_per_year": ["Semester 1", "Semester 2"],
 
     # ── Averages per student per semester ────────────────────────────────────
@@ -602,6 +602,8 @@ def generate_bridge_course_program(
             seq += 1
 
     df = pd.DataFrame(rows).drop_duplicates(subset=["course_key", "program_key"])
+        # Add surrogate key after dedup
+    df.insert(0, "bridge_key", range(1, len(df) + 1))
     print(f"  bridge_course_program: {len(df):,} rows")
     return df
 
@@ -673,25 +675,32 @@ def generate_dim_academic_period() -> pd.DataFrame:
 
     for year in years:
         for sem_idx, semester in enumerate(CONFIG["semesters_per_year"]):
+            cal_year = year - 1 
             if semester == "Semester 1":
-                s = date(year, CONFIG["semester1_start_mmdd"][0], CONFIG["semester1_start_mmdd"][1])
-                e = date(year, CONFIG["semester1_end_mmdd"][0], CONFIG["semester1_end_mmdd"][1])
-                census = date(year, CONFIG["semester1_census_mmdd"][0], CONFIG["semester1_census_mmdd"][1])
-                ex_s = date(year, CONFIG["semester1_exam_start_mmdd"][0], CONFIG["semester1_exam_start_mmdd"][1])
-                ex_e = date(year, CONFIG["semester1_exam_end_mmdd"][0], CONFIG["semester1_exam_end_mmdd"][1])
+                s = date(cal_year, CONFIG["semester1_start_mmdd"][0], CONFIG["semester1_start_mmdd"][1])
+                e = date(cal_year, CONFIG["semester1_end_mmdd"][0], CONFIG["semester1_end_mmdd"][1])
+                census = date(cal_year, CONFIG["semester1_census_mmdd"][0], CONFIG["semester1_census_mmdd"][1])
+                ex_s = date(cal_year, CONFIG["semester1_exam_start_mmdd"][0], CONFIG["semester1_exam_start_mmdd"][1])
+                ex_e = date(cal_year, CONFIG["semester1_exam_end_mmdd"][0], CONFIG["semester1_exam_end_mmdd"][1])
+                pd_l = f"{semester} {cal_year}"
+                acd_yr = cal_year
+                pid = f"{cal_year}-S{sem_idx + 1}"
             else:
                 s = date(year, CONFIG["semester2_start_mmdd"][0], CONFIG["semester2_start_mmdd"][1])
                 e = date(year, CONFIG["semester2_end_mmdd"][0], CONFIG["semester2_end_mmdd"][1])
                 census = date(year, CONFIG["semester2_census_mmdd"][0], CONFIG["semester2_census_mmdd"][1])
                 ex_s = date(year, CONFIG["semester2_exam_start_mmdd"][0], CONFIG["semester2_exam_start_mmdd"][1])
                 ex_e = date(year, CONFIG["semester2_exam_end_mmdd"][0], CONFIG["semester2_exam_end_mmdd"][1])
+                pd_l = f"{semester} {cal_year}"
+                acd_yr = cal_year
+                pid = f"{cal_year}-S{sem_idx + 1}"
 
             rows.append({
                 "academic_period_key": key,
-                "period_id": f"{year}-S{sem_idx + 1}",
-                "academic_year": year,
+                "period_id": pid,
+                "academic_year": acd_yr,
                 "semester": semester,
-                "period_label": f"{semester} {year}",
+                "period_label": pd_l,
                 "start_date": s,
                 "end_date": e,
                 "census_date": census,

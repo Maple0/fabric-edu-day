@@ -1,0 +1,81 @@
+table dim_exam_type
+	lineageTag: dc6bafbd-01c0-4f54-beec-43be178f5df9
+	sourceLineageTag: [university].[dim_exam_type]
+
+	column exam_type_key
+		dataType: int64
+		formatString: 0
+		lineageTag: a46e3252-2512-43b5-95e7-15336255b8bf
+		sourceLineageTag: exam_type_key
+		isDefaultLabel
+		summarizeBy: none
+		sourceColumn: exam_type_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column exam_type_id
+		dataType: string
+		lineageTag: 3073864e-18ad-4499-9764-9519e8eb5639
+		sourceLineageTag: exam_type_id
+		summarizeBy: none
+		sourceColumn: exam_type_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column exam_type_name
+		dataType: string
+		lineageTag: f703ab53-03f7-499d-b299-46b29218fd85
+		sourceLineageTag: exam_type_name
+		summarizeBy: none
+		sourceColumn: exam_type_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column category
+		dataType: string
+		lineageTag: eecc7244-eed5-4a0f-9d9e-cdb80f4fa7a2
+		sourceLineageTag: category
+		summarizeBy: none
+		sourceColumn: category
+
+		annotation SummarizationSetBy = Automatic
+
+	column weighting_typical_pct
+		dataType: double
+		lineageTag: 05fe4005-ac55-40f0-b952-21a20232a007
+		sourceLineageTag: weighting_typical_pct
+		summarizeBy: none
+		sourceColumn: weighting_typical_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column duration_minutes
+		dataType: double
+		lineageTag: 4310826c-9917-453c-8645-d643a6c1fcee
+		sourceLineageTag: duration_minutes
+		summarizeBy: none
+		sourceColumn: duration_minutes
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column is_open_book
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: b69bd78b-dac1-4ba8-8a61-d25102850105
+		sourceLineageTag: is_open_book
+		summarizeBy: none
+		sourceColumn: is_open_book
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_exam_type = entity
+		mode: directLake
+		source
+			entityName: dim_exam_type
+			schemaName: university
+			expressionSource: 'DirectLake - university_lakehouse'
+

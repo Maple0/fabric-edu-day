@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "fffd20ab-3009-4372-ac9d-59e20899ea67",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "fee_type_key",
+        "targetPropertyId": "7219999481971735956"
+      },
+      {
+        "sourceColumnName": "fee_type_id",
+        "targetPropertyId": "7219999461723024867"
+      },
+      {
+        "sourceColumnName": "fee_type_name",
+        "targetPropertyId": "7219999438884756266"
+      },
+      {
+        "sourceColumnName": "fee_category",
+        "targetPropertyId": "7219999417135958012"
+      },
+      {
+        "sourceColumnName": "is_mandatory",
+        "targetPropertyId": "7219999392176877343"
+      },
+      {
+        "sourceColumnName": "gst_applicable",
+        "targetPropertyId": "7219999370224737602"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "00000000-0000-0000-0000-000000000000",
+      "itemId": "c5efef0d-a3ff-8139-4f6f-be251668b27e",
+      "sourceTableName": "dim_fee_type",
+      "sourceSchema": "university"
+    }
+  }
+}

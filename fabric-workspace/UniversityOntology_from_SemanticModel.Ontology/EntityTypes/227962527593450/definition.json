@@ -4,7 +4,9 @@
   "namespace": "usertypes",
   "baseEntityTypeId": null,
   "name": "fact_financial_transactions",
-  "entityIdParts": [],
+  "entityIdParts": [
+    "7220000870019023057"
+  ],
   "displayNamePropertyId": null,
   "namespaceType": "Imported",
   "visibility": "Visible",

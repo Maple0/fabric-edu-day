@@ -4,7 +4,9 @@
   "namespace": "usertypes",
   "baseEntityTypeId": null,
   "name": "fact_enrollments",
-  "entityIdParts": [],
+  "entityIdParts": [
+    "7220004403952632895"
+  ],
   "displayNamePropertyId": null,
   "namespaceType": "Imported",
   "visibility": "Visible",

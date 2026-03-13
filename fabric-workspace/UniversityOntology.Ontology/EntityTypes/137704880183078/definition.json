@@ -1,0 +1,30 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/entityType/1.0.0/schema.json",
+  "id": "137704880183078",
+  "namespace": "usertypes",
+  "baseEntityTypeId": null,
+  "name": "test",
+  "entityIdParts": [
+    "114861553264255121"
+  ],
+  "displayNamePropertyId": null,
+  "namespaceType": "Custom",
+  "visibility": "Visible",
+  "properties": [
+    {
+      "id": "114861553264255121",
+      "name": "key",
+      "redefines": null,
+      "baseTypeNamespaceType": null,
+      "valueType": "BigInt"
+    },
+    {
+      "id": "114250243394214358",
+      "name": "name",
+      "redefines": null,
+      "baseTypeNamespaceType": null,
+      "valueType": "String"
+    }
+  ],
+  "timeseriesProperties": []
+}

@@ -1,0 +1,84 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "b52d5da9-1fc8-4e96-83ec-4e12e1e2d98e",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "enrollment_key",
+        "targetPropertyId": "7220004403952632895"
+      },
+      {
+        "sourceColumnName": "student_key",
+        "targetPropertyId": "7220004378485823211"
+      },
+      {
+        "sourceColumnName": "course_key",
+        "targetPropertyId": "7220004353040811622"
+      },
+      {
+        "sourceColumnName": "academic_period_key",
+        "targetPropertyId": "7220004331496975242"
+      },
+      {
+        "sourceColumnName": "program_key",
+        "targetPropertyId": "7220004306461088273"
+      },
+      {
+        "sourceColumnName": "enroll_date_key",
+        "targetPropertyId": "7220004279612398382"
+      },
+      {
+        "sourceColumnName": "withdraw_date_key",
+        "targetPropertyId": "7220004252089811653"
+      },
+      {
+        "sourceColumnName": "enrollment_status",
+        "targetPropertyId": "7220004231347359588"
+      },
+      {
+        "sourceColumnName": "enrollment_type",
+        "targetPropertyId": "7220004207031280982"
+      },
+      {
+        "sourceColumnName": "delivery_mode",
+        "targetPropertyId": "7220004182796386878"
+      },
+      {
+        "sourceColumnName": "course_final_grade_letter",
+        "targetPropertyId": "7220004161611490692"
+      },
+      {
+        "sourceColumnName": "course_gpa_points",
+        "targetPropertyId": "7220004135924321840"
+      },
+      {
+        "sourceColumnName": "credit_points_attempted",
+        "targetPropertyId": "7220004117011032121"
+      },
+      {
+        "sourceColumnName": "credit_points_earned",
+        "targetPropertyId": "7220004094724666126"
+      },
+      {
+        "sourceColumnName": "is_repeat",
+        "targetPropertyId": "7220004070509228270"
+      },
+      {
+        "sourceColumnName": "withdrew_before_census",
+        "targetPropertyId": "7220004046868517708"
+      },
+      {
+        "sourceColumnName": "academic_load",
+        "targetPropertyId": "7220004025743951617"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "00000000-0000-0000-0000-000000000000",
+      "itemId": "c5efef0d-a3ff-8139-4f6f-be251668b27e",
+      "sourceTableName": "fact_enrollments",
+      "sourceSchema": "university"
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "bb9c83c5-6c69-4280-9cd1-cdf81aa07f9d",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "transaction_key",
+        "targetPropertyId": "7220000870019023057"
+      },
+      {
+        "sourceColumnName": "student_key",
+        "targetPropertyId": "7220000843981076723"
+      },
+      {
+        "sourceColumnName": "fee_type_key",
+        "targetPropertyId": "7220000820911932253"
+      },
+      {
+        "sourceColumnName": "academic_period_key",
+        "targetPropertyId": "7220000800665327898"
+      },
+      {
+        "sourceColumnName": "course_key",
+        "targetPropertyId": "7220000778064424471"
+      },
+      {
+        "sourceColumnName": "transaction_date_key",
+        "targetPropertyId": "7220000750900443681"
+      },
+      {
+        "sourceColumnName": "due_date_key",
+        "targetPropertyId": "7220000731701151882"
+      },
+      {
+        "sourceColumnName": "transaction_id",
+        "targetPropertyId": "7220000709750495468"
+      },
+      {
+        "sourceColumnName": "transaction_type",
+        "targetPropertyId": "7220000689418538828"
+      },
+      {
+        "sourceColumnName": "amount",
+        "targetPropertyId": "7220000668464242710"
+      },
+      {
+        "sourceColumnName": "signed_amount",
+        "targetPropertyId": "7220000644719048969"
+      },
+      {
+        "sourceColumnName": "currency",
+        "targetPropertyId": "7220000620411651923"
+      },
+      {
+        "sourceColumnName": "payment_method",
+        "targetPropertyId": "7220000596613127316"
+      },
+      {
+        "sourceColumnName": "reference_number",
+        "targetPropertyId": "7220000577198543422"
+      },
+      {
+        "sourceColumnName": "is_overdue",
+        "targetPropertyId": "7220000556372312437"
+      },
+      {
+        "sourceColumnName": "days_overdue",
+        "targetPropertyId": "7220000532304006856"
+      },
+      {
+        "sourceColumnName": "outstanding_balance_after",
+        "targetPropertyId": "7220000514497427343"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "00000000-0000-0000-0000-000000000000",
+      "itemId": "c5efef0d-a3ff-8139-4f6f-be251668b27e",
+      "sourceTableName": "fact_financial_transactions",
+      "sourceSchema": "university"
+    }
+  }
+}

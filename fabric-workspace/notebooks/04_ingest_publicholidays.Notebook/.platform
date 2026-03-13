@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "04_ingest_publicholidays"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "ba4bf347-e1c9-8a19-4ea2-532673386385"
+  }
+}

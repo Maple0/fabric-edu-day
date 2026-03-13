@@ -4,7 +4,9 @@
   "namespace": "usertypes",
   "baseEntityTypeId": null,
   "name": "bridge_course_program",
-  "entityIdParts": [],
+  "entityIdParts": [
+    "5897512514232216"
+  ],
   "displayNamePropertyId": null,
   "namespaceType": "Imported",
   "visibility": "Visible",
@@ -40,6 +42,13 @@
     {
       "id": "7220001814664886588",
       "name": "year_of_program",
+      "redefines": null,
+      "baseTypeNamespaceType": null,
+      "valueType": "BigInt"
+    },
+    {
+      "id": "5897512514232216",
+      "name": "bridge_key",
       "redefines": null,
       "baseTypeNamespaceType": null,
       "valueType": "BigInt"
