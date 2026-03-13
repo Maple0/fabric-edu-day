@@ -175,6 +175,17 @@ Student records with demographics and enrolment details.
 | first_in_family_flag | BOOLEAN | No | First in family to attend university |
 | permanent_resident_flag | BOOLEAN | No | Singapore Permanent Resident |
 
+### dim_publicholidays
+Singapore public holidays (2021–2026). Created by Notebook 04.
+
+| Column | Type | Nullable | Description |
+|--------|------|----------|-------------|
+| holiday_key | INT | No | Primary key (YYYYMMDD format) |
+| holiday_date | DATE | No | Public holiday date |
+| holiday_name | STRING | No | Official holiday name (e.g., "National Day") |
+| is_observed | BOOLEAN | No | True if observed substitute (Sunday holiday moved to Monday) |
+| source | STRING | No | Data source reference (MOM/data.gov.sg) |
+
 ---
 
 ## Bridge Table
@@ -298,6 +309,7 @@ One row per financial transaction line item.
 | dim_fee_type | 8 | Dimension |
 | dim_academic_period | 8 | Dimension |
 | dim_student | 520 | Dimension |
+| dim_publicholidays | ~70 | Dimension |
 | fact_enrollments | ~10,900 | Fact |
 | fact_exam_results | ~72,000 | Fact |
 | fact_financial_transactions | ~7,500 | Fact |

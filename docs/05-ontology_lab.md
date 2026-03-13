@@ -7,7 +7,7 @@ Create a Fabric IQ Ontology with entity types, data bindings, relationships, and
 ## Prerequisites
 
 - Semantic model `university-analytics-model` created and configured (see Step 6 in [`04-fabric_setup_guide.md`](04-fabric_setup_guide.md))
-- All 13 Delta tables exist in `university_lakehouse`
+- All 14 Delta tables exist in `university_lakehouse`
 - Fabric tenant admin access (to enable preview features)
 
 ---

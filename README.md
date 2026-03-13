@@ -1,6 +1,6 @@
 # Fabric Education Demo
 
-A two-notebook Microsoft Fabric demo for university customers showcasing the full data-to-insight pipeline: star-schema data model, Lakehouse Delta tables, Power BI semantic model, Fabric IQ Ontology, and Data Agent experiences for Staff and Student personas.
+A four-notebook Microsoft Fabric demo for university customers showcasing the full data-to-insight pipeline: star-schema data model, Lakehouse Delta tables, Power BI semantic model, Fabric IQ Ontology, and Data Agent experiences for Staff and Student personas.
 
 
 ## Project Structure
@@ -23,7 +23,9 @@ edu-fabric-iq/
 │
 ├── notebooks/
 │   ├── 01_data_generation_and_ingestion   # PySpark data gen → Lakehouse
-│   └── 02_star_schema_delta_tables        # Delta tables + DQ checks
+│   ├── 02_star_schema_delta_tables        # Delta tables + DQ checks
+│   ├── 03_update_student_records_RLS      # Update student email for RLS
+│   └── 04_ingest_publicholidays           # SG public holidays → Lakehouse
 │
 └── docs/
     ├── 01-architecture_diagram.md            # Mermaid + ASCII diagrams
@@ -36,7 +38,7 @@ edu-fabric-iq/
 
 ## Data Model
 
-A star schema with 7 dimension tables, 1 bridge table, and 3 fact tables:
+A star schema with 8 dimension tables, 1 bridge table, and 3 fact tables:
 
 | Table | Type | Rows |
 |-------|------|------|
@@ -50,6 +52,7 @@ A star schema with 7 dimension tables, 1 bridge table, and 3 fact tables:
 | dim_fee_type | Dimension | 8 |
 | dim_academic_period | Dimension | 8 |
 | dim_student | Dimension | 520 |
+| dim_publicholidays | Dimension | ~70 |
 | fact_enrollments | Fact | ~10,900 |
 | fact_exam_results | Fact | ~72,000 |
 | fact_financial_transactions | Fact | ~7,500 |
@@ -60,8 +63,10 @@ A star schema with 7 dimension tables, 1 bridge table, and 3 fact tables:
 |---|----------|---------|
 | 01 | Data Generation & Ingestion | Generate 13 tables with PySpark, write to Lakehouse |
 | 02 | Star Schema Delta Tables | Explicit schemas, DQ assertions, managed Delta tables |
+| 03 | Update Student Records (RLS) | Update student email to match Fabric sign-in user for RLS |
+| 04 | Ingest Public Holidays | Create dim_publicholidays with Singapore public holidays (2021–2026) |
 
-**Execution order:** 01 → 02 (sequential). Semantic model, ontology, and Data Agent setup is documented in `docs/04-fabric_setup_guide.md`.
+**Execution order:** 01 → 02 → 03 / 04 (notebooks 03 and 04 are independent but require 01 and 02 first). Semantic model, ontology, and Data Agent setup is documented in `docs/04-fabric_setup_guide.md`.
 
 ## Requirements
 

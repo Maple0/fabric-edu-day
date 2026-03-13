@@ -2,7 +2,7 @@
 
 ## Overview
 
-A two-notebook Microsoft Fabric demo for university customers showcasing the full data-to-insight pipeline: star-schema data model, Lakehouse Delta tables, Power BI semantic model, Fabric IQ Ontology, and Data Agent experiences for Staff and Student personas.
+A four-notebook Microsoft Fabric demo for university customers showcasing the full data-to-insight pipeline: star-schema data model, Lakehouse Delta tables, Power BI semantic model, Fabric IQ Ontology, and Data Agent experiences for Staff and Student personas.
 
 **Duration:** ~45 minutes (adjustable)
 **Audience:** University IT leaders, data teams, academic administrators
@@ -14,9 +14,11 @@ A two-notebook Microsoft Fabric demo for university customers showcasing the ful
 
 - [ ] Fabric workspace created with F64+ capacity
 - [ ] Lakehouse `university_lakehouse` created
-- [ ] All 2 notebooks uploaded to workspace
+- [ ] All 4 notebooks uploaded to workspace
 - [ ] Notebook 01 executed successfully (data generated)
 - [ ] Notebook 02 executed successfully (13 Delta tables created)
+- [ ] Notebook 03 executed successfully (student email updated for RLS)
+- [ ] Notebook 04 executed successfully (dim_publicholidays created)
 - [ ] Semantic model `university-analytics-model` created and configured
 - [ ] All 19 relationships defined
 - [ ] All DAX measures created
@@ -60,7 +62,7 @@ A two-notebook Microsoft Fabric demo for university customers showcasing the ful
 - "Delta format gives us ACID transactions, schema enforcement, and time travel — critical for a production data platform."
 - "We run data quality checks: primary key uniqueness, foreign key integrity, null checks — all pass."
 - Show the SHOW TABLES output
-- "13 tables, all managed by the Lakehouse. No external storage to worry about."
+- "14 tables, all managed by the Lakehouse. No external storage to worry about."
 
 **Transition:** "Now that we have clean, validated data in Delta tables, let's build the analytics layer."
 

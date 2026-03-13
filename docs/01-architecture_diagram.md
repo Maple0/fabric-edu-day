@@ -11,7 +11,7 @@ graph LR
 
     subgraph "Microsoft Fabric Lakehouse"
         C --> D[Files/parquet/]
-        D --> E[Delta Tables<br>13 managed tables]
+        D --> E[Delta Tables<br>14 managed tables]
     end
 
     subgraph "Semantic Layer"
@@ -49,9 +49,12 @@ graph LR
 ┌──────────────────────────────────────────────────────────────────────┐
 │                     FABRIC LAKEHOUSE                                 │
 │                                                                      │
-│  Files/parquet/  ──► Notebook 02 ──► Delta Tables (university.*)    │
+│  Files/parquet/  ──► Notebook 02 ──► 13 Delta Tables (university.*) │
 │                      (explicit schemas,    (OPTIMIZE + ZORDER)       │
 │                       DQ assertions)                                 │
+│                                                                      │
+│  Notebook 03  ──► Update student email for RLS                       │
+│  Notebook 04  ──► dim_publicholidays (SG public holidays)            │
 └──────────────────────┬───────────────────────────────────────────────┘
                        │
                        ▼
@@ -151,13 +154,15 @@ erDiagram
 ┌─────────────────────────────────────────────────────────────────┐
 │                      NOTEBOOK PIPELINE                          │
 │                                                                  │
-│  ┌──────────┐   ┌──────────┐                                  │
-│  │ NB 01    │──►│ NB 02    │                                  │
-│  │ Generate  │   │ Delta    │                                  │
-│  │ & Ingest │   │ Tables   │                                  │
-│  └──────────┘   └──────────┘                                  │
+│  ┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────┐  │
+│  │ NB 01    │──►│ NB 02    │──┬─►│ NB 03    │   │ NB 04    │  │
+│  │ Generate  │   │ Delta    │  │  │ Student  │   │ Public   │  │
+│  │ & Ingest │   │ Tables   │  │  │ RLS      │   │ Holidays │  │
+│  └──────────┘   └──────────┘  │  └──────────┘   └──────────┘  │
+│                              └─►                                  │
 │                                                                  │
-│  Sequential: 01 → 02 (must run in order)                        │
+│  Sequential: 01 → 02 (must run in order)                          │
+│  Then 03 and 04 (independent, either order)                       │
 │  Semantic model, ontology, agents: see 04-fabric_setup_guide.md   │
 └─────────────────────────────────────────────────────────────────┘
 ```

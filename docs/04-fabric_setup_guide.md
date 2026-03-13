@@ -37,12 +37,14 @@ Pre-demo environment setup instructions for the Fabric IQ Education Demo.
 
 ## Step 3: Upload Notebooks
 
-Upload all 2 notebooks from the `notebooks/` directory:
+Upload all 4 notebooks from the `notebooks/` directory:
 
 1. In the workspace, click **Import** → **Notebook** → **From this computer**
 2. Upload each file:
    - `01_data_generation_and_ingestion.ipynb`
    - `02_star_schema_delta_tables.ipynb`
+   - `03_update_student_records_RLS.ipynb`
+   - `04_ingest_publicholidays.ipynb`
 
 **Alternatively:** Upload Parquet files directly if you want to skip Notebook 01.
 
@@ -61,7 +63,7 @@ The Lakehouse path `/lakehouse/default/` will now resolve correctly in all code 
 
 ---
 
-## Step 5: Run Notebooks 01 and 02
+## Step 5: Run Notebooks
 
 ### Notebook 01: Data Generation & Ingestion
 
@@ -78,6 +80,21 @@ The Lakehouse path `/lakehouse/default/` will now resolve correctly in all code 
 4. Verify: Navigate to Lakehouse → **Tables** → confirm 13 Delta tables listed
 5. Check row counts match expected volumes
 
+### Notebook 03: Update Student Records for RLS
+
+1. Open `03_update_student_records_RLS`
+2. Click **Run all**
+3. This updates a student email to match the current Fabric sign-in user, enabling Row-Level Security testing
+4. Verify: Query `dim_student` to confirm the email was updated for `student_key = 1`
+
+### Notebook 04: Ingest Public Holidays
+
+1. Open `04_ingest_publicholidays`
+2. Click **Run all**
+3. Wait for completion (~1 minute)
+4. Verify: Navigate to Lakehouse → **Tables** → confirm `dim_publicholidays` table exists (~70 rows)
+5. This creates a standalone dimension with Singapore public holidays (2021–2026)
+
 ---
 
 ## Step 6: Create Semantic Model
@@ -85,7 +102,7 @@ The Lakehouse path `/lakehouse/default/` will now resolve correctly in all code 
 Step-by-step instructions for creating the **university-analytics-model** Power BI semantic model on the Fabric Lakehouse Delta tables.
 
 **Prerequisites:**
-- Notebook 02 completed: all 13 Delta tables exist in `university` database
+- Notebooks 01–04 completed: all 14 Delta tables exist in `university` database
 - Power BI Desktop (optional, for advanced editing and RLS testing)
 
 ### 6a: Create the Semantic Model
@@ -93,10 +110,11 @@ Step-by-step instructions for creating the **university-analytics-model** Power 
 1. Navigate to your **Lakehouse** in the Fabric workspace
 2. Click **New semantic model** (top ribbon)
 3. Name: `university-analytics-model`
-4. Select all 13 tables from the `university` database:
+4. Select all 14 tables from the `university` database:
    - dim_date, dim_department, dim_program, dim_staff, dim_course
    - bridge_course_program
    - dim_exam_type, dim_fee_type, dim_academic_period, dim_student
+   - dim_publicholidays
    - fact_enrollments, fact_exam_results, fact_financial_transactions
 5. Click **Create**
 
@@ -359,7 +377,7 @@ DIVIDE(
 
 ### 6f: Semantic Model Validation
 
-- [ ] All 13 tables visible in the semantic model
+- [ ] All 14 tables visible in the semantic model
 - [ ] All 19 relationships created (check Model view)
 - [ ] No ambiguity warnings on relationships
 - [ ] All DAX measures calculate correctly (test in a report visual)
@@ -390,7 +408,7 @@ Run through this checklist before presenting:
 ### Data Layer
 - [ ] Lakehouse `university_lakehouse` exists
 - [ ] 13 Parquet files under `Files/parquet/`
-- [ ] 13 Delta tables under `Tables/`
+- [ ] 14 Delta tables under `Tables/` (13 from Notebook 02 + dim_publicholidays from Notebook 04)
 - [ ] Row counts match expected values
 
 ### Semantic Model
