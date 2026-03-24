@@ -1,0 +1,22 @@
+{
+  "queryset": {
+    "version": "1.0.0",
+    "dataSources": [
+      {
+        "id": "7891439a-ea7c-4c3b-b786-c569b66b0a25",
+        "clusterUri": "",
+        "type": "Fabric",
+        "databaseItemId": "b0513781-4b15-a6d5-4175-c47c0a4792a3",
+        "databaseItemName": "university_eventhouse"
+      }
+    ],
+    "tabs": [
+      {
+        "id": "9edb4621-18d7-41d9-bf4a-6ec31fb97fc2",
+        "content": "\n.delete table fact_attendance records <|\nfact_attendance\n| where date_key == toint(format_datetime(startofday(now()), 'yyyyMMdd'));\n\n.set-or-append fact_attendance <|\nexternal_table(\"fact_enrollments\")\n| where enrollment_status == \"Completed\"\n| summarize by student_key, course_key\n| extend date_key = toint(format_datetime(startofday(now()), 'yyyyMMdd'))\n| extend is_present = rand() < 0.95,\"true\", \"false\"\n| extend timestamp = now()\n| where dayofweek(now()) !in (\"6.00:00:00\",\"00:00:00\") \n    and toscalar(\n        external_table(\"dim_publicholidays\")\n        | where format_datetime(todatetime(holiday_key),'yyyyMMdd') == format_datetime(startofday(now()), 'yyyyMMdd')\n        | summarize count()\n            )==0\n| project  student_key,course_key ,date_key, is_present, timestamp\n",
+        "title": "Tab",
+        "dataSourceId": "7891439a-ea7c-4c3b-b786-c569b66b0a25"
+      }
+    ]
+  }
+}

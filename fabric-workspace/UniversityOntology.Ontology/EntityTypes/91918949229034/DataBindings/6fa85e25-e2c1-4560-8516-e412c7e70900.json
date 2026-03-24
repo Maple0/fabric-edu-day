@@ -1,0 +1,84 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "6fa85e25-e2c1-4560-8516-e412c7e70900",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "date_key",
+        "targetPropertyId": "3844989715474045295"
+      },
+      {
+        "sourceColumnName": "full_date",
+        "targetPropertyId": "3844989716072027099"
+      },
+      {
+        "sourceColumnName": "day_of_week",
+        "targetPropertyId": "3844989717544677673"
+      },
+      {
+        "sourceColumnName": "day_number_in_week",
+        "targetPropertyId": "3844989714608039145"
+      },
+      {
+        "sourceColumnName": "day_number_in_month",
+        "targetPropertyId": "3844989716955364781"
+      },
+      {
+        "sourceColumnName": "day_number_in_year",
+        "targetPropertyId": "3844989717560658388"
+      },
+      {
+        "sourceColumnName": "week_number_in_year",
+        "targetPropertyId": "3844989716868113761"
+      },
+      {
+        "sourceColumnName": "month_number",
+        "targetPropertyId": "3844989716384942203"
+      },
+      {
+        "sourceColumnName": "month_name",
+        "targetPropertyId": "3844989718240793807"
+      },
+      {
+        "sourceColumnName": "month_short",
+        "targetPropertyId": "3844989715983281546"
+      },
+      {
+        "sourceColumnName": "quarter_number",
+        "targetPropertyId": "3844989717827379902"
+      },
+      {
+        "sourceColumnName": "quarter_label",
+        "targetPropertyId": "3844989715472248372"
+      },
+      {
+        "sourceColumnName": "year",
+        "targetPropertyId": "3844989714430903121"
+      },
+      {
+        "sourceColumnName": "academic_year",
+        "targetPropertyId": "3844989715860422521"
+      },
+      {
+        "sourceColumnName": "is_weekday",
+        "targetPropertyId": "3844989717761139952"
+      },
+      {
+        "sourceColumnName": "is_public_holiday",
+        "targetPropertyId": "3844989714952292560"
+      },
+      {
+        "sourceColumnName": "is_exam_period",
+        "targetPropertyId": "3844989718127848666"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "00000000-0000-0000-0000-000000000000",
+      "itemId": "c5efef0d-a3ff-8139-4f6f-be251668b27e",
+      "sourceTableName": "dim_date",
+      "sourceSchema": "university"
+    }
+  }
+}

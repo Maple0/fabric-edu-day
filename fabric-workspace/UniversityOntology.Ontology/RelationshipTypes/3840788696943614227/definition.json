@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/relationshipType/1.0.0/schema.json",
+  "namespace": "usertypes",
+  "id": "3840788696943614227",
+  "name": "attended_on",
+  "namespaceType": "Custom",
+  "source": {
+    "entityTypeId": "84283902259950"
+  },
+  "target": {
+    "entityTypeId": "91918949229034"
+  }
+}

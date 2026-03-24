@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/relationshipType/1.0.0/schema.json",
+  "namespace": "usertypes",
+  "id": "3265256328273289346",
+  "name": "course_has_exam_type",
+  "namespaceType": "Custom",
+  "source": {
+    "entityTypeId": "180476600264527"
+  },
+  "target": {
+    "entityTypeId": "162763761367963"
+  }
+}

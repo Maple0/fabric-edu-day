@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "load_attendance"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "5d6549fa-6f5b-9885-4229-361c978fde88"
+  }
+}

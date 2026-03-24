@@ -1,0 +1,53 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "KustoQueryLanguage",
+        "typeProperties": {
+          "command": ".delete table fact_attendance records <|\nfact_attendance\n| where date_key == toint(format_datetime(startofday(now()), 'yyyyMMdd'));",
+          "commandTimeout": "00:20:00",
+          "database": "0a4792a3-c47c-4175-a6d5-4b15b0513781"
+        },
+        "externalReferences": {
+          "connection": "586493d2-a948-48ba-bd3e-258abc14323c"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "delete current day attendance if loaded already",
+        "dependsOn": []
+      },
+      {
+        "type": "KustoQueryLanguage",
+        "typeProperties": {
+          "command": "external_table(\"fact_enrollments\") | take 5",
+          "commandTimeout": "00:20:00",
+          "database": "0a4792a3-c47c-4175-a6d5-4b15b0513781"
+        },
+        "externalReferences": {
+          "connection": "586493d2-a948-48ba-bd3e-258abc14323c"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "ingest attendance",
+        "dependsOn": [
+          {
+            "activity": "delete current day attendance if loaded already",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
