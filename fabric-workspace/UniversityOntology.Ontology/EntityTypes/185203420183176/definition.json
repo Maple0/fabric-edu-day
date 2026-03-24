@@ -1,61 +1,54 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/entityType/1.0.0/schema.json",
-  "id": "180476600264527",
+  "id": "185203420183176",
   "namespace": "usertypes",
   "baseEntityTypeId": null,
-  "name": "ExamType",
+  "name": "FeeType",
   "entityIdParts": [
-    "3689019134169803460"
+    "3909957492220944481"
   ],
-  "displayNamePropertyId": "3689019136072391134",
+  "displayNamePropertyId": "3909957490717740077",
   "namespaceType": "Custom",
   "visibility": "Visible",
   "properties": [
     {
-      "id": "3689019134169803460",
-      "name": "exam_type_key",
+      "id": "3909957492220944481",
+      "name": "fee_type_key",
       "redefines": null,
       "baseTypeNamespaceType": null,
       "valueType": "BigInt"
     },
     {
-      "id": "3689019134523778735",
-      "name": "exam_type_id",
+      "id": "3909957490999503942",
+      "name": "fee_type_id",
       "redefines": null,
       "baseTypeNamespaceType": null,
       "valueType": "String"
     },
     {
-      "id": "3689019136072391134",
-      "name": "exam_type_name",
+      "id": "3909957490717740077",
+      "name": "fee_type_name",
       "redefines": null,
       "baseTypeNamespaceType": null,
       "valueType": "String"
     },
     {
-      "id": "3689019132344880435",
-      "name": "category",
+      "id": "3909957490736357515",
+      "name": "fee_category",
       "redefines": null,
       "baseTypeNamespaceType": null,
       "valueType": "String"
     },
     {
-      "id": "3689019133912218088",
-      "name": "weighting_typical_pct",
+      "id": "3909957491211042455",
+      "name": "is_mandatory",
       "redefines": null,
       "baseTypeNamespaceType": null,
-      "valueType": "Double"
+      "valueType": "Boolean"
     },
     {
-      "id": "3689019133668631468",
-      "name": "duration_minutes",
-      "redefines": null,
-      "baseTypeNamespaceType": null,
-      "valueType": "Double"
-    },
-    {
-      "id": "3689019132618657343",
-      "name": "is_open_book",
+      "id": "3909957493950970398",
+      "name": "gst_applicable",
       "redefines": null,
       "baseTypeNamespaceType": null,
       "valueType": "Boolean"

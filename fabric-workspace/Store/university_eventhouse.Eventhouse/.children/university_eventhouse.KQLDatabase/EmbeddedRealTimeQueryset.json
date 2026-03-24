@@ -1,0 +1,22 @@
+{
+  "queryset": {
+    "version": "1.0.0",
+    "dataSources": [
+      {
+        "id": "6649ba05-8c16-47e2-961f-660743105fbc",
+        "clusterUri": "https://trd-8bsxu4n07nhn0vyx8t.z7.kusto.fabric.microsoft.com",
+        "type": "Fabric",
+        "databaseItemId": "0a4792a3-c47c-4175-a6d5-4b15b0513781",
+        "databaseItemName": "university_eventhouse"
+      }
+    ],
+    "tabs": [
+      {
+        "id": "926df073-a168-4aaa-a558-e9708f663966",
+        "content": ".alter table MyTable (NewTimestamp: datetime, ExistingCol1: string, ExistingCol2: int)h)\n\n",
+        "title": "Tab",
+        "dataSourceId": "6649ba05-8c16-47e2-961f-660743105fbc"
+      }
+    ]
+  }
+}

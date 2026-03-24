@@ -1,0 +1,23 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/contextualization/1.0.0/schema.json",
+  "id": "fe6717d8-f45b-4c7a-bc09-25398cbc21bd",
+  "dataBindingTable": {
+    "workspaceId": "00000000-0000-0000-0000-000000000000",
+    "itemId": "c5efef0d-a3ff-8139-4f6f-be251668b27e",
+    "sourceTableName": "fact_financial_transactions",
+    "sourceSchema": "university",
+    "sourceType": "LakehouseTable"
+  },
+  "sourceKeyRefBindings": [
+    {
+      "sourceColumnName": "fee_type_key",
+      "targetPropertyId": "3909957492220944481"
+    }
+  ],
+  "targetKeyRefBindings": [
+    {
+      "sourceColumnName": "academic_period_key",
+      "targetPropertyId": "7764087578337587205"
+    }
+  ]
+}

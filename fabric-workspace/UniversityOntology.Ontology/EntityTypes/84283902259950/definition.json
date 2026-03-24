@@ -192,7 +192,36 @@
       "redefines": null,
       "baseTypeNamespaceType": null,
       "valueType": "Boolean"
+    },
+    {
+      "id": "3164480534409512534",
+      "name": "course_key",
+      "redefines": null,
+      "baseTypeNamespaceType": null,
+      "valueType": "BigInt"
+    },
+    {
+      "id": "3164480532639074300",
+      "name": "date_key",
+      "redefines": null,
+      "baseTypeNamespaceType": null,
+      "valueType": "BigInt"
     }
   ],
-  "timeseriesProperties": []
+  "timeseriesProperties": [
+    {
+      "id": "3164480535229299793",
+      "name": "is_present",
+      "redefines": null,
+      "baseTypeNamespaceType": null,
+      "valueType": "Boolean"
+    },
+    {
+      "id": "3164480532493473255",
+      "name": "timestamp",
+      "redefines": null,
+      "baseTypeNamespaceType": null,
+      "valueType": "DateTime"
+    }
+  ]
 }

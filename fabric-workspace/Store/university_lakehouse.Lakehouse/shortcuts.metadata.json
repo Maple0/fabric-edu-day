@@ -1,1 +1,15 @@
-[]
+[
+  {
+    "name": "fact_attendance",
+    "path": "/Tables/university",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/fact_attendance",
+        "itemId": "b0513781-4b15-a6d5-4175-c47c0a4792a3",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "artifactType": "KustoDatabase"
+      }
+    }
+  }
+]

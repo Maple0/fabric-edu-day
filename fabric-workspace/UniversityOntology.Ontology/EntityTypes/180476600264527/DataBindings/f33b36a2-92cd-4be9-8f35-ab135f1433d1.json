@@ -1,0 +1,44 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "f33b36a2-92cd-4be9-8f35-ab135f1433d1",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "exam_type_key",
+        "targetPropertyId": "3689019134169803460"
+      },
+      {
+        "sourceColumnName": "exam_type_id",
+        "targetPropertyId": "3689019134523778735"
+      },
+      {
+        "sourceColumnName": "exam_type_name",
+        "targetPropertyId": "3689019136072391134"
+      },
+      {
+        "sourceColumnName": "category",
+        "targetPropertyId": "3689019132344880435"
+      },
+      {
+        "sourceColumnName": "weighting_typical_pct",
+        "targetPropertyId": "3689019133912218088"
+      },
+      {
+        "sourceColumnName": "duration_minutes",
+        "targetPropertyId": "3689019133668631468"
+      },
+      {
+        "sourceColumnName": "is_open_book",
+        "targetPropertyId": "3689019132618657343"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "00000000-0000-0000-0000-000000000000",
+      "itemId": "c5efef0d-a3ff-8139-4f6f-be251668b27e",
+      "sourceTableName": "dim_exam_type",
+      "sourceSchema": "university"
+    }
+  }
+}

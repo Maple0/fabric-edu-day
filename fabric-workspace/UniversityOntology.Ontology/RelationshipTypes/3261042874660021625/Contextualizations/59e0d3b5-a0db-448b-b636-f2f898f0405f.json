@@ -1,0 +1,23 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/contextualization/1.0.0/schema.json",
+  "id": "59e0d3b5-a0db-448b-b636-f2f898f0405f",
+  "dataBindingTable": {
+    "workspaceId": "00000000-0000-0000-0000-000000000000",
+    "itemId": "c5efef0d-a3ff-8139-4f6f-be251668b27e",
+    "sourceTableName": "dim_program",
+    "sourceSchema": "university",
+    "sourceType": "LakehouseTable"
+  },
+  "sourceKeyRefBindings": [
+    {
+      "sourceColumnName": "department_key",
+      "targetPropertyId": "7761142589541519406"
+    }
+  ],
+  "targetKeyRefBindings": [
+    {
+      "sourceColumnName": "program_key",
+      "targetPropertyId": "7758213142631459879"
+    }
+  ]
+}
