@@ -61,16 +61,48 @@ For each entity type, open the **Bindings** tab → **Add data to entity type**:
 
 ## Step 5: Define Relationships
 
-Click **Add relationship** and configure:
+Click **Add relationship** and configure the relationships shown in the diagram. Below are the relationship names, direction (Source → Target), suggested linking/fact tables, and typical key columns to map.
 
-| Relationship | Source Entity | Target Entity | Linking Table | Source Column | Target Column |
-|-------------|-------------|--------------|--------------|--------------|--------------|
-| enrolled_in | Student | Course | fact_enrollments | student_key | course_key |
-| studies_program | Student | Program | fact_enrollments | student_key | program_key |
-| examined_in | Student | Course | fact_exam_results | student_key | course_key |
-| pays_for | Student | Course | fact_financial_transactions | student_key | course_key |
-| taught_by | Course | Staff | fact_exam_results | course_key | staff_key |
-| taken_during | Student | AcademicPeriod | fact_enrollments | student_key | academic_period_key |
+| Relationship | Source → Target | Suggested Linking Table | Typical Source Key | Typical Target Key |
+|--------------|-----------------|-------------------------|--------------------|--------------------|
+| enrolled_in | Student → Course | fact_enrollments | student_key | course_key |
+| examined_in | Student → Course | fact_exam_results | student_key | course_key |
+| pays_for | Student → Course | fact_financial_transactions | student_key | course_key |
+| studies_program | Student → Program | dim_student or fact_enrollments | student_key | program_key |
+| scores_during | Student → AcademicPeriod | fact_exam_results | student_key | academic_period_key |
+| taken_during | Student → AcademicPeriod | fact_enrollments | student_key | academic_period_key |
+| attended_on | Student → Date | fact_attendance or fact_course_events | student_key | date_key |
+| made_payment_on | Student → Date | fact_financial_transactions | student_key | date_key |
+| charged_to | Student → FeeType | fact_financial_transactions | student_key | fee_type_key |
+| has_exam_type | Student → ExamType | fact_exam_results | student_key | exam_type_key |
+| offered_by | Course → Program | dim_course or dim_program | course_key | program_key |
+| belongs_to_department | Course → Department | dim_course | course_key | department_key |
+| taught_by | Course → Staff | fact_teaching_assignments or dim_course | course_key | staff_key |
+| staff_in_department | Staff → Department | dim_staff | staff_key | department_key |
+| belong_to_department | Staff → Department | dim_staff | staff_key | department_key |
+| consists_of | Program → Course | dim_program_course or mapping table | program_key | course_key |
+| belongs_to_department | Program → Department | dim_program | program_key | department_key |
+| owned_by | Course → Department | dim_course | course_key | department_key |
+| offered_during | AcademicPeriod → Course | fact_course_offerings or schedule | academic_period_key | course_key |
+| charged_during | AcademicPeriod → FeeType | fact_financial_transactions | academic_period_key | fee_type_key |
+| course_has_exam_type | Course → ExamType | fact_exam_results | course_key | exam_type_key |
+| took_examtype_of | Student → ExamType | fact_exam_results | student_key | exam_type_key |
+| course_has_fee_type | Course → FeeType | fact_financial_transactions | course_key | fee_type_key |
+| charged_to | FeeType → Student | fact_financial_transactions | fee_type_key | student_key |
+| charged_in | AcademicPeriod → FeeType | fact_financial_transactions | academic_period_key | fee_type_key |
+| attended_on | Student → Date | fact_attendance or fact_course_events | student_key | date_key |
+| made_payment_on | Student → Date | fact_financial_transactions | student_key | date_key |
+
+Notes:
+- Relationship names above follow the diagram labels — feel free to adjust naming to your project's naming conventions (e.g., `attended_on` → `attendedDuring`).
+- Linking tables are suggestions. Use the real fact/delta tables in `university_lakehouse` that record enrollments, exams, attendance, and financial transactions.
+- For each relationship, set the correct cardinality (many-to-many through a fact table is typical) and configure the source/target key mappings in the Ontology UI.
+- If a relationship has multiple labels in the diagram (for example `scores_during` vs `taken_during`), treat them as separate traversable relationships if they model distinct semantics (scores vs enrollment period).
+- `offered_by` (Course → Program) models which program(s) include a course. If courses can belong to multiple programs, model as many-to-many via a mapping/fact table.
+- `belongs_to_department` links courses to the owning academic department (use `department_key` on the `dim_course` table if present).
+- `taught_by` connects courses to staff who teach them — use a teaching assignments fact or the course metadata table.
+- `staff_in_department` is useful for traversals that need a course → staff → department path for department-level reporting.
+- Consider adding inverse relationships (e.g., `program_has_course`, `department_offers_course`, `staff_teaches`) if you want convenient traversals in the other direction.
 
 ---
 
