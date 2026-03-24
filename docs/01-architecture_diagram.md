@@ -21,6 +21,11 @@ graph LR
         F --> I[RLS Roles]
     end
 
+    subgraph "Real-Time Analytics"
+        E -.->|OneLake Shortcut| M[Eventhouse<br>university_eventhouse]
+        M --> N[KQL Database<br>fact_attendance]
+    end
+
     subgraph "AI Experiences"
         F --> J[Fabric IQ<br>Ontology]
         F --> K[Data Agent<br>Staff Persona]
@@ -33,6 +38,8 @@ graph LR
     style J fill:#9C27B0,color:#fff
     style K fill:#9C27B0,color:#fff
     style L fill:#9C27B0,color:#fff
+    style M fill:#E91E63,color:#fff
+    style N fill:#E91E63,color:#fff
 ```
 
 ## Data Flow
@@ -55,7 +62,19 @@ graph LR
 │                                                                      │
 │  Notebook 03  ──► Update student email for RLS                       │
 │  Notebook 04  ──► dim_publicholidays (SG public holidays)            │
-└──────────────────────┬───────────────────────────────────────────────┘
+└──────────────────────┬───────────────────────┬───────────────────────┘
+                       │                       │
+                       │                       ▼
+                       │  ┌────────────────────────────────────────────┐
+                       │  │          REAL-TIME ANALYTICS               │
+                       │  │                                            │
+                       │  │  Eventhouse: university_eventhouse         │
+                       │  │  KQL Database ◄── OneLake Shortcuts       │
+                       │  │    └─► fact_attendance                     │
+                       │  │        (daily attendance from              │
+                       │  │         fact_enrollments +                 │
+                       │  │         dim_publicholidays)                │
+                       │  └────────────────────────────────────────────┘
                        │
                        ▼
 ┌──────────────────────────────────────────────────────────────────────┐
@@ -85,10 +104,14 @@ erDiagram
     dim_student ||--o{ fact_enrollments : "student_key"
     dim_student ||--o{ fact_exam_results : "student_key"
     dim_student ||--o{ fact_financial_transactions : "student_key"
+    dim_student ||--o{ fact_attendance : "student_key"
 
     dim_course ||--o{ fact_enrollments : "course_key"
     dim_course ||--o{ fact_exam_results : "course_key"
     dim_course ||--o{ fact_financial_transactions : "course_key"
+    dim_course ||--o{ fact_attendance : "course_key"
+
+    dim_date ||--o{ fact_attendance : "date_key"
 
     dim_exam_type ||--o{ fact_exam_results : "exam_type_key"
     dim_fee_type ||--o{ fact_financial_transactions : "fee_type_key"
@@ -163,6 +186,7 @@ erDiagram
 │                                                                  │
 │  Sequential: 01 → 02 (must run in order)                          │
 │  Then 03 and 04 (independent, either order)                       │
+│  KQL lab (08): after 02 + 04, create Eventhouse & load attendance │
 │  Semantic model, ontology, agents: see 04-fabric_setup_guide.md   │
 └─────────────────────────────────────────────────────────────────┘
 ```
@@ -175,6 +199,7 @@ erDiagram
 | Storage | Fabric Lakehouse, Delta Lake | ACID-compliant data store |
 | Compute | PySpark (Fabric Runtime 1.3) | Data processing & transformation |
 | Semantic | Power BI Semantic Model | Business logic, measures, security |
+| Real-Time Analytics | Fabric Eventhouse, KQL Database | Daily attendance tracking via KQL |
 | AI — Ontology | Fabric IQ Ontology | Business vocabulary, entity types, NL queries |
 | AI — Agents | Fabric Data Agents | Role-based conversational analytics |
 | Security | Row-Level Security (RLS) | Student data isolation |
