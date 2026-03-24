@@ -44,6 +44,9 @@ Create the following entity types with properties. For each, click **Add entity 
 | Department | department_key | department_id, department_name, faculty |
 | AcademicPeriod | academic_period_key | period_id, academic_year, semester, period_label |
 | Staff | staff_key | staff_id, first_name, last_name, role_title, department_key |
+| ExamType | exam_type_key | exam_type_id, exam_type_key, exam_type_name, category, duration_minutes, is_open_book, weighting_typical | 
+| FeeType | fee_type_key | fee_type_id, fee_type_key, fee_type_name, fee_category, gst_applicable, is_mandatory |
+| Date | date_key | academic_year, date_key, day_number_in_month, day_number_in_week, day_number_in_year, day_of_week, full_date, is_exam_period, is_public_holiday, is_weekday, month_name, month_number, month_short, quarter_label, quarter_number, week_number_in_year, year |
 
 ---
 
