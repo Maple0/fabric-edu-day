@@ -7,7 +7,6 @@ Create two Fabric Data Agents — a Staff persona with full access and a Student
 ## Prerequisites
 
 - Semantic model `university-analytics-model` created and configured (see Step 6 in [`04-fabric_setup_guide.md`](04-fabric_setup_guide.md))
-- RLS roles configured: Staff (full access) and Student (email filter on dim_student)
 - Data Agents enabled in Fabric tenant admin settings
 
 ---
