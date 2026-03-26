@@ -1,11 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
-    "type": "DataAgent",
-    "displayName": "DA_Ontology_SM"
+    "type": "Reflex",
+    "displayName": "SendAlertsonAbsence",
+    "description": "Activator: SendAlertsonAbsence"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "e6c83664-8dfc-8bf5-490d-895816a87375"
+    "logicalId": "ab415416-0a5a-89a1-4dda-febe5c7ed958"
   }
 }

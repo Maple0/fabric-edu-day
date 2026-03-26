@@ -1,12 +1,11 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
-    "type": "Reflex",
-    "displayName": "IsAbsent",
-    "description": "Activator: IsAbsent"
+    "type": "Eventstream",
+    "displayName": "attendance_eventstream"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "6c4f826e-22ab-8aab-4e3c-dd4e00350338"
+    "logicalId": "61c33724-fb37-9728-4962-92e8c00c6816"
   }
 }

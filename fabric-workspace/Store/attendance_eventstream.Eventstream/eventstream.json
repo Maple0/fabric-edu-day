@@ -1,0 +1,58 @@
+{
+  "sources": [
+    {
+      "id": "53ddc468-ea93-492d-8bfa-4e1f44d7f53c",
+      "name": "attendance_source",
+      "type": "CustomEndpoint",
+      "properties": {}
+    }
+  ],
+  "destinations": [
+    {
+      "id": "83ac30e0-23a4-47fa-94b2-074f1dd935ad",
+      "name": "Eventhouse",
+      "type": "Eventhouse",
+      "properties": {
+        "dataIngestionMode": "ProcessedIngestion",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "itemId": "b0513781-4b15-a6d5-4175-c47c0a4792a3",
+        "databaseName": "university_eventhouse",
+        "tableName": "fact_attendance",
+        "inputSerialization": {
+          "type": "Json",
+          "properties": {
+            "encoding": "UTF8"
+          }
+        }
+      },
+      "inputNodes": [
+        {
+          "name": "attendance_eventstream-stream"
+        }
+      ],
+      "inputSchemas": [
+        {
+          "name": "attendance_eventstream-stream",
+          "schema": {
+            "columns": []
+          }
+        }
+      ]
+    }
+  ],
+  "streams": [
+    {
+      "id": "a5c41fd5-7a61-4f54-aef1-6fd0d8b351bc",
+      "name": "attendance_eventstream-stream",
+      "type": "DefaultStream",
+      "properties": {},
+      "inputNodes": [
+        {
+          "name": "attendance_source"
+        }
+      ]
+    }
+  ],
+  "operators": [],
+  "compatibilityLevel": "1.1"
+}
