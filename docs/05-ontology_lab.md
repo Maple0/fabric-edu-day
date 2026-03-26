@@ -12,7 +12,7 @@ Create a Fabric IQ Ontology with entity types, data bindings, relationships, and
 
 ---
 
-## Step 1: Enable Tenant Settings
+## Step 1: Enable Tenant Settings (skip if it has been enabled)
 
 1. Go to **Fabric Admin Portal** → **Tenant settings**
 2. Under **Ontology (preview)**:
