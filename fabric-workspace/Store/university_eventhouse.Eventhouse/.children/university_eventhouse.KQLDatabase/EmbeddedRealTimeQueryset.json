@@ -13,8 +13,32 @@
     "tabs": [
       {
         "id": "926df073-a168-4aaa-a558-e9708f663966",
-        "content": ".alter table MyTable (NewTimestamp: datetime, ExistingCol1: string, ExistingCol2: int)h)\n\n",
+        "content": ".clear table fact_attendance data \n\n",
         "title": "Tab",
+        "dataSourceId": "6649ba05-8c16-47e2-961f-660743105fbc"
+      },
+      {
+        "id": "f8d4a7f2-16ac-4771-b96e-bb23f60677c7",
+        "content": "-- View a sample of 100 records in the table.\nselect top 100 * from fact_attendance\n\n\n\nfact_attendance\n| where is_present == false\n| summarize AbsentCourses = make_set(course_key)\n          by student_key, date_key\n\n\n\n\nfact_attendance\n| where is_present == false\n| join kind=leftouter external_table('dim_student') on student_key\n| join kind=leftouter external_table('dim_course') on course_key\n| join kind=leftouter external_table('dim_date') on date_key\n| summarize AbsentCourses = make_set(course_name),\n            StudentName = any(strcat(firt_name,\" \",last_name)),\n            AbsentDate = any(full_date)\n          by student_key, date_key\n\n\n",
+        "title": "",
+        "dataSourceId": "6649ba05-8c16-47e2-961f-660743105fbc"
+      },
+      {
+        "id": "a0c4c4e1-3484-4a68-89de-073981a8fc16",
+        "content": "\nfact_attendance\n| where student_key == 189 and date_key == 20260325\n| take 10\n\n\n\n",
+        "title": "",
+        "dataSourceId": "6649ba05-8c16-47e2-961f-660743105fbc"
+      },
+      {
+        "id": "58dc6bae-1f5b-4079-8749-aa9824d472a6",
+        "content": "-- View a sample of 100 records in the table.\nselect top 100 * from fact_attendance\n\n\nselect top 100 * from fact_attendance where is_present = 0\n\nselect top 100 * from fact_attendance ",
+        "title": "",
+        "dataSourceId": "6649ba05-8c16-47e2-961f-660743105fbc"
+      },
+      {
+        "id": "9e206ece-0656-4ac3-8c93-f75658f14806",
+        "content": ".drop materialized-view attendance_agent_mv\n\n\n\n.create materialized-view attendance_agent_mv\non table fact_attendance\n{\n    fact_attendance\n    | where is_present == false\n    | summarize\n        AbsentCourses = make_set(course_key),\n        EventCount = dcount(course_key)\n      by student_key, date_key\n}\n\n\n\n\n\nattendance_agent_mv\n",
+        "title": "",
         "dataSourceId": "6649ba05-8c16-47e2-961f-660743105fbc"
       }
     ]

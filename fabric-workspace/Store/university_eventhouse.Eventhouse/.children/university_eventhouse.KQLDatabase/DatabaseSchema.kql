@@ -3,3 +3,9 @@
 
 
 .create-merge table fact_attendance (student_key:long, course_key:long, date_key:int, is_present:bool, timestamp:datetime) 
+.create-or-alter materialized-view  attendance_agent_mv on table fact_attendance { fact_attendance
+    | where is_present == false
+    | summarize
+        AbsentCourses = make_set(course_key),
+        EventCount = dcount(course_key)
+      by student_key, date_key }

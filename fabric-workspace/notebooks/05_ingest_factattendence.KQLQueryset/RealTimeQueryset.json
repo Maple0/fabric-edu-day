@@ -16,6 +16,18 @@
         "content": "\n.delete table fact_attendance records <|\nfact_attendance\n| where date_key == toint(format_datetime(startofday(now()), 'yyyyMMdd'));\n\n.set-or-append fact_attendance <|\nexternal_table(\"fact_enrollments\")\n| where enrollment_status == \"Completed\"\n| summarize by student_key, course_key\n| extend date_key = toint(format_datetime(startofday(now()), 'yyyyMMdd'))\n| extend is_present = rand() < 0.95,\"true\", \"false\"\n| extend timestamp = now()\n| where dayofweek(now()) !in (\"6.00:00:00\",\"00:00:00\") \n    and toscalar(\n        external_table(\"dim_publicholidays\")\n        | where format_datetime(todatetime(holiday_key),'yyyyMMdd') == format_datetime(startofday(now()), 'yyyyMMdd')\n        | summarize count()\n            )==0\n| project  student_key,course_key ,date_key, is_present, timestamp\n",
         "title": "Tab",
         "dataSourceId": "7891439a-ea7c-4c3b-b786-c569b66b0a25"
+      },
+      {
+        "id": "ef68e534-c1e7-4c02-a1ae-53af6e56be95",
+        "content": "\nfact_attendance\n| where is_present == false\n| join kind=leftouter external_table(\"dim_student\") on student_key\n| join kind=leftouter external_table(\"dim_course\") on course_key\n| join kind=leftouter external_table(\"dim_date\") on date_key\n| summarize StudentName = any(strcat(first_name, \" \", last_name)),\n            AbsentDate = any(format_datetime(full_date, 'yyyy-MM-dd')),\n            AbsentCourses = make_set(course_name),\n            AbsentCourseskey = make_set(course_key)\n            by student_key, date_key\n",
+        "title": "",
+        "dataSourceId": "7891439a-ea7c-4c3b-b786-c569b66b0a25"
+      },
+      {
+        "id": "07dfb087-53a4-4b5c-8616-9cc585eb665c",
+        "content": "\n.ingest inline into table fact_attendance <|\nstudent_key: 189,\ncourse_key: 60,\ndate_key: 20260325,\nis_present: false,\nevent_time: now()\n",
+        "title": "",
+        "dataSourceId": "7891439a-ea7c-4c3b-b786-c569b66b0a25"
       }
     ]
   }

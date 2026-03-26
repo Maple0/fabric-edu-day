@@ -1,0 +1,253 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/operationsAgents/definition/1.0.0/schema.json",
+  "configuration": {
+    "goals": "You are an Operations Agent responsible for monitoring student attendance in near real time.\nYour goal is to detect student absence events based on the materialized view attendance_agent_mv, where each record represents a student who was absent from one or more courses on a specific academic date.\nWhen an absence event is detected, you should help trigger timely notifications so that relevant stakeholders (such as academic operations or student support teams) can take appropriate follow\u2011up actions.",
+    "instructions": "*** Operational Instructions ***\n1. Monitor table \u0027attendance_agent_mv\u0027.\n2. Trigger an alert when \u0022EventCount\u0022 \u003E 0.\n3. Trigger at most once per unique combination of \u0022student_key\u0022 and \u0022date_key\u0022.\n4. When triggered, invoke action SendAlertOnAbsence with parameters: \u0022student_key\u0022, \u0022date_key\u0022, \u0022AbsentCourses\u0022, \u0022EventCount\u0022.\n\n*** Semantic Instructions ***\n1. Absence summaries are stored in table \u0027attendance_agent_mv\u0027.\n2. Each absence summary is uniquely identified by \u0022student_key\u0022 and \u0022date_key\u0022.\n3. \u0022AbsentCourses\u0022 is the list of course identifiers for which the student was absent on that date.\n4. \u0022EventCount\u0022 is the number of absent courses for that student on that date.",
+    "dataSources": {
+      "b0513781-4b15-a6d5-4175-c47c0a4792a3": {
+        "id": "b0513781-4b15-a6d5-4175-c47c0a4792a3",
+        "type": "KustoDatabase",
+        "workspaceId": "00000000-0000-0000-0000-000000000000"
+      }
+    },
+    "actions": {
+      "a56f8aa5-6b8e-4da7-be98-a93ae130260b": {
+        "id": "a56f8aa5-6b8e-4da7-be98-a93ae130260b",
+        "displayName": "SendAlertsonAbsence",
+        "description": "Send alerts to relevant parties on student absence",
+        "kind": "PowerAutomateAction",
+        "parameters": [
+          {
+            "name": "student_key",
+            "description": "student identifier"
+          },
+          {
+            "name": "date_key",
+            "description": "date identifier"
+          },
+          {
+            "name": "absentcourses",
+            "description": "courses for which the student is not present"
+          }
+        ]
+      }
+    },
+    "recipient": "svelpuri@MngEnvMCAP906235.onmicrosoft.com"
+  },
+  "playbook": {
+    "OntologyDefinitions": {
+      "EventCount": {
+        "$type": "data",
+        "IRI": "EventCount",
+        "DocumentId": "",
+        "Name": "eventCount",
+        "Description": "The number of absence events (courses missed) for the student on the given date.",
+        "DomainClassIRI": "AbsenceSummary",
+        "RangeDataType": "integer",
+        "Kind": 1,
+        "DataLink": {
+          "$type": "kustotablequery",
+          "Query": "fact_attendance | where is_present == 0 | summarize eventCount = count() by student_key, date_key | project id = strcat(student_key, \u0027-\u0027, date_key), value = eventCount"
+        }
+      },
+      "AbsentCourses": {
+        "$type": "data",
+        "IRI": "AbsentCourses",
+        "DocumentId": "",
+        "Name": "absentCourses",
+        "Description": "A list of course keys for which the student was absent on the given date.",
+        "DomainClassIRI": "AbsenceSummary",
+        "RangeDataType": "integer",
+        "Kind": 1,
+        "DataLink": {
+          "$type": "kustotablequery",
+          "Query": "fact_attendance | where is_present == 0 | summarize absentCourses = make_list(course_key) by student_key, date_key | project id = strcat(student_key, \u0027-\u0027, date_key), value = absentCourses"
+        }
+      },
+      "course_key": {
+        "$type": "data",
+        "IRI": "course_key",
+        "DocumentId": "",
+        "Name": "courseKey",
+        "Description": "The unique identifier for the course.",
+        "DomainClassIRI": "Course",
+        "RangeDataType": "integer",
+        "Kind": 0,
+        "DataLink": {
+          "$type": "kustotablecol",
+          "ColumnName": "course_key"
+        }
+      },
+      "refersToStudent": {
+        "$type": "object",
+        "IRI": "refersToStudent",
+        "DocumentId": "",
+        "Name": "refersToStudent",
+        "Description": "The relationship where an AbsenceSummary refers to a Student via student_key.",
+        "DomainClassIRI": "AbsenceSummary",
+        "RangeClassIRI": "Student",
+        "DataLink": {
+          "$type": "objectpropertydomainkey",
+          "DataPropertyIRI": "student_key"
+        }
+      },
+      "absenceSummary_date_key": {
+        "$type": "data",
+        "IRI": "absenceSummary_date_key",
+        "DocumentId": "",
+        "Name": "absenceSummaryDateKey",
+        "Description": "The date_key component of the AbsenceSummary identifier.",
+        "DomainClassIRI": "AbsenceSummary",
+        "RangeDataType": "integer",
+        "Kind": 1,
+        "DataLink": {
+          "$type": "kustotablecol",
+          "ColumnName": "date_key"
+        }
+      },
+      "student_key": {
+        "$type": "data",
+        "IRI": "student_key",
+        "DocumentId": "",
+        "Name": "studentKey",
+        "Description": "The unique identifier for the student.",
+        "DomainClassIRI": "Student",
+        "RangeDataType": "integer",
+        "Kind": 0,
+        "DataLink": {
+          "$type": "kustotablecol",
+          "ColumnName": "student_key"
+        }
+      },
+      "AbsenceSummary": {
+        "$type": "class",
+        "IRI": "AbsenceSummary",
+        "DocumentId": "",
+        "Name": "AbsenceSummary",
+        "Description": "A summary record of student absences for a given date, uniquely identified by the combination of student_key and date_key, and derived from attendance data.",
+        "DataLink": {
+          "$type": "kustotable",
+          "TableName": "attendance_agent_mv"
+        }
+      },
+      "Date": {
+        "$type": "class",
+        "IRI": "Date",
+        "DocumentId": "",
+        "Name": "Date",
+        "Description": "A specific calendar date, represented by a unique date_key.",
+        "DataLink": {
+          "$type": "kustotable",
+          "TableName": "fact_attendance"
+        }
+      },
+      "Course": {
+        "$type": "class",
+        "IRI": "Course",
+        "DocumentId": "",
+        "Name": "Course",
+        "Description": "An academic subject or class, identified by a unique course_key.",
+        "DataLink": {
+          "$type": "kustotable",
+          "TableName": "fact_attendance"
+        }
+      },
+      "refersToDate": {
+        "$type": "object",
+        "IRI": "refersToDate",
+        "DocumentId": "",
+        "Name": "refersToDate",
+        "Description": "The relationship where an AbsenceSummary refers to a Date via date_key.",
+        "DomainClassIRI": "AbsenceSummary",
+        "RangeClassIRI": "Date",
+        "DataLink": {
+          "$type": "objectpropertydomainkey",
+          "DataPropertyIRI": "date_key"
+        }
+      },
+      "absenceSummary_student_key": {
+        "$type": "data",
+        "IRI": "absenceSummary_student_key",
+        "DocumentId": "",
+        "Name": "absenceSummaryStudentKey",
+        "Description": "The student_key component of the AbsenceSummary identifier.",
+        "DomainClassIRI": "AbsenceSummary",
+        "RangeDataType": "integer",
+        "Kind": 0,
+        "DataLink": {
+          "$type": "kustotablecol",
+          "ColumnName": "student_key"
+        }
+      },
+      "date_key": {
+        "$type": "data",
+        "IRI": "date_key",
+        "DocumentId": "",
+        "Name": "dateKey",
+        "Description": "The unique identifier for the date.",
+        "DomainClassIRI": "Date",
+        "RangeDataType": "integer",
+        "Kind": 0,
+        "DataLink": {
+          "$type": "kustotablecol",
+          "ColumnName": "date_key"
+        }
+      },
+      "Student": {
+        "$type": "class",
+        "IRI": "Student",
+        "DocumentId": "",
+        "Name": "Student",
+        "Description": "An individual enrolled in an educational institution, identified by a unique student_key.",
+        "DataLink": {
+          "$type": "kustotable",
+          "TableName": "fact_attendance"
+        }
+      }
+    },
+    "RuleDefinitions": {
+      "b7e1a2c4-2e8d-4c8e-9d5e-7f8b2e4a1c3d": {
+        "Id": "b7e1a2c4-2e8d-4c8e-9d5e-7f8b2e4a1c3d",
+        "Name": "Alert on Student Absence Event",
+        "Description": "Triggers an alert for all AbsenceSummary records where the number of absence events (EventCount) is above 0, providing the student identifier, date, and list of absent courses.",
+        "ClassExpression": {
+          "$type": "manchesterclassexp",
+          "Expression": "ClassExpression: AllAbsenceSummaries \u0060\u0060\u0060 AbsenceSummary \u0060\u0060\u0060 Annotations: metadata:description \u0022All absence summary records for student-date combinations\u0022",
+          "Description": "All absence summary records for student-date combinations"
+        },
+        "RuleCondition": {
+          "$type": "propertywhenisabove",
+          "DataPropertyName": "EventCount",
+          "Threshold": 0
+        },
+        "ActionBinding": {
+          "$type": "actionbinding",
+          "Name": "SendAlertsonAbsence",
+          "Description": "Send alerts to relevant parties on student absence",
+          "ActionId": "a56f8aa5-6b8e-4da7-be98-a93ae130260b",
+          "ParameterBindings": [
+            {
+              "$type": "parameterbindingcontextkey",
+              "Name": "student_key",
+              "Key": "agent:operationalSet:AbsenceSummary:absenceSummary_student_key",
+              "Description": "student identifier for the absence event"
+            },
+            {
+              "$type": "parameterbindingcontextkey",
+              "Name": "date_key",
+              "Key": "agent:operationalSet:AbsenceSummary:absenceSummary_date_key",
+              "Description": "date identifier for the absence event"
+            },
+            {
+              "$type": "parameterbindingcontextkey",
+              "Name": "absentcourses",
+              "Key": "agent:operationalSet:AbsenceSummary:AbsentCourses",
+              "Description": "courses for which the student is not present"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "shouldRun": true
+}

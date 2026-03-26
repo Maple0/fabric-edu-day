@@ -1,0 +1,20 @@
+[
+  {
+    "uniqueIdentifier": "07c69de9-9cc8-40ad-b37a-4d916ce5a409",
+    "payload": {
+      "name": "SendAlertsonAbsence",
+      "parameters": [
+        {
+          "key": "student_key"
+        },
+        {
+          "key": "date_key"
+        },
+        {
+          "key": "absentcourses"
+        }
+      ]
+    },
+    "type": "powerAutomateFlowAction-v1"
+  }
+]
