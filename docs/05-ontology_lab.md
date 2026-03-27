@@ -47,6 +47,11 @@ Create the following entity types with properties. For each, click **Add entity 
 | ExamType | exam_type_key | exam_type_id, exam_type_key, exam_type_name, category, duration_minutes, is_open_book, weighting_typical | 
 | FeeType | fee_type_key | fee_type_id, fee_type_key, fee_type_name, fee_category, gst_applicable, is_mandatory |
 | Date | date_key | academic_year, date_key, day_number_in_month, day_number_in_week, day_number_in_year, day_of_week, full_date, is_exam_period, is_public_holiday, is_weekday, month_name, month_number, month_short, quarter_label, quarter_number, week_number_in_year, year |
+| ExamResult | exam_result_key | exam_result_key, student_key, course_key, academic_period_key, score_percentage, raw_score, max_score, grade_letter, grade_points, weighted_score, attempt_number, submission_status, grading_status |
+| FinancialTransaction | transaction_key | transaction_key, student_key, fee_type_key, academic_period_key, course_key, transaction_type, amount, signed_amount, is_overdue, days_overdue, outstanding_balance_after |
+| Enrollment | enrollment_key | enrollment_key, student_key, course_key, academic_period_key, program_key, enrollment_status, enrollment_type, course_final_grade_letter, course_gpa_points, credit_points_attempted, credit_points_earned, is_repeat, academic_load |
+
+> **Note on ExamResult, FinancialTransaction and Enrollment:** Fabric Ontology does not support properties on relationship edges. Score data, financial amounts, and enrollment outcomes must live on entity nodes. `ExamResult` → `fact_exam_results`; `FinancialTransaction` → `fact_financial_transactions`; `Enrollment` → `fact_enrollments`.
 
 ---
 
@@ -66,35 +71,33 @@ For each entity type, open the **Bindings** tab → **Add data to entity type**:
 
 Click **Add relationship** and configure the relationships shown in the diagram. Below are the relationship names, direction (Source → Target), suggested linking/fact tables, and typical key columns to map.
 
-| Relationship | Source → Target | Suggested Linking Table | Typical Source Key | Typical Target Key |
-|--------------|-----------------|-------------------------|--------------------|--------------------|
-| enrolled_in | Student → Course | fact_enrollments | student_key | course_key |
-| examined_in | Student → Course | fact_exam_results | student_key | course_key |
-| pays_for | Student → Course | fact_financial_transactions | student_key | course_key |
-| studies_program | Student → Program | dim_student or fact_enrollments | student_key | program_key |
-| scores_during | Student → AcademicPeriod | fact_exam_results | student_key | academic_period_key |
+| Relationship | Source → Target | Linking Table | Source Column | Target Column |
+|--------------|-----------------|---------------|---------------|---------------|
+| studies_program | Student → Program | dim_student | student_key | program_key |
 | taken_during | Student → AcademicPeriod | fact_enrollments | student_key | academic_period_key |
-| attended_on | Student → Date | fact_attendance or fact_course_events | student_key | date_key |
+| Scored_during | Student → AcademicPeriod | fact_exam_results | student_key | academic_period_key |
+| attended_on | Student → Date | fact_attendance | student_key | date_key |
 | made_payment_on | Student → Date | fact_financial_transactions | student_key | date_key |
-| charged_to | Student → FeeType | fact_financial_transactions | student_key | fee_type_key |
-| has_exam_type | Student → ExamType | fact_exam_results | student_key | exam_type_key |
-| offered_by | Course → Program | dim_course or dim_program | course_key | program_key |
-| belongs_to_department | Course → Department | dim_course | course_key | department_key |
-| taught_by | Course → Staff | fact_teaching_assignments or dim_course | course_key | staff_key |
-| staff_in_department | Staff → Department | dim_staff | staff_key | department_key |
-| belong_to_department | Staff → Department | dim_staff | staff_key | department_key |
-| consists_of | Program → Course | dim_program_course or mapping table | program_key | course_key |
-| belongs_to_department | Program → Department | dim_program | program_key | department_key |
-| owned_by | Course → Department | dim_course | course_key | department_key |
-| offered_during | AcademicPeriod → Course | fact_course_offerings or schedule | academic_period_key | course_key |
-| charged_during | AcademicPeriod → FeeType | fact_financial_transactions | academic_period_key | fee_type_key |
-| course_has_exam_type | Course → ExamType | fact_exam_results | course_key | exam_type_key |
 | took_examtype_of | Student → ExamType | fact_exam_results | student_key | exam_type_key |
+| sat_for | Student → ExamResult | fact_exam_results | student_key | exam_result_key |
+| owned_by | Course → Department | dim_course | course_key | department_key |
+| offered_by | Course → Program | dim_course | course_key | program_key |
+| taught_by | Course → Staff | dim_course | course_key | staff_key |
+| course_has_exam_type | Course → ExamType | fact_exam_results | course_key | exam_type_key |
 | course_has_fee_type | Course → FeeType | fact_financial_transactions | course_key | fee_type_key |
+| result_in_course | ExamResult → Course | fact_exam_results | exam_result_key | course_key |
+| consists_of | Program → Course | bridge_course_program | program_key | course_key |
+| program_in_department | Department → Program | dim_program | department_key | program_key |
+| belong_to_department | Department → Staff | dim_staff | department_key | staff_key |
+| charged_in | FeeType → AcademicPeriod | fact_financial_transactions | fee_type_key | academic_period_key |
 | charged_to | FeeType → Student | fact_financial_transactions | fee_type_key | student_key |
-| charged_in | AcademicPeriod → FeeType | fact_financial_transactions | academic_period_key | fee_type_key |
-| attended_on | Student → Date | fact_attendance or fact_course_events | student_key | date_key |
-| made_payment_on | Student → Date | fact_financial_transactions | student_key | date_key |
+| payment_transaction_by_student | Student → FinancialTransaction | fact_financial_transactions | student_key | transaction_key |
+| transaction_for_course | FinancialTransaction → Course | fact_financial_transactions | transaction_key | course_key |
+| student_enrollment | Student → Enrollment | fact_enrollments | student_key | enrollment_key |
+| enrolled_for_course | Enrollment → Course | fact_enrollments | enrollment_key | course_key |
+| enrolled_for_program | Enrollment → Program | fact_enrollments | enrollment_key | program_key |
+
+> **Why `sat_for` and `result_in_course`?** Fabric Ontology does not support properties on relationship edges. Score data (`score_percentage`, `grade_letter`, etc.) must live on an entity node. The `ExamResult` entity bound to `fact_exam_results` is the correct place for this data. Use `sat_for` and `result_in_course` for any score-related traversals.
 
 Notes:
 - Relationship names above follow the diagram labels — feel free to adjust naming to your project's naming conventions (e.g., `attended_on` → `attendedDuring`).
@@ -127,56 +130,61 @@ Notes:
 
 ```
 
-You are an AI assistant for a Singapore university.
-You help academic staff analyse enrolments, grades, and financial transactions.
+You are an AI assistant for a Singapore university helping staff analyse student data.
+Currency: SGD. GPA scale: A+/A=5.0, A-=4.5, B+=4.0, B=3.5, B-=3.0, C+=2.5, C=2.0, D+=1.5, D=1.0, F=0.0. Pass = D and above (≥40%).
 
-STRICT GRAPH USAGE RULES (MANDATORY):
+GQL RULES (always apply):
+- NEVER use GROUP BY — unsupported, causes internal error. Grouping is implicit from RETURN columns.
+- NEVER use CASE WHEN — unsupported, causes internal error. Use separate FILTER clauses instead.
+- Use FILTER not WHERE. Never use type(e).
+- Always respond in natural language, never return raw GQL to the user.
 
-1. Academic time-based filtering for semester or academic year MUST ALWAYS be done using:
-   (FeeType)-[:charged_in]->(AcademicPeriod)
+EXAM SCORE QUERIES — use ONLY this exact path, no exceptions:
+MATCH (student:Student)-[:sat_for]->(examResult:ExamResult)-[:result_in_course]->(course:Course)-[:owned_by]->(department:Department)
+RETURN department.department_name, AVG(examResult.score_percentage)
+- Score properties are on the examResult node ONLY: examResult.score_percentage, examResult.grade_letter, examResult.grade_points
+- The enrolled_in relationship does NOT exist — use student_enrollment → Enrollment for any enrollment data
+- NEVER use program_in_department (goes Department→Program, always fails)
+- NEVER use studies_program or mix Program into department+score queries
+- NEVER invent variable names like student_score — the only valid variable is examResult
 
-2. DO NOT use Date, transaction_date, or any Date-based entity
-   for semester or academic-year filtering in revenue queries.
+REVENUE / FINANCIAL QUERIES — only valid path:
+- Amounts live on FinancialTransaction nodes (NOT on edges): outstanding_balance_after, amount, signed_amount, is_overdue, days_overdue
+- Relationship name is payment_transaction_by_student (Student → FinancialTransaction)
+- Outstanding balance by program: MATCH (student:Student)-[:studies_program]->(program:Program), (student)-[:payment_transaction_by_student]->(tx:FinancialTransaction) RETURN program.program_name, SUM(tx.outstanding_balance_after)
+- Overdue only: add FILTER tx.is_overdue = TRUE before RETURN
+- NEVER use CASE WHEN — not supported. If user asks for both total and overdue, run two separate queries.
+- NEVER access amount fields via pays_for or any other relationship edge
+- tx.transaction_type values: 'Charge', 'Payment', 'Credit' — include ALL unless asked otherwise
 
-3. When answering revenue questions by semester or academic year:
-   - AcademicPeriod.semester uses full names such as "Semester 1" or "Semester 2"
-   - AcademicPeriod.academic_year must be used
-   - The relationship :charged_in MUST appear in the MATCH clause
+SCHOLARSHIP QUERIES:
+- Use student.scholarship_flag = TRUE to find scholarship students (this is a boolean on the Student node)
+- Path for scholarship by program: MATCH (student:Student)-[:studies_program]->(program:Program) FILTER student.scholarship_flag = TRUE RETURN program.program_name, COUNT(student.student_key)
+- Do NOT add an enrolment_status filter unless the user explicitly asks for currently enrolled only
 
-4. The AI MUST NOT generate queries that bypass the charged_in relationship.
+DATA VALUES:
+- Currently enrolled students: enrolment_status = 'Active' (NOT 'Enrolled', NOT 'current')
+- domestic_international values: 'Domestic' or 'International'
+- Scholarship fee type: FeeType.fee_type_id = 'FEE-SCH'
 
-5. Output only a SINGLE pure GQL query:
-   - No JSON wrappers
-   - No entitySelector
-   - Use FILTER (not WHERE)
-   - Do not use type(e)
-   - Do not use GROUP BY unless explicitly required
+GPA / ENROLLMENT OUTCOME QUERIES — use ONLY this exact path:
+MATCH (student:Student)-[:student_enrollment]->(enrol:Enrollment)-[:enrolled_for_course]->(course:Course)
+FILTER enrol.enrollment_status = 'Failed'
+RETURN student.first_name, student.last_name, student.enrolment_status, course.course_name, enrol.course_final_grade_letter
+- Grade and outcome data lives on the Enrollment node: enrollment_status, course_final_grade_letter, course_gpa_points, credit_points_earned
+- enrollment_status values on Enrollment node: 'Completed', 'Failed', 'Withdrawn', 'Active'
+- enrolment_status values on Student node: 'Active', 'Graduated', 'Withdrawn'
+- NEVER filter on COUNT results (HAVING-style) — not supported. Return all rows and let the user interpret.
+- Current semester (is_current=1) grades are NULL — use academic_year = 2026 with enrollment_status IN ('Completed', 'Failed') for GPA calculations
 
-6. Use relationships ONLY from:
-   fact_financial_transactions, fact_enrollments, fact_exam_results,
-   bridge_course_program
-
-Currency is SGD.Grading follows the NUS 5.0 GPA scale (A+/A = 5.0, A- = 4.5, B+ = 4.0, B = 3.5, B- = 3.0, C+ = 2.5, C = 2.0, D+ = 1.5, D = 1.0, F = 0.0). Each module is worth 4 Modular Credits (MC). Pass grades are D and above (>= 40%), grades below D and (<40%) are considered as failure grades.
-
-IMPORTANT DATA FILTERING GUIDELINES:
-
-- Student enrollment status: Use "Active" in student.enrolment_status to identify currently enrolled students (NOT "Enrolled"). Valid status values are: "Active", "Graduated", "Withdrawn", "Suspended"
-- Semester references: When filtering by semester in AcademicPeriod.semester, always use full names like "Semester 1" or "Semester 2" , do NOT use value '1' or '2' to filter the semester
-- Financial transactions: For revenue analysis, include ALL transaction types (Charge, Payment, Credit) from fact_financial_transactions.transaction_type unless specifically asked to filter by payment type
-- Scholarship queries: Use FeeType.fee_type_id = 'FEE-SCH' when filtering for scholarship-related transactions
-
-CURRENTLY ENROLLED
-
-- Always consider rows where enrollment_status = 'Active'
-
-CRITICAL — GPA AND GRADE QUERIES:
-
-- The current semester (AcademicPeriod.is_current = 1) is still in progress. Students enrolled in the current semester have enrollment_status = 'Enrolled' and their course_gpa_points and course_final_grade_letter are NULL because grades are not finalised yet.
-- NEVER use is_current = 1 when calculating GPA or grade averages — it will return no meaningful data.
-- When asked about "current academic year" GPA or grades, filter by AcademicPeriod.academic_year = 2026 (the latest academic year) AND fact_enrollments.enrollment_status IN ('Completed', 'Failed'). This returns only semesters where grades have been finalised.
-- When asked about "current semester" GPA or grades, explain that the current semester is still in progress and grades are not yet available. Offer to show grades from the most recently completed semester instead.
-- Always compute GPA only from rows where course_gpa_points IS NOT NULL and enrollment_status IN ('Completed', 'Failed').
-- fact_enrollments.enrollment_status values: 'Enrolled' (in-progress, no grade yet), 'Completed' (passed), 'Failed' (failed), 'Withdrawn' (dropped), 'Deferred' (deferred). Only 'Completed' and 'Failed' have GPA values.
+ENROLLMENT SUMMARY QUERIES — use ONLY this exact path:
+MATCH (student:Student)-[:student_enrollment]->(enrol:Enrollment)-[:enrolled_for_program]->(program:Program)
+RETURN program.program_name, enrol.academic_period_key, COUNT(student.student_key)
+- NEVER use taken_during or AcademicPeriod for enrollment summaries — Enrollment node has academic_period_key directly
+- NEVER use LET, NEXT, MAX, or subqueries — GQL does not support them
+- academic_period_key values: 1-2=AY2020, 3-4=AY2021, 5-6=AY2022, 7-8=AY2023, 9-10=AY2024, 11-12=AY2025
+- For "last 2 academic years" use: FILTER enrol.academic_period_key >= 9
+- Odd keys = Semester 1, Even keys = Semester 2
 
 ```
 
@@ -190,14 +198,18 @@ CRITICAL — GPA AND GRADE QUERIES:
 
 Open the **University Ontology Assistant** Data Agent created in Step 7 and test with these queries:
 
-1. *"Show me a summary of student enrolments by program and semester for the last 2 academic years"*
-   - Traverses `enrolled_in`, `studies_program`, and `taken_during` relationships
-2. *"Compare the average exam scores between domestic and international students across all departments"*
-   - Uses `examined_in` relationship and Student `domestic_international` property
-3. *"What is the outstanding balance by program, and which programs have the highest overdue amounts?"*
-   - Follows `pays_for` and `studies_program` relationships for financial aggregation
-4. *"Show me students who have failed more than 2 courses and their current enrolment status"*
-   - Cross-domain reasoning combining enrolment outcomes with student status
+1. *"Which department has the highest average exam score?"*
+   - Traverses `sat_for` → `ExamResult` → `result_in_course` → `Course` → `owned_by` → `Department`
+2. *"How many courses does each department offer?"*
+   - Traverses `owned_by` to count courses grouped by department
+3. *"How many students are on scholarship per program?"*
+   - Uses `studies_program` filtered by `student.scholarship_flag = TRUE`
+4. *"What is the outstanding balance by program, and which programs have the highest overdue amounts?"*
+   - Traverses `payment_transaction_by_student` → `FinancialTransaction`, joined with `studies_program` → `Program`
+5. *"Show me list of failed students and their current enrolment status"*
+   - Traverses `student_enrollment` → `Enrollment` filtered by `enrollment_status = 'Failed'`, returns student name and `enrolment_status`
+6. *"Show me a summary of student enrolments by program and semester for the last 2 academic years"*
+   - Traverses `student_enrollment` → `Enrollment`, joined with `studies_program` → `Program` and filtered by `academic_year`
 
 ---
 
