@@ -62,7 +62,7 @@ Use Copilot to ask natural language questions about student performance in enrol
 
 ## Validation Checklist
 
-- [ ] Report created from the semantic model via **Explore** → **Create a new blank report**
-- [ ] Copilot generated a report page with student performance visuals
-- [ ] Copilot answers GPA question with correct data from the 2024 academic year
-- [ ] Copilot returns top 5 courses by failure rate with course name, department, and percentage
+
+- [ ] Copilot generated a report page analysing student performance metrics and trends
+- [ ] Copilot returns the average GPA across all students for the 2026 academic year
+- [ ] Copilot displays the number of students enrolled in different courses for the current academic year

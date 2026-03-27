@@ -1,6 +1,6 @@
 # Fabric Education Demo
 
-A four-notebook Microsoft Fabric demo for university customers showcasing the full data-to-insight pipeline: star-schema data model, Lakehouse Delta tables, Power BI semantic model, Fabric IQ Ontology, and Data Agent experiences for Staff and Student personas.
+A Microsoft Fabric demo for university customers showcasing the full data-to-insight pipeline: star-schema data model, Lakehouse Delta tables, Power BI semantic model, Fabric IQ Ontology, Data Agent experiences for Staff and Student personas, real-time attendance monitoring with Operations Agent, and Power BI Copilot.
 
 
 ## Project Structure
@@ -27,13 +27,25 @@ edu-fabric-iq/
 │   ├── 03_update_student_records_RLS      # Update student email for RLS
 │   └── 04_ingest_publicholidays           # SG public holidays → Lakehouse
 │
+├── fabric-workspace/
+│   ├── Agents/                            # Data Agents & Operations Agent
+│   ├── notebooks/                         # Fabric-native notebooks + KQL queryset + pipeline
+│   ├── Semantic Models/                   # analytics-data-model (Power BI)
+│   ├── Store/                             # Lakehouse + Eventhouse
+│   ├── UniversityOntology.Ontology/       # Ontology definition + entity/relationship types
+│   ├── GraphQuerySet_1.GraphQuerySet/     # Graph query definitions
+│   └── IsAbsent.Reflex/                   # Reflex trigger for attendance alerts
+│
 └── docs/
-    ├── 01-architecture_diagram.md            # Mermaid + ASCII diagrams
-    ├── 02-data_dictionary.md                 # All tables + columns
-    ├── 03-demo_guide.md                      # Presenter script (~45 min)
-    ├── 04-fabric_setup_guide.md              # Environment setup + semantic model
-    ├── 05-ontology_lab.md                    # Hands-on lab: Fabric IQ Ontology
-    └── 06-data_agent_lab.md                  # Hands-on lab: Data Agents
+    ├── 01-architecture_diagram.md         # Mermaid + ASCII diagrams
+    ├── 02-data_dictionary.md              # All tables + columns
+    ├── 03-demo_guide.md                   # Presenter script (~45 min)
+    ├── 04-fabric_setup_guide.md           # Environment setup + semantic model
+    ├── 05-ontology_lab.md                 # Hands-on lab: Fabric IQ Ontology
+    ├── 06-data_agent_lab.md               # Hands-on lab: Data Agents
+    ├── 07-kql_database_lab.md             # Hands-on lab: KQL Database
+    ├── 08-operations_agent_lab.md         # Hands-on lab: Operations Agent
+    └── 09-powerbi_copilot_lab.md          # Hands-on lab: Power BI Copilot
 ```
 
 ## Data Model
@@ -70,9 +82,10 @@ A star schema with 8 dimension tables, 1 bridge table, and 3 fact tables:
 
 ## Requirements
 
-- **Fabric capacity:** F8 or higher (required for AI features)
+- **Fabric capacity:** F8 or higher (F64+ recommended for AI features)
 - **Runtime:** Fabric Runtime 1.3 (PySpark)
 - **Local:** Python 3.9+, packages in `requirements.txt`
+- **Tenant settings:** Copilot, Ontology (preview), Graph (preview), Operations Agent (preview) enabled
 
 ## Documentation
 
@@ -82,6 +95,9 @@ A star schema with 8 dimension tables, 1 bridge table, and 3 fact tables:
 - **[Architecture Diagram](docs/01-architecture_diagram.md)** — Mermaid and ASCII diagrams
 - **[Ontology Lab](docs/05-ontology_lab.md)** — Hands-on lab for Fabric IQ Ontology
 - **[Data Agent Lab](docs/06-data_agent_lab.md)** — Hands-on lab for Data Agents
+- **[KQL Database Lab](docs/07-kql_database_lab.md)** — Hands-on lab for KQL Database & fact_attendance
+- **[Operations Agent Lab](docs/08-operations_agent_lab.md)** — Hands-on lab for real-time attendance monitoring
+- **[Power BI Copilot Lab](docs/09-powerbi_copilot_lab.md)** — Hands-on lab for Copilot report creation & NL queries
 
 ## Key Highlights
 
